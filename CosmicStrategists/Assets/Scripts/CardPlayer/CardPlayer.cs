@@ -11,6 +11,7 @@ public class CardPlayer : MonoBehaviour
     private List<Card> deck;
     private List<Card> draw_pile;
     private List<Card> hand;
+    private List<GameObject> hand_game;
 
     //*Aspect ratio related parameters*//
     float screen_aspect;
@@ -26,6 +27,8 @@ public class CardPlayer : MonoBehaviour
         deck = new List<Card>();
         
         hand = new List<Card>();
+        hand_game = new List<GameObject>();
+
         deck.Add(new Card());
         deck.Add(new Card());
         deck.Add(new Card());
@@ -44,9 +47,25 @@ public class CardPlayer : MonoBehaviour
         
     }
 
+    void Arrange()
+    {
+        //ATTENTION : PAS DE VALEURS EN DUR
+        Vector3 base_pos = camera_player.transform.position;
+        base_pos.z += 2.0f;
+        base_pos.x -= (cam_half_width - 2.0f);
+        base_pos.y -= 3.0f;
+
+        foreach(GameObject c in hand_game)
+        {
+            c.transform.position = base_pos;
+            base_pos.x +=  3.0f;
+        }
+    }
+
     public void Draw(int nb)
     {
         Card tmp;
+        GameObject tmp_go;
         for (int i = 0; i < nb; i++)
         {
             if (draw_pile.Count >= 1)
@@ -56,8 +75,10 @@ public class CardPlayer : MonoBehaviour
                 hand.Add(tmp);
                 Debug.Log("Card drawn : " + tmp.card_name);
                 Vector3 card_pos = camera_player.transform.position;
-                card_pos.z += 10;
-                Instantiate(card_prefab, card_pos, camera_player.transform.rotation);
+                tmp_go = Instantiate(card_prefab, card_pos, camera_player.transform.rotation);
+                hand_game.Add(tmp_go);
+                //arrange card position upon drawing
+                Arrange();
             }
             else
             {

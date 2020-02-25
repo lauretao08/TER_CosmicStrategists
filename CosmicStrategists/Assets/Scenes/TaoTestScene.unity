@@ -155,9 +155,9 @@ RectTransform:
   m_Father: {fileID: 2109539248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -490, y: -245.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 85, y: 20.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377929839
@@ -239,6 +239,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377929837}
   m_CullTransparentMesh: 0
+--- !u!20 &967890245 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5051217167554789973, guid: 110b13e8ca19290459506a647c0a977f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5051217167208975736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1096180895
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +280,8 @@ MonoBehaviour:
   card_name: '-'
   card_base_energy_cost: 0
   card_description: '-'
+  name_component: {fileID: 0}
+  description_component: {fileID: 0}
 --- !u!65 &1096180897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -569,6 +577,7 @@ GameObject:
   - component: {fileID: 1970626553}
   - component: {fileID: 1970626552}
   - component: {fileID: 1970626551}
+  - component: {fileID: 1970626554}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -624,6 +633,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970626554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970626550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48712094ac955e7439350c6a43c6d464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera_player: {fileID: 967890245}
+  card_prefab: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
 --- !u!1 &1970714393
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawOneCard: {fileID: 377929839}
   discardAllCards: {fileID: 1233280136}
+  EventManager: {fileID: 1970626550}
 --- !u!1 &2114769778
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,12 +928,12 @@ PrefabInstance:
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.59
+      value: -9.95
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
@@ -975,6 +1000,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_name
+      value: Vaisseau spatial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_description
+      value: "PASSIF : 2 d\xE9g\xE2ts sur\nunit\xE9 au hasard"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
 --- !u!1001 &5051217167208975736
@@ -984,6 +1019,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1079686856906093565, guid: 110b13e8ca19290459506a647c0a977f,
+        type: 3}
+      propertyPath: camera_player
+      value: 
+      objectReference: {fileID: 967890245}
     - target: {fileID: 5051217167554789972, guid: 110b13e8ca19290459506a647c0a977f,
         type: 3}
       propertyPath: m_Name

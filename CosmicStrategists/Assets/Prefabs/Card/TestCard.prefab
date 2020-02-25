@@ -206,6 +206,8 @@ MonoBehaviour:
   card_name: '-'
   card_base_energy_cost: 0
   card_description: '-'
+  name_component: {fileID: 923309734478102697}
+  description_component: {fileID: 5523394095962948400}
 --- !u!1 &5975028536162430024
 GameObject:
   m_ObjectHideFlags: 0

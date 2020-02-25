@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class Card : MonoBehaviour
     [TextArea]
     public string card_description="-"; // displayed description on the card
 
+    public TextMesh name_component;
+    public TextMesh description_component;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        name_component.text = card_name;
+        description_component.text = card_description;
     }
 
     // Update is called once per frame

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameBoard : MonoBehaviour
 {
+	/*
 	public List<Unit> playerAUnits;
 	public List<Unit> playerBUnits;
-	
+	*/
 	
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,12 @@ public class GameBoard : MonoBehaviour
         
     }
 	
-	void startTurn()
+	public void start_turn()
 	{
 		
 	}
 	
-	void endTurn()
+	public void end_turn()
 	{
 		
 	}

@@ -55,9 +55,20 @@ public class CardPlayer : MonoBehaviour
         base_pos.x -= (cam_half_width - 2.0f);
         base_pos.y -= 3.0f;
 
+        Card tmp_card;
         foreach(GameObject c in hand_game)
         {
             c.transform.position = base_pos;
+            //ATTENTION : AMELIORATION NECESSAIRE !
+            tmp_card = c.GetComponent(typeof(Card)) as Card;
+            if (tmp_card != null)
+            {
+                tmp_card.SetHandPosition(base_pos);
+            }
+            else
+            {
+                Debug.Log("ERROR : NO CARD FOR SETHANDPOSITION");
+            }
             base_pos.x +=  3.0f;
         }
     }

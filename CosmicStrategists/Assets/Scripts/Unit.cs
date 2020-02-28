@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +7,8 @@ using UnityEngine;
 	bool DEBUG_PRINT		//enable/disable logs in debug console
 	bool SUSPICIOUS_WARNING	//enable/disable logs for strange behaviors
 
-	List<Unit> playerA_units	//List of all player A's Units
-	List<Unit> playerB_units //List of all player B's Units
+	int health;
+	int health_max;
 	
 */////////////////////
 
@@ -17,29 +17,39 @@ using UnityEngine;
 
 	Start		//Unused
 	Update		//Unused
-
-	start_turn	//NYI, Recharges all units controlled by the active player
-	end_turn	//NYI
-
-	check_state		//NYI, check if units must be destroyed
+	
+	check_state		//NYI, check if units has no health and need to be destroyed
+	
+	deploy			//When the unit enter the board
+	destroy			//Whe the unit is destroyed 
+	
+	
+	
 
 *//////////////////////
 
 /*///	TODO	///
 
-	Units !!
+	deploy
+	destroy
+
 	check_state
 	
-	start_turn
+	Basic actions :
+		Shoot
+		Heal
+		
 
 
 *//////////////////
 
-public class GameBoard : MonoBehaviour
+public class Unit : MonoBehaviour
 {
+	public bool DEBUG_PRINT;
+	public bool SUSPICIOUS_WARNING;
 	
-	public List<Unit> playerA_units;
-	public List<Unit> playerB_units;
+	public int health;
+	public int max_health;
 	
 	void Start(){	}
 	void Update(){	}
@@ -58,4 +68,8 @@ public class GameBoard : MonoBehaviour
 		
 	}
 	
+	public void deploy(){
+		health=max_health;
+		
+	}
 }

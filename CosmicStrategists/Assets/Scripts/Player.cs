@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*///	Attributes  ///
 	
@@ -27,7 +28,7 @@ using UnityEngine;
 	void init		//Initialize energy,max_energy,health and cards stuff
 	
 	void start_turn	//Increments max_energy refills energy and draw a cards
-	void end_turn	//Not Yet Implemented
+	void end_turn	//Currently useless
 	
 	void do_action	//Not Yet Implemented
 	
@@ -64,11 +65,16 @@ public class Player : MonoBehaviour
 	public bool DEBUG_PRINT;
 	public bool SUSPICIOUS_WARNING;
 	
-	public static int STARTING_HEALTH;
-	public static int MAX_ENERGY_CAP;
+	public static int STARTING_HEALTH=20;
+	public static int MAX_ENERGY_CAP=10;
 	
-	private int health;
-	private int energy;
+	
+	public Text UI_Health;
+	public Text UI_Energy;
+	
+	
+	public int health;
+	public int energy;
 	private int max_energy;
 	
 	public bool is_dead;
@@ -82,14 +88,17 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		init();
     }
 
     // Update is called once per frame
     void Update()
     {    
+	UI_Energy.text=""+energy;
+	UI_Health.text=""+health;
     }
 	
-	void init()
+	public void init()
 	{
 		health = STARTING_HEALTH;
 		is_dead= false;
@@ -138,7 +147,7 @@ public class Player : MonoBehaviour
 	public int gain_hp(int h){
 		health=health+h;
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"gain_hp("+h+")] Health ="+this.health);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".gain_hp("+h+")] Health ="+this.health);}
 		
 		return health;
 	}
@@ -150,7 +159,7 @@ public class Player : MonoBehaviour
 			health=0;
 		}
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"lose_hp("+h+")] Health ="+this.health);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".lose_hp("+h+")] Health ="+this.health);}
 		
 		return health;
 	}
@@ -160,11 +169,11 @@ public class Player : MonoBehaviour
 	public int gain_energy(int e){
 		energy=energy+e;
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"gain_energy("+e+")] Energy ="+this.energy);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".gain_energy("+e+")] Energy ="+this.energy);}
 		
 		if(SUSPICIOUS_WARNING){
 			if(energy>max_energy){
-				Debug.Log("WARNING : ["+this+"gain_energy("+e+")] Energy > max_energy ("+this.energy+">"+this.max_energy+")");
+				Debug.Log("WARNING : ["+this+".gain_energy("+e+")] Energy > max_energy ("+this.energy+">"+this.max_energy+")");
 			}
 		}
 		
@@ -175,10 +184,10 @@ public class Player : MonoBehaviour
 		energy=energy-e;
 		
 		if(energy < 0){
-			Debug.Log("ERROR : ["+this+"lose_energy("+e+")] Negative Energy ("+this.energy+")");
+			Debug.Log("ERROR : ["+this+".lose_energy("+e+")] Negative Energy ("+this.energy+")");
 		}
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"lose_energy("+e+")] Energy ="+this.energy);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".lose_energy("+e+")] Energy ="+this.energy);}
 		
 		return energy;
 	}
@@ -186,7 +195,7 @@ public class Player : MonoBehaviour
 	public int refill_energy(){
 		energy=max_energy;
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"refill_energy()] Energy ="+this.energy);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".refill_energy()] Energy ="+this.energy);}
 		
 		return energy;
 	}
@@ -196,7 +205,7 @@ public class Player : MonoBehaviour
 	public int gain_max_energy(int e){
 		max_energy=max_energy+e;
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"gain_max_energy("+e+")] Max_Energy ="+this.max_energy);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".gain_max_energy("+e+")] Max_Energy ="+this.max_energy);}
 		
 		return max_energy;
 	}
@@ -205,10 +214,10 @@ public class Player : MonoBehaviour
 		max_energy=max_energy-e;
 		
 		if(max_energy < 0){
-			Debug.Log("ERROR : ["+this+"lose_max_energy("+e+")] Negative Max_Energy ("+this.max_energy+")");
+			Debug.Log("ERROR : ["+this+".lose_max_energy("+e+")] Negative Max_Energy ("+this.max_energy+")");
 		}
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"lose_max_energy("+e+")] Max_Energy ="+this.max_energy);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".lose_max_energy("+e+")] Max_Energy ="+this.max_energy);}
 		
 		return max_energy;
 	}
@@ -219,7 +228,7 @@ public class Player : MonoBehaviour
 			max_energy++;
 		}
 		
-		if(DEBUG_PRINT){Debug.Log("["+this+"increment_max_energy()] Max_Energy ="+this.max_energy);}
+		if(DEBUG_PRINT){Debug.Log("["+this+".increment_max_energy()] Max_Energy ="+this.max_energy);}
 		
 		return max_energy;
 	}
@@ -231,23 +240,24 @@ public class Player : MonoBehaviour
 		return is_dead;
 	}
 	
+
 //Card Management
 
 	public bool draw_card(){
 		//Pioche effective
-		if(DEBUG_PRINT){Debug.Log("["+this+"draw_card()] Card drawn");}
+		if(DEBUG_PRINT){Debug.Log("["+this+".draw_card()] Card drawn");}
 		return true; //Retourne si la pioche est réussie
 	}
 	
 	public bool draw_card(int n){
 		
 		if(n<=0){
-			Debug.Log("ERROR : ["+this+"draw_card("+n+")] Negative Draw ");
+			Debug.Log("ERROR : ["+this+".draw_card("+n+")] Negative Draw ");
 		}
 		
 		if(SUSPICIOUS_WARNING){
 			if(n==1){
-				Debug.Log("WARNING : ["+this+"draw_card("+n+")]  Only one card drawn! maybe consider using "+this+"draw_card()");
+				Debug.Log("WARNING : ["+this+".draw_card("+n+")]  Only one card drawn! maybe consider using "+this+"draw_card()");
 			}
 		}
 		

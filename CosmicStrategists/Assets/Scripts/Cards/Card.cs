@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum HighlightStyle
+{
+    None,
+    Highlight,
+    Ready_To_Play
+
+}
+
+
 public class Card : MonoBehaviour
 {
     //Parameters
@@ -14,11 +23,13 @@ public class Card : MonoBehaviour
 
     public TextMesh name_component;
     public TextMesh description_component;
+    public TextMesh cost_component;
 
     //Change these when chaning highlight look
     private Color base_color;
     private Color highlight_color;
-    private Color actionColor;
+    private Color action_color;
+    private Color inactive_color;
 
     private MeshRenderer card_renderer;
 
@@ -26,14 +37,19 @@ public class Card : MonoBehaviour
     private Vector3 hand_position;
     private bool dragging;
     private float drag_distance;
+    //used for highlighting
+    private bool ready_to_play;
 
     private Camera main_camera;
+
+    private CardPlayer card_manager;
 
     // Start is called before the first frame update
     void Start()
     {
         name_component.text = card_name;
         description_component.text = card_description;
+        cost_component.text = card_energy_cost.ToString();
         card_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
         if (card_renderer == null)
         {
@@ -46,7 +62,9 @@ public class Card : MonoBehaviour
         }
         base_color = Color.white;
         highlight_color = Color.blue;
-        actionColor = Color.red;
+        action_color = Color.green;
+        inactive_color = Color.gray;
+
     }
 
     // Update is called once per frame
@@ -58,13 +76,27 @@ public class Card : MonoBehaviour
             Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);
             Vector3 ray_point = ray.GetPoint(drag_distance);
             transform.position = ray_point;
+            //Optimize action highlighting ?
+            if(!ready_to_play && ray_point.y >= 1.0f)
+            {
+                ready_to_play = true;
+                Highlight(HighlightStyle.Ready_To_Play);
+            }
+            if(ready_to_play && ray_point.y < 1.0f)
+            {
+                ready_to_play = false;
+                Highlight(HighlightStyle.None);
+            }
         }
     }
 
     //OnPlay is called when the card is played
     void OnPlay()
     {
-
+        Debug.Log("PLAYING CARD : " + card_name);
+        //Delete the card in the hand before you delete it in game
+        card_manager.DeleteFromHand(this);
+        Object.Destroy(this.gameObject);
     }
 
     //Set anchor position in hand for drag&drop
@@ -73,11 +105,15 @@ public class Card : MonoBehaviour
         this.hand_position = hand_position;
     }
 
-    void Highlight(bool on)
+    void Highlight(HighlightStyle type)
     {
-        if (on)
+        if (type== HighlightStyle.Highlight)
         {
             card_renderer.material.color = highlight_color;
+        }
+        else if (type == HighlightStyle.Ready_To_Play)
+        {
+            card_renderer.material.color = action_color;
         }
         else
         {
@@ -87,12 +123,12 @@ public class Card : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Highlight(true);
+        Highlight(HighlightStyle.Highlight);
     }
 
     void OnMouseExit()
     {
-        Highlight(false);
+        Highlight(HighlightStyle.None);
     }
 
     void OnMouseDown()
@@ -103,8 +139,17 @@ public class Card : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (dragging && ready_to_play)
+        {
+            OnPlay();
+        }
         dragging = false;
         transform.position = hand_position;
+    }
+
+    public void SetCardManager(CardPlayer card_manager)
+    {
+        this.card_manager = card_manager;
     }
 
 }

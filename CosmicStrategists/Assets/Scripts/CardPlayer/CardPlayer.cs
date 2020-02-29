@@ -32,6 +32,9 @@ public class CardPlayer : MonoBehaviour
         deck.Add(new Card());
         deck.Add(new Card());
         deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
 
         draw_pile = new List<Card>(deck);
 
@@ -75,19 +78,25 @@ public class CardPlayer : MonoBehaviour
 
     public void Draw(int nb)
     {
-        Card tmp;
-        GameObject tmp_go;
+        Card tmp = new Card();
+        Card tmp_card = new Card();
+        GameObject tmp_go = new GameObject();
         for (int i = 0; i < nb; i++)
         {
             if (draw_pile.Count >= 1)
             {
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
-                hand.Add(tmp);
+                //hand.Add(tmp);
                 Debug.Log("Card drawn : " + tmp.card_name);
                 Vector3 card_pos = camera_player.transform.position;
                 tmp_go = Instantiate(card_prefab, card_pos, camera_player.transform.rotation);
                 hand_game.Add(tmp_go);
+
+                //OPTIMIZE THIS GETCOMPONENT!
+                tmp_card = tmp_go.GetComponent(typeof(Card)) as Card;
+                tmp_card.SetCardManager(this);
+                hand.Add(tmp_card);
                 //arrange card position upon drawing
                 Arrange();
             }
@@ -97,5 +106,15 @@ public class CardPlayer : MonoBehaviour
             }
             
         }
+    }
+
+    public void DeleteFromHand(Card card)
+    {
+        int remove_index = hand.IndexOf(card);
+
+        hand.Remove(card);
+        hand_game.RemoveAt(remove_index);
+        //Arrange the hand after playing it
+        Arrange();
     }
 }

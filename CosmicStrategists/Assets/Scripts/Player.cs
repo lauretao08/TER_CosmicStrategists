@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
 		
 		increment_max_energy();
 		refill_energy();
-		draw_card();
+		//draw_card();
 	}
 	
 	public void end_turn()

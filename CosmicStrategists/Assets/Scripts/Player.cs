@@ -9,6 +9,7 @@ using UnityEngine.UI;
 	bool SUSPICIOUS_WARNING	//enable/disable logs for strange behaviors
 
 	int STARTING_HEALTH 	//Constant starting Health (Move it ?)
+	int STARTING_ENERGY 	//Constant starting Energy/ Max Energy(Move it ?)
 	int MAX_ENERGY_CAP		//Constant cap of max energy (Move it ?)
 	
 	int health		// Current Health
@@ -65,8 +66,9 @@ public class Player : MonoBehaviour
 	public bool DEBUG_PRINT;
 	public bool SUSPICIOUS_WARNING;
 	
-	public static int STARTING_HEALTH=20;
-	public static int MAX_ENERGY_CAP=10;
+	public int STARTING_HEALTH=20;
+	public int STARTING_ENERGY=5;
+	public int MAX_ENERGY_CAP=10;
 	
 	
 	public Text UI_Health;
@@ -103,8 +105,8 @@ public class Player : MonoBehaviour
 		health = STARTING_HEALTH;
 		is_dead= false;
 		
-		max_energy=0;
-		energy=0;
+		max_energy=STARTING_ENERGY;
+		energy=max_energy;
 	
 	
 		/*
@@ -241,34 +243,6 @@ public class Player : MonoBehaviour
 	}
 	
 
-//Card Management
-
-	public bool draw_card(){
-		//Pioche effective
-		if(DEBUG_PRINT){Debug.Log("["+this+".draw_card()] Card drawn");}
-		return true; //Retourne si la pioche est réussie
-	}
-	
-	public bool draw_card(int n){
-		
-		if(n<=0){
-			Debug.Log("ERROR : ["+this+".draw_card("+n+")] Negative Draw ");
-		}
-		
-		if(SUSPICIOUS_WARNING){
-			if(n==1){
-				Debug.Log("WARNING : ["+this+".draw_card("+n+")]  Only one card drawn! maybe consider using "+this+"draw_card()");
-			}
-		}
-		
-		bool res = true;
-		for(int i =0;i<n;i++){
-			res= res & draw_card();
-		}
-		return res;
-	}
-	
-	
 	
 	
 }

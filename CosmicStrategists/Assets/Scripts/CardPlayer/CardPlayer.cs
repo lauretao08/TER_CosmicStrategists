@@ -6,6 +6,7 @@ public class CardPlayer : MonoBehaviour
 {
     public Camera camera_player;
     public GameObject card_prefab;
+	public Player player;
 
 
     private List<Card> deck;
@@ -35,6 +36,12 @@ public class CardPlayer : MonoBehaviour
         deck.Add(new Card());
         deck.Add(new Card());
         deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
+        deck.Add(new Card());
 
         draw_pile = new List<Card>(deck);
 
@@ -54,10 +61,11 @@ public class CardPlayer : MonoBehaviour
     {
         //ATTENTION : PAS DE VALEURS EN DUR
         Vector3 base_pos = camera_player.transform.position;
-        base_pos.z += 2.0f;
+        
+		base_pos.z += 2.0f;
         base_pos.x -= (cam_half_width - 2.0f);
         base_pos.y -= 3.0f;
-
+		
         Card tmp_card;
         foreach(GameObject c in hand_game)
         {
@@ -80,9 +88,15 @@ public class CardPlayer : MonoBehaviour
     {
         Card tmp = new Card();
         Card tmp_card = new Card();
-        GameObject tmp_go = new GameObject();
+        GameObject tmp_go;
+		
         for (int i = 0; i < nb; i++)
         {
+			if (hand.Count >= max_number_cards_hand){
+                Debug.Log("Hand full ");
+				return;
+			}
+			
             if (draw_pile.Count >= 1)
             {
                 tmp = draw_pile[0];
@@ -117,4 +131,13 @@ public class CardPlayer : MonoBehaviour
         //Arrange the hand after playing it
         Arrange();
     }
+	
+	public void discard_all(){
+		while(hand.Count>0){
+			Object.Destroy(hand[0].gameObject);			
+			hand.RemoveAt(0);
+			hand_game.RemoveAt(0);
+		}
+		Arrange();
+	}
 }

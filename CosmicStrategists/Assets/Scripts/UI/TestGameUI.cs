@@ -35,6 +35,7 @@ public class TestGameUI : MonoBehaviour
 
     void DiscardAll()
     {
+		card_controller.discard_all();
         Debug.Log("Discard all cards");
     }
 }

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum HighlightStyle
+public enum HighlightStyle : byte
 {
     None,
     Highlight,
-    Ready_To_Play
+    Ready_To_Play,
+	Not_Playable
 
 }
 
@@ -16,9 +17,10 @@ public class Card : MonoBehaviour
 {
     //Parameters
     public string card_name="-"; //name of the card
-    public int card_base_energy_cost=0; //base energy cost of the card
-    private int card_energy_cost = 0; //actual energy cost of the card
-    [TextArea]
+    public int card_base_energy_cost; //base energy cost of the card
+    private int card_energy_cost; //actual energy cost of the card
+    
+	[TextArea]
     public string card_description="-"; // displayed description on the card
 
     public TextMesh name_component;
@@ -42,11 +44,15 @@ public class Card : MonoBehaviour
 
     private Camera main_camera;
 
-    private CardPlayer card_manager;
+	private CardPlayer card_manager;
+	
+	public Player owner;
 
     // Start is called before the first frame update
     void Start()
     {
+		card_energy_cost=card_base_energy_cost;
+		
         name_component.text = card_name;
         description_component.text = card_description;
         cost_component.text = card_energy_cost.ToString();
@@ -76,17 +82,39 @@ public class Card : MonoBehaviour
             Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);
             Vector3 ray_point = ray.GetPoint(drag_distance);
             transform.position = ray_point;
+			
+			if(ray_point.y >=1.0f){
+				if(has_enough_energy()){
+					ready_to_play = true;
+					Highlight(HighlightStyle.Ready_To_Play);
+				}else{
+					Highlight(HighlightStyle.Not_Playable);
+				}
+			}else{
+				ready_to_play = false;
+                Highlight(HighlightStyle.Highlight);
+			}
+				
+			
+			
             //Optimize action highlighting ?
+			/*
             if(!ready_to_play && ray_point.y >= 1.0f)
             {
-                ready_to_play = true;
-                Highlight(HighlightStyle.Ready_To_Play);
+				if(has_enough_energy()){
+					ready_to_play = true;
+					Highlight(HighlightStyle.Ready_To_Play);
+				}else{
+					
+					Highlight(HighlightStyle.Not_Playable);
+				}
             }
             if(ready_to_play && ray_point.y < 1.0f)
             {
                 ready_to_play = false;
                 Highlight(HighlightStyle.None);
             }
+			*/
         }
     }
 
@@ -94,6 +122,7 @@ public class Card : MonoBehaviour
     void OnPlay()
     {
         Debug.Log("PLAYING CARD : " + card_name);
+		card_manager.player.lose_energy(card_energy_cost);
         //Delete the card in the hand before you delete it in game
         card_manager.DeleteFromHand(this);
         Object.Destroy(this.gameObject);
@@ -107,6 +136,25 @@ public class Card : MonoBehaviour
 
     void Highlight(HighlightStyle type)
     {
+		switch(type){
+		case HighlightStyle.None:
+            card_renderer.material.color = base_color;
+			break;
+		case HighlightStyle.Highlight:
+            card_renderer.material.color = highlight_color;
+			break;
+		case HighlightStyle.Ready_To_Play:
+            card_renderer.material.color = action_color;
+			break;
+		case HighlightStyle.Not_Playable:
+            card_renderer.material.color = inactive_color;
+			break;
+		default:
+			Debug.Log("Invalid Highlight Type");
+            card_renderer.material.color = base_color;
+			break;
+		}
+		/*
         if (type== HighlightStyle.Highlight)
         {
             card_renderer.material.color = highlight_color;
@@ -119,6 +167,7 @@ public class Card : MonoBehaviour
         {
             card_renderer.material.color = base_color;
         }
+		*/
     }
 
     void OnMouseEnter()
@@ -151,5 +200,12 @@ public class Card : MonoBehaviour
     {
         this.card_manager = card_manager;
     }
+
+	public bool has_enough_energy(){
+		if(card_manager.player.get_energy()>=this.card_energy_cost){
+			return true;
+		}
+		return false;
+	}
 
 }

@@ -63,8 +63,8 @@ public class CardPlayer : MonoBehaviour
         Vector3 base_pos = camera_player.transform.position;
         
 		base_pos.z += 2.0f;
-        base_pos.x -= (cam_half_width - 2.0f);
-        base_pos.y -= 3.0f;
+        base_pos.x -= (cam_half_width - 1.5f);
+        base_pos.y -= 3.3f;
 		
         Card tmp_card;
         foreach(GameObject c in hand_game)
@@ -80,7 +80,7 @@ public class CardPlayer : MonoBehaviour
             {
                 Debug.Log("ERROR : NO CARD FOR SETHANDPOSITION");
             }
-            base_pos.x +=  3.0f;
+            base_pos.x +=  2.1f;
         }
     }
 

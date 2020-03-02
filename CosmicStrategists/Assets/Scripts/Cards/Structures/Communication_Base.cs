@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card_Unit : Card
+public class Communication_Base : Card_Structure
 {
-    public GameObject spawned_unit;
-    private int unit_health;
-
     // Start is called before the first frame update
     void Start()
     {

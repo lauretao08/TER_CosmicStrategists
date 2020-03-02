@@ -86,10 +86,6 @@ public class CardPlayer : MonoBehaviour
 
     public void Draw(int nb)
     {
-        Card tmp = new Card();
-        Card tmp_card = new Card();
-        GameObject tmp_go;
-		
         for (int i = 0; i < nb; i++)
         {
 			if (hand.Count >= max_number_cards_hand){
@@ -98,7 +94,11 @@ public class CardPlayer : MonoBehaviour
 			}
 			
             if (draw_pile.Count >= 1)
-            {
+            {				
+				Card tmp = new Card();
+				Card tmp_card = new Card();
+				GameObject tmp_go;
+				
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
                 //hand.Add(tmp);

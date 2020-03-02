@@ -30,9 +30,8 @@ using UnityEngine.UI;
 	
 	void start_turn	//Increments max_energy refills energy and draw a cards
 	void end_turn	//Currently useless
-	
-	void do_action	//Not Yet Implemented
-	
+
+
 	int get_health		//Health getter, returns health
 	int get_energy		//Energy getter, returns energy
 	int get_max_energy	//Max_Energy getter, returns max_energy
@@ -50,9 +49,6 @@ using UnityEngine.UI;
 	
 	bool dies;		//Set player as dead
 	
-	bool draw_card		//Draw a card, returns true if draw was successful
-	bool draw_card(int)	//Draw inputted number of card, returns true if all draws were successful, if input negative Log an Error 
-	
 *//////////////////////
 
 
@@ -66,9 +62,9 @@ public class Player : MonoBehaviour
 	public bool DEBUG_PRINT;
 	public bool SUSPICIOUS_WARNING;
 	
-	public int STARTING_HEALTH=20;
-	public int STARTING_ENERGY=5;
-	public int MAX_ENERGY_CAP=10;
+	public int STARTING_HEALTH;
+	public int STARTING_ENERGY;
+	public int MAX_ENERGY_CAP;
 	
 	
 	public Text UI_Health;
@@ -79,13 +75,9 @@ public class Player : MonoBehaviour
 	public int energy;
 	private int max_energy;
 	
-	public bool is_dead;
+	private bool is_dead;
 	
-	/*
-	private List<Card>  deck;
-	private List<Card>  graveyard;
-	private List<Card>	hand;
-	*/
+	public CardPlayer card_controller;
 	
     // Start is called before the first frame update
     void Start()
@@ -96,8 +88,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
-	UI_Energy.text=""+energy;
-	UI_Health.text=""+health;
+		UI_Energy.text=""+energy;
+		UI_Health.text=""+health;
     }
 	
 	public void init()
@@ -123,7 +115,7 @@ public class Player : MonoBehaviour
 		
 		increment_max_energy();
 		refill_energy();
-		//draw_card();
+		card_controller.Draw(1);
 	}
 	
 	public void end_turn()
@@ -132,11 +124,6 @@ public class Player : MonoBehaviour
 		
 	}
 	
-	
-	public void do_action()
-	{
-		
-	}
 	
 //Getters
 	public int get_health	 (){	return this.health;}

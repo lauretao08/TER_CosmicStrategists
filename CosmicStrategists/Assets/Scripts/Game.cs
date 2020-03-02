@@ -16,7 +16,6 @@ using UnityEngine;
 	
 	GameBoard board		//Board.
 	
-	bool turn_ended		//Not sure if Useful
 	
 */////////////////////
 
@@ -37,10 +36,6 @@ using UnityEngine;
 	void start_turn
 	void end_turn
 	
-	bool set_turn_ended(bool)	//Set turn_ended to inputted boolean,returns turn_ended
-									//Use to trigger end of turn
-
-	bool turn_not_ended			//returns not turn_ended
 	
 	void swap_active_player		//Change the Active Player
 	Player get_active_player	//returns the Active Player
@@ -74,16 +69,29 @@ public class Game : MonoBehaviour
 	
 	public G_state game_state;
 	
+	public enum T_state : byte //Turn state
+	{
+		STARTING,
+		ACTIVE,
+		ENDING
+	}
+	
+	public T_state turn_state;
+	
 	public Player playerA;	
 	public Player playerB;	
 	public Player active_player;
 	
 	public GameBoard board;	
 	
-	public bool turn_ended;
 	
     void Start(){	}
-    void Update(){   }
+    void Update(){  
+		if(game_state==G_state.ONGOING){
+		play_turn();
+		
+		}
+	}
 	
 
 //Checking
@@ -94,7 +102,7 @@ public class Game : MonoBehaviour
 			end_game();
 		}
 		
-		board.check_state();
+		//board.check_state();
 	}
 	
 //Game management
@@ -105,9 +113,6 @@ public class Game : MonoBehaviour
 	}
 	
 	public void play_game(){
-		while (game_state == G_state.ONGOING){
-			play_turn();
-		}
 	}
 	
 	public void end_game()
@@ -119,55 +124,52 @@ public class Game : MonoBehaviour
 	
 	public void play_turn()
 	{	
-		start_turn();
-		
-		while(turn_not_ended())
-		{
-			active_player.do_action();
+		switch(turn_state){
+		case T_state.STARTING:
+			start_turn();
+			break;
+		case T_state.ACTIVE:
 			
-			check_state();
+			break;
+		case T_state.ENDING:		
+			end_turn();
+			break;
+		
 		}
 		
-		end_turn();
 	}
 	
 	private void start_turn()//Routine de debut de tour
 	{
-		set_turn_ended(false);
 		swap_active_player();
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".start_turn()] "+active_player+"Turn started");}
 		
-		board.start_turn();//PLAYER IDENTIFIER ?
+		//board.start_turn();//PLAYER IDENTIFIER ?
 		active_player.start_turn();
-		check_state();		
+		check_state();	
+		turn_state=T_state.ACTIVE;
 	}
 	
 	private void end_turn()	//Routine de fin de tour
 	{
+		
 		if(DEBUG_PRINT){Debug.Log("["+this+".end_turn()] "+active_player+"Turn ended");}
 		
 		active_player.end_turn();
-		board.end_turn();//PLAYER IDENTIFIER ?
+		//board.end_turn();//PLAYER IDENTIFIER ?
 		check_state();
+		
+		turn_state=T_state.STARTING;
 	}
 	
-	
-//turn_ended boolean management
 
-	public bool set_turn_ended(bool t){
-		if(SUSPICIOUS_WARNING){
-			if(t==turn_ended){
-				Debug.Log("WARNING : ["+this+".turn_ended("+t+")]  turn_ended already equal to inputted bool");
-			}
-		}
-		turn_ended=t;
-		return turn_ended;
+	public void finish_turn(){
+		if(DEBUG_PRINT){Debug.Log("["+this+".finish_turn()] Finishing turn");}
+		
+		turn_state=T_state.ENDING;
 	}
-	
-	public bool turn_not_ended(){
-		return !turn_ended;
-	}
+
 	
 //Active Player management
 	

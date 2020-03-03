@@ -1240,7 +1240,7 @@ MonoBehaviour:
   card_prefab: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
     type: 3}
   player: {fileID: 525870092}
-  max_number_cards_hand: 5
+  max_number_cards_hand: 7
 --- !u!1 &1970714393
 GameObject:
   m_ObjectHideFlags: 0

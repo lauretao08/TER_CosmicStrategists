@@ -94,27 +94,6 @@ public class Card : MonoBehaviour
 				ready_to_play = false;
                 Highlight(HighlightStyle.Highlight);
 			}
-				
-			
-			
-            //Optimize action highlighting ?
-			/*
-            if(!ready_to_play && ray_point.y >= 1.0f)
-            {
-				if(has_enough_energy()){
-					ready_to_play = true;
-					Highlight(HighlightStyle.Ready_To_Play);
-				}else{
-					
-					Highlight(HighlightStyle.Not_Playable);
-				}
-            }
-            if(ready_to_play && ray_point.y < 1.0f)
-            {
-                ready_to_play = false;
-                Highlight(HighlightStyle.None);
-            }
-			*/
         }
     }
 
@@ -154,20 +133,6 @@ public class Card : MonoBehaviour
             card_renderer.material.color = base_color;
 			break;
 		}
-		/*
-        if (type== HighlightStyle.Highlight)
-        {
-            card_renderer.material.color = highlight_color;
-        }
-        else if (type == HighlightStyle.Ready_To_Play)
-        {
-            card_renderer.material.color = action_color;
-        }
-        else
-        {
-            card_renderer.material.color = base_color;
-        }
-		*/
     }
 
     void OnMouseEnter()

@@ -18,6 +18,11 @@ public class DeckJson
 
 public class DeckLoader
 {
+	public enum Card_ID{
+		SCOUT,
+		ARTILLERY_STRIKE,
+		COMMUNICATIONS_BASE
+    }
 
     public DeckLoader()
     {
@@ -52,6 +57,7 @@ public class DeckLoader
     //return a card prefab for instanciation
     public GameObject GenerateCardFromId(int ID)
     {
+		/*
         switch (ID)
         {
             case 1:
@@ -59,6 +65,19 @@ public class DeckLoader
             case 2:
                 return Resources.Load("Card/Actions/Artillery_Strike") as GameObject;
             case 3:
+                return Resources.Load("Card/Structures/Communications_base") as GameObject;
+            default:
+                return Resources.Load("Card/Units/Scout") as GameObject;
+        }
+		*/
+		 
+        switch ((Card_ID) ID)
+        {
+            case Card_ID.SCOUT:
+                return Resources.Load("Card/Units/Scout") as GameObject;
+            case Card_ID.ARTILLERY_STRIKE:
+                return Resources.Load("Card/Actions/Artillery_Strike") as GameObject;
+            case Card_ID.COMMUNICATIONS_BASE:
                 return Resources.Load("Card/Structures/Communications_base") as GameObject;
             default:
                 return Resources.Load("Card/Units/Scout") as GameObject;

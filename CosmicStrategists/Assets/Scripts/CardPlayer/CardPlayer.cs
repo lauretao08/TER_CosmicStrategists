@@ -98,7 +98,8 @@ public class CardPlayer : MonoBehaviour
     public void Draw(int nb)
     {
         int tmp = 0;
-        Card tmp_card = new Card();
+        Card tmp_card;
+        //Card tmp_card = new Card();
         GameObject tmp_go;
 
         for (int i = 0; i < nb; i++)
@@ -119,7 +120,8 @@ public class CardPlayer : MonoBehaviour
                 Vector3 card_pos = camera_player.transform.position;
 
 
-                GameObject CardTmp = new GameObject();
+                GameObject CardTmp;
+                //GameObject CardTmp = new GameObject();
                 CardTmp = deck_loader.GenerateCardFromId(tmp);
                 Debug.Log("GAMEOBJECT IMPORTED : " + CardTmp);
 

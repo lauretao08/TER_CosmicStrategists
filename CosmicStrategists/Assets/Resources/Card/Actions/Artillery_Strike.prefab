@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db9c2479213d4da51a61a6e5e32a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card_name: Artillery_Strike
-  card_base_energy_cost: 0
+  card_name: Artillery Strike
+  card_base_energy_cost: 1
   card_description: Inflict 2 Damage
   name_component: {fileID: 7436991580092429395}
   description_component: {fileID: 2829044059050096586}

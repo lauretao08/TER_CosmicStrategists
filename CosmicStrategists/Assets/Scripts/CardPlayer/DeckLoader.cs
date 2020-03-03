@@ -59,7 +59,7 @@ public class DeckLoader
             case 2:
                 return Resources.Load("Card/Actions/Artillery_Strike") as GameObject;
             case 3:
-                return Resources.Load("Card/Structures/Communication_base") as GameObject;
+                return Resources.Load("Card/Structures/Communications_base") as GameObject;
             default:
                 return Resources.Load("Card/Units/Scout") as GameObject;
         }

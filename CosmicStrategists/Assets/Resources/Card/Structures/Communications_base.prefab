@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00f06efe8d3cb64599a57889b22e6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card_name: Communications Base
+  card_name: Comm. Base
   card_base_energy_cost: 2
   card_description: Regain 1 HP every turn
   name_component: {fileID: 2885518657390698990}

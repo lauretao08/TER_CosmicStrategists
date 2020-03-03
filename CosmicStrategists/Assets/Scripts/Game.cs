@@ -80,17 +80,17 @@ public class Game : MonoBehaviour
 	
 	public Player playerA;	
 	public Player playerB;	
-	public Player active_player;
+	private Player active_player;
 	
 	public GameBoard board;	
 	
 	
-    void Start(){	}
-    void Update(){  
-		if(game_state==G_state.ONGOING){
-		play_turn();
-		
-		}
+    void Start(){	
+		start_game();
+	}
+
+    void Update(){ 
+		play_game();
 	}
 	
 
@@ -109,10 +109,19 @@ public class Game : MonoBehaviour
 
 	public void start_game()
 	{
-		
+		game_state=G_state.NOT_STARTED;
+		 
+		playerA.init();
+		playerB.init();
+	
+		active_player=PlayerB;
+		game_state=G_state.ONGOING;
 	}
 	
 	public void play_game(){
+		if(game_state==G_state.ONGOING){
+			play_turn();
+		}
 	}
 	
 	public void end_game()

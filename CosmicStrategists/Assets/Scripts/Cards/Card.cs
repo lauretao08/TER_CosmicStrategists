@@ -16,12 +16,12 @@ public enum HighlightStyle : byte
 public class Card : MonoBehaviour
 {
     //Parameters
-    public string card_name="-"; //name of the card
+    public string card_name; //name of the card
     public int card_base_energy_cost; //base energy cost of the card
     private int card_energy_cost; //actual energy cost of the card
     
 	[TextArea]
-    public string card_description="-"; // displayed description on the card
+    public string card_description; // displayed description on the card
 
     public TextMesh name_component;
     public TextMesh description_component;

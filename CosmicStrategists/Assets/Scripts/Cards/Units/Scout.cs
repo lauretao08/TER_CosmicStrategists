@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card_Structure : Card
+public class Scout : Card_Unit
 {
+
     /*
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,5 @@ public class Card_Structure : Card
     void Update()
     {
         
-    }
-    */
+    }*/
 }

@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3615876327936181530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6285397706023819300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22643589cd3898b4da38ac77873fe447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_name: Scout
+  card_base_energy_cost: 1
+  card_description: "Inflict 1 Damage to \nopponent every turn"
+  name_component: {fileID: 7336103516553535422}
+  description_component: {fileID: 2718023130400168999}
+  cost_component: {fileID: 5212703219064570871}
+  owner: {fileID: 0}
+  spawned_unit: {fileID: 0}
+--- !u!1001 &7574863294428651287
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_Name
+      value: Scout
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877786866204765937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4719160883b8c4b4f91c749b6fd9ad10, type: 2}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_name
+      value: Scout
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_base_energy_cost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_description
+      value: "Inflict 1 damage to \nenemy every turn"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -270
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
+--- !u!1 &6285397706023819300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7574863294428651287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!102 &7336103516553535422 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 923309734478102697, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7574863294428651287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!102 &2718023130400168999 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 5523394095962948400, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7574863294428651287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!102 &5212703219064570871 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 2398289937304755424, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7574863294428651287}
+  m_PrefabAsset: {fileID: 0}

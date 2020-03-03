@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card_Structure : Card
+public class Communication_Base : Card_Structure
 {
     /*
     // Start is called before the first frame update

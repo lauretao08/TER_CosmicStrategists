@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card_Structure : Card
+public class Artillery_Strike : Card_Action
 {
     /*
     // Start is called before the first frame update
@@ -15,6 +15,6 @@ public class Card_Structure : Card
     void Update()
     {
         
-    }
-    */
+    }*/
+
 }

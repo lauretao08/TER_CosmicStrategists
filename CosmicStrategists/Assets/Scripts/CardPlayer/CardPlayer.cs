@@ -9,10 +9,12 @@ public class CardPlayer : MonoBehaviour
 	public Player player;
 
 
-    private List<Card> deck;
-    private List<Card> draw_pile;
+    private List<int> deck;
+    private List<int> draw_pile;
     private List<Card> hand;
     private List<GameObject> hand_game;
+
+    private DeckLoader deck_loader;
 
     //*Aspect ratio related parameters*//
     float screen_aspect;
@@ -22,28 +24,37 @@ public class CardPlayer : MonoBehaviour
     public int max_number_cards_hand;
 
 
+    //shuffle the deck
+    public void ShuffleDeck()
+    {
+        System.Random rng = new System.Random();
+        int n = deck.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            int value = deck[k];
+            deck[k] = deck[n];
+            deck[n] = value;
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        deck = new List<Card>();
+        deck = new List<int>();
         
         hand = new List<Card>();
         hand_game = new List<GameObject>();
 
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
-        deck.Add(new Card());
+        deck_loader = new DeckLoader();
 
-        draw_pile = new List<Card>(deck);
+        deck = deck_loader.LoadFromFileInId("Assets/Data_Files/deck.json");
+        
+        ShuffleDeck();
+
+        draw_pile = new List<int>(deck);
 
         /**ASPECT RATIO**/
         screen_aspect = (float)Screen.width / (float)Screen.height;
@@ -86,6 +97,10 @@ public class CardPlayer : MonoBehaviour
 
     public void Draw(int nb)
     {
+        int tmp = 0;
+        Card tmp_card = new Card();
+        GameObject tmp_go;
+
         for (int i = 0; i < nb; i++)
         {
 			if (hand.Count >= max_number_cards_hand){
@@ -94,17 +109,21 @@ public class CardPlayer : MonoBehaviour
 			}
 			
             if (draw_pile.Count >= 1)
-            {				
-				Card tmp = new Card();
-				Card tmp_card = new Card();
-				GameObject tmp_go;
+            {
+                
 				
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
                 //hand.Add(tmp);
-                Debug.Log("Card drawn : " + tmp.card_name);
+                Debug.Log("Id of Card drawn : " + tmp);
                 Vector3 card_pos = camera_player.transform.position;
-                tmp_go = Instantiate(card_prefab, card_pos, camera_player.transform.rotation);
+
+
+                GameObject CardTmp = new GameObject();
+                CardTmp = deck_loader.GenerateCardFromId(tmp);
+                Debug.Log("GAMEOBJECT IMPORTED : " + CardTmp);
+
+                tmp_go = Instantiate(deck_loader.GenerateCardFromId(tmp), card_pos, camera_player.transform.rotation);
                 hand_game.Add(tmp_go);
 
                 //OPTIMIZE THIS GETCOMPONENT!

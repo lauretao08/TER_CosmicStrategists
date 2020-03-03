@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Communication_Base : Card_Structure
 {
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,5 @@ public class Communication_Base : Card_Structure
     {
         
     }
+    */
 }

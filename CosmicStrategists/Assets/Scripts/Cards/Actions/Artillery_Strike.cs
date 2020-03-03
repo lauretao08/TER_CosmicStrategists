@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Artillery_Strike : Card_Action
 {
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,6 @@ public class Artillery_Strike : Card_Action
     void Update()
     {
         
-    }
+    }*/
+
 }

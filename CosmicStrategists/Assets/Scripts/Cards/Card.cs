@@ -48,6 +48,8 @@ public class Card : MonoBehaviour
 	
 	public Player owner;
 
+    private Game game_manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,11 +99,21 @@ public class Card : MonoBehaviour
         }
     }
 
+    //Activate triggers thhe effect specific to the card, and is called on play
+    void Activate()
+    {
+
+    }
+
     //OnPlay is called when the card is played
     void OnPlay()
     {
         Debug.Log("PLAYING CARD : " + card_name);
 		card_manager.player.lose_energy(card_energy_cost);
+        //display card name, ATTENTION CHOOSING PLAYER HERE WILL BE REQUIRED
+        card_manager.GetCardUI().WritePlayer1("Card played : "+card_name);
+        //activate the card-specific effect
+
         //Delete the card in the hand before you delete it in game
         card_manager.DeleteFromHand(this);
         Object.Destroy(this.gameObject);
@@ -172,5 +184,10 @@ public class Card : MonoBehaviour
 		}
 		return false;
 	}
+
+    public void SetGame(Game game_manager)
+    {
+        this.game_manager = game_manager;
+    }
 
 }

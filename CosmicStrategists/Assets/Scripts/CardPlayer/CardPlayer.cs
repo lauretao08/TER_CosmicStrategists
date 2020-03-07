@@ -7,7 +7,10 @@ public class CardPlayer : MonoBehaviour
     public Camera camera_player;
     public GameObject card_prefab;
 	public Player player;
+    public Game game;
+    public Canvas card_ui;
 
+    private CardFeedbackUI card_ui_controller;
 
     private List<int> deck;
     private List<int> draw_pile;
@@ -43,6 +46,8 @@ public class CardPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        card_ui_controller = card_ui.GetComponent(typeof(CardFeedbackUI)) as CardFeedbackUI;
+
         deck = new List<int>();
         
         hand = new List<Card>();
@@ -123,7 +128,6 @@ public class CardPlayer : MonoBehaviour
                 GameObject CardTmp;
                 //GameObject CardTmp = new GameObject();
                 CardTmp = deck_loader.GenerateCardFromId(tmp);
-                Debug.Log("GAMEOBJECT IMPORTED : " + CardTmp);
 
                 tmp_go = Instantiate(deck_loader.GenerateCardFromId(tmp), card_pos, camera_player.transform.rotation);
                 hand_game.Add(tmp_go);
@@ -131,6 +135,7 @@ public class CardPlayer : MonoBehaviour
                 //OPTIMIZE THIS GETCOMPONENT!
                 tmp_card = tmp_go.GetComponent(typeof(Card)) as Card;
                 tmp_card.SetCardManager(this);
+                tmp_card.SetGame(this.game);
                 hand.Add(tmp_card);
                 //arrange card position upon drawing
                 Arrange();
@@ -161,4 +166,10 @@ public class CardPlayer : MonoBehaviour
 		}
 		Arrange();
 	}
+
+    public CardFeedbackUI GetCardUI()
+    {
+        return card_ui_controller;
+    }
+
 }

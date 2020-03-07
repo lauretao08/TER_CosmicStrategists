@@ -1,24 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//nouveau
 using UnityEngine.SceneManagement;
 
-
-public class MainMenu : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
 
     public Animator transition;
     public float transitionTime = 1.0f;
 
-    public void PlayGame(){
+    // Update is called once per frame
+    void Update()
+    {
         
-        LoadNextLevel();
-    }
-
-    public void QuitGame(){
-    	Debug.Log("Quit!");
-    	Application.Quit();
     }
 
     public void LoadNextLevel()
@@ -37,7 +31,5 @@ public class MainMenu : MonoBehaviour
         //Load Scene
         SceneManager.LoadScene(levelIndex);
     }
-
-
 
 }

@@ -9,8 +9,10 @@ using UnityEngine.SceneManagement;
 public class OptionMenu : MonoBehaviour
 {
 	public AudioMixer audioMixer;
+    public Animator transition;
+    public float transitionTime = 1.0f;
 
-	public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown resolutionDropdown;
 	Resolution[] resolutions;
 
 
@@ -60,13 +62,24 @@ public class OptionMenu : MonoBehaviour
    	}
 
    	public void LoadMenuScene(){
-   		SceneManager.LoadScene("Menu");
-   	}
+        //SceneManager.LoadScene("Menu");
+        StartCoroutine(LoadLevel("Menu"));
+    }
 
    	public void LoadBackScene(){
-   		SceneManager.LoadScene("Game");
-   	}
+        StartCoroutine(LoadLevel("Game"));
+    }
 
+    IEnumerator LoadLevel(string scene)
+    {
+        //Play animation
+        transition.SetTrigger("Start");
 
+        //Pause
+        yield return new WaitForSeconds(transitionTime);
+
+        //Load Scene
+        SceneManager.LoadScene(scene);
+    }
 
 }

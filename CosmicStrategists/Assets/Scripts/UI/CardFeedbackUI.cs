@@ -52,12 +52,14 @@ public class CardFeedbackUI : MonoBehaviour
     {
         CardPlayer1.text = text;
         c_displayed_1 = true;
+        c_timer_1 = 0.0f;
     }
 
     public void WritePlayer2(string text)
     {
         CardPlayer2.text = text;
         c_displayed_2 = true;
+        c_timer_2 = 0.0f;
     }
 
     void Eraseplayer1()

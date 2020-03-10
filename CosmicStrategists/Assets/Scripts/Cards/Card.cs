@@ -84,8 +84,9 @@ public class Card : MonoBehaviour
             Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);
             Vector3 ray_point = ray.GetPoint(drag_distance);
             transform.position = ray_point;
-			
-			if(ray_point.y >=1.0f){
+
+            //ATTENTION VALEUR EN DUR !! A MODIFIER ? VAR ENGIN ?
+			if(ray_point.y >=45.0f){
 				if(has_enough_energy()){
 					ready_to_play = true;
 					Highlight(HighlightStyle.Ready_To_Play);

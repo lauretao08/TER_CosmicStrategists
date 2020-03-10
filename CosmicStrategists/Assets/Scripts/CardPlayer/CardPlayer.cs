@@ -24,6 +24,11 @@ public class CardPlayer : MonoBehaviour
     float cam_half_height;
     float cam_half_width;
 
+    float card_distance;
+    float card_offset_x;
+    float card_offset_y;
+    float camera_hFOV;
+
     public int max_number_cards_hand;
 
 
@@ -61,10 +66,17 @@ public class CardPlayer : MonoBehaviour
 
         draw_pile = new List<int>(deck);
 
-        /**ASPECT RATIO**/
-        screen_aspect = (float)Screen.width / (float)Screen.height;
-        cam_half_height = camera_player.orthographicSize;
-        cam_half_width = screen_aspect * cam_half_height;
+        /**ASPECT RATIO AND CARD PLACEMENT, this has to be calculated once again upon resolution or fov changes**/
+        float radAngle = camera_player.fieldOfView * Mathf.Deg2Rad;
+        float radHFOV = 2 * Mathf.Atan(Mathf.Tan(radAngle / 2) * camera_player.aspect);
+        camera_hFOV = Mathf.Rad2Deg * radHFOV;
+
+        screen_aspect = camera_player.aspect;
+        card_distance = camera_player.focalLength / 6.0f;
+
+        card_offset_x = Mathf.Tan((camera_hFOV / 2.0f)*Mathf.Deg2Rad) * card_distance;
+        card_offset_y = Mathf.Tan((camera_player.fieldOfView/2.0f) * Mathf.Deg2Rad) * card_distance;
+
     }
 
     // Update is called once per frame
@@ -75,12 +87,20 @@ public class CardPlayer : MonoBehaviour
 
     void Arrange()
     {
+        /**ASPECT RATIO**/
+        /*screen_aspect = (float)Screen.width / (float)Screen.height;
+        cam_half_height = camera_player.orthographicSize;
+        cam_half_width = screen_aspect * cam_half_height;*/
+
         //ATTENTION : PAS DE VALEURS EN DUR
         Vector3 base_pos = camera_player.transform.position;
         
-		base_pos.z += 2.0f;
-        base_pos.x -= (cam_half_width - 1.5f);
-        base_pos.y -= 3.3f;
+        
+		base_pos.z += card_distance;
+        base_pos.x -= card_offset_x;
+        base_pos.y += camera_player.transform.forward.y*card_distance;
+        base_pos.y -= (card_offset_y);
+        
 		
         Card tmp_card;
         foreach(GameObject c in hand_game)

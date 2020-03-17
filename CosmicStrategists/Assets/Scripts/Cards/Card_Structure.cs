@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card_Structure : Card
+abstract public class Card_Structure : Card
 {
+
+    public GameObject spawned_unit;
     /*
     // Start is called before the first frame update
     void Start()
@@ -17,4 +19,6 @@ public class Card_Structure : Card
         
     }
     */
+
+
 }

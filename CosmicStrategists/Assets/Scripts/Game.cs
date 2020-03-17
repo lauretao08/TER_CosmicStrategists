@@ -213,5 +213,17 @@ public class Game : MonoBehaviour
 	public Player get_active_player(){
 		return active_player;
 	}
+
+    public Player get_opposing_player()
+    {
+        if (active_player.Equals(playerA))
+        {
+            return playerB;
+        }
+        else
+        {
+            return playerA;
+        }
+    }
 	
 }

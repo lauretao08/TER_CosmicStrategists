@@ -141,7 +141,6 @@ public class CardPlayer : MonoBehaviour
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
                 //hand.Add(tmp);
-                Debug.Log("Id of Card drawn : " + tmp);
                 Vector3 card_pos = camera_player.transform.position;
 
 

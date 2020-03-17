@@ -1459,7 +1459,7 @@ MonoBehaviour:
   playerB_structures: []
   playerA_structures_go: []
   playerB_structures_go: []
-  Board: {fileID: 1069818271}
+  Board: {fileID: 1646562100}
 --- !u!1 &1098178532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2337,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622565679}
   m_CullTransparentMesh: 0
+--- !u!1 &1646562100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6880782555056200059, guid: 18527c89ccdd0f44ba27d8b3b4794606,
+    type: 3}
+  m_PrefabInstance: {fileID: 433791893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1685482566
 GameObject:
   m_ObjectHideFlags: 0

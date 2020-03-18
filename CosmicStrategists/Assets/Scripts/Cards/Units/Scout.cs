@@ -20,10 +20,10 @@ public class Scout : Card_Unit
     protected override void Activate()
     {
         GameObject tmp = Instantiate(spawned_unit);
-        if (this.game_manager.active_player.Equals(this.game_manager.playerA))
+        if (this.get_owner().Equals(this.game_manager.playerA))
         {
             this.game_manager.board.add_unit_A_go(tmp);
-        }else if (this.game_manager.active_player.Equals(this.game_manager.playerB))
+        }else if (this.get_owner().Equals(this.game_manager.playerB))
         {
             this.game_manager.board.add_unit_B_go(tmp);
         }

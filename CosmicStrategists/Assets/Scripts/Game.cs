@@ -2,15 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*///	TODO	///
-
-start_game	-> Not Yet Implemented
-end_game	-> Not Yet Implemented
-
-play_turn -> WIP
-
-
-*/////////////////////
 
 public class Game : MonoBehaviour
 {
@@ -36,8 +27,8 @@ public class Game : MonoBehaviour
 		ENDING
 	}
 	
-	public G_state game_state;
-	public T_state turn_state;
+	private G_state game_state;
+	private T_state turn_state;
 	
 	public Player playerA;	
 	public Player playerB;	

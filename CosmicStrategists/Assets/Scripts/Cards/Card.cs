@@ -13,12 +13,12 @@ public enum HighlightStyle : byte
 }
 
 
-public class Card : MonoBehaviour
+abstract public class Card : MonoBehaviour
 {
     //Parameters
     public string card_name; //name of the card
     public int card_base_energy_cost; //base energy cost of the card
-    private int card_energy_cost; //actual energy cost of the card
+    protected int card_energy_cost; //actual energy cost of the card
     
 	[TextArea]
     public string card_description; // displayed description on the card
@@ -33,7 +33,7 @@ public class Card : MonoBehaviour
     private Color action_color;
     private Color inactive_color;
 
-    private MeshRenderer card_renderer;
+    protected MeshRenderer card_renderer;
 
     //used to keep in memory position in hand for drag and drop mechanics
     private Vector3 hand_position;
@@ -42,12 +42,11 @@ public class Card : MonoBehaviour
     //used for highlighting
     private bool ready_to_play;
 
-    private Camera main_camera;
-	private CardPlayer card_manager;
-    private Game game_manager;
-	
-	//For owner use get_owner()
 
+    protected Camera main_camera;
+    protected CardPlayer card_manager;
+	//For owner use get_owner()
+    protected Game game_manager;
 
     // Start is called before the first frame update
     void Start()
@@ -99,16 +98,10 @@ public class Card : MonoBehaviour
         }
     }
 
-    //Activate triggers the effect specific to the card, and is called on play
-    void Activate()
-    {
-
-    }
 
     //OnPlay is called when the card is played
     public void OnPlay()
     {
-		
 		Debug.Log("PLAYING CARD : " + card_name);
         get_owner().lose_energy(card_energy_cost);
 		
@@ -121,6 +114,10 @@ public class Card : MonoBehaviour
         card_manager.DeleteFromHand(this);
         Object.Destroy(this.gameObject);
     }
+
+    //Activate triggers thhe effect specific to the card, and is called on play
+    abstract protected void Activate();
+    
 
     //Set anchor position in hand for drag&drop
     public void SetHandPosition(Vector3 hand_position)

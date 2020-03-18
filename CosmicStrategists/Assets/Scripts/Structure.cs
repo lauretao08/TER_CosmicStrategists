@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Card_Unit : Card
+public class Structure : MonoBehaviour
 {
-    public GameObject spawned_unit;
-    private int unit_health;
-    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +14,5 @@ abstract public class Card_Unit : Card
     void Update()
     {
         
-    }*/
-
-    
-    
+    }
 }

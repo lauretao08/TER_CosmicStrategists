@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card_Action : Card
+abstract public class Card_Action : Card
 {
     /*
     // Start is called before the first frame update
@@ -17,4 +17,6 @@ public class Card_Action : Card
         
     }
     */
+
+    
 }

@@ -16,5 +16,9 @@ public class Artillery_Strike : Card_Action
     {
         
     }*/
+    protected override void Activate()
+    {
+
+    }
 
 }

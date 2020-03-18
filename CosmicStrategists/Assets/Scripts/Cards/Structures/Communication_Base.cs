@@ -17,4 +17,18 @@ public class Communication_Base : Card_Structure
         
     }
     */
+
+    protected override void Activate()
+    {
+        GameObject tmp = Instantiate(spawned_unit);
+        if (this.game_manager.active_player.Equals(this.game_manager.playerA))
+        {
+            this.game_manager.board.add_structure_A_go(tmp);
+        }
+        else if (this.game_manager.active_player.Equals(this.game_manager.playerB))
+        {
+            this.game_manager.board.add_structure_B_go(tmp);
+        }
+
+    }
 }

@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class CardFeedbackUI : MonoBehaviour
 {
-    public Text CardPlayer1;
-    public Text CardPlayer2;
+    public Text CardPlayerA;
+    public Text CardPlayerB;
 
-    private bool c_displayed_1 = false;
-    private bool c_displayed_2 = false;
+    private bool c_displayed_A = false;
+    private bool c_displayed_B = false;
 
-    private float c_timer_1 = 0;
-    private float c_timer_2 = 0;
+    private float c_timer_A = 0;
+    private float c_timer_B = 0;
 
     public float timeDisplayed = 2.0f;
 
@@ -27,50 +27,50 @@ public class CardFeedbackUI : MonoBehaviour
     void Update()
     {
         //erase text if timer elapsed
-        if (c_displayed_1)
+        if (c_displayed_A)
         {
-            c_timer_1 += Time.deltaTime;
-            if (c_timer_1 > timeDisplayed)
+            c_timer_A += Time.deltaTime;
+            if (c_timer_A > timeDisplayed)
             {
-                Eraseplayer1();
-                c_timer_1 = 0.0f;
+                EraseplayerA();
+                c_timer_A = 0.0f;
             }
         }
 
-        if (c_displayed_2)
+        if (c_displayed_B)
         {
-            c_timer_2 += Time.deltaTime;
-            if (c_timer_2 > timeDisplayed)
+            c_timer_B += Time.deltaTime;
+            if (c_timer_B > timeDisplayed)
             {
-                Eraseplayer2();
-                c_timer_2 = 0.0f;
+                EraseplayerB();
+                c_timer_B = 0.0f;
             }
         }
     }
 
-    public void WritePlayer1(string text)
+    public void WritePlayerA(string text)
     {
-        CardPlayer1.text = text;
-        c_displayed_1 = true;
-        c_timer_1 = 0.0f;
+        CardPlayerA.text = text;
+        c_displayed_A = true;
+        c_timer_A = 0.0f;
     }
 
-    public void WritePlayer2(string text)
+    public void WritePlayerB(string text)
     {
-        CardPlayer2.text = text;
-        c_displayed_2 = true;
-        c_timer_2 = 0.0f;
+        CardPlayerB.text = text;
+        c_displayed_B = true;
+        c_timer_B = 0.0f;
     }
 
-    void Eraseplayer1()
+    void EraseplayerA()
     {
-        CardPlayer1.text = "";
-        c_displayed_1 = false;
+        CardPlayerA.text = "";
+        c_displayed_A = false;
     }
 
-    void Eraseplayer2()
+    void EraseplayerB()
     {
-        CardPlayer2.text = "";
-        c_displayed_2 = false;
+        CardPlayerB.text = "";
+        c_displayed_B = false;
     }
 }

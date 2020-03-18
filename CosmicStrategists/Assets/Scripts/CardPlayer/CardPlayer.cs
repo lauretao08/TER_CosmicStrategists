@@ -7,14 +7,11 @@ public class CardPlayer : MonoBehaviour
     public Camera camera_player;
     public GameObject card_prefab;
 	public Player player;
-    public Game game;
-    public Canvas card_ui;
-
-    private CardFeedbackUI card_ui_controller;
+	//For Game use get_current_game()
 
     private List<int> deck;
     private List<int> draw_pile;
-    private List<Card> hand;
+    public List<Card> hand; //J'ai modifier ca a l'arrache
     private List<GameObject> hand_game;
 
     private DeckLoader deck_loader;
@@ -51,7 +48,6 @@ public class CardPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        card_ui_controller = card_ui.GetComponent(typeof(CardFeedbackUI)) as CardFeedbackUI;
 
         deck = new List<int>();
         
@@ -95,12 +91,15 @@ public class CardPlayer : MonoBehaviour
         //ATTENTION : PAS DE VALEURS EN DUR
         Vector3 base_pos = camera_player.transform.position;
         
-        
-		base_pos.z += card_distance;
-        base_pos.x -= card_offset_x;
-        base_pos.y += camera_player.transform.forward.y*card_distance;
-        base_pos.y -= (card_offset_y);
-        
+		if(player.is_human()){
+			base_pos.z += card_distance;
+			base_pos.x -= card_offset_x;
+			base_pos.y += camera_player.transform.forward.y*card_distance;
+			base_pos.y -= (card_offset_y);
+		}else{
+			
+			base_pos.z -= card_distance*3; //POUR NE PAS VOIR LES CARTES ADVERSES
+		}
 		
         Card tmp_card;
         foreach(GameObject c in hand_game)
@@ -135,9 +134,7 @@ public class CardPlayer : MonoBehaviour
 			}
 			
             if (draw_pile.Count >= 1)
-            {
-                
-				
+            {	
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
                 //hand.Add(tmp);
@@ -155,7 +152,7 @@ public class CardPlayer : MonoBehaviour
                 //OPTIMIZE THIS GETCOMPONENT!
                 tmp_card = tmp_go.GetComponent(typeof(Card)) as Card;
                 tmp_card.SetCardManager(this);
-                tmp_card.SetGame(this.game);
+                tmp_card.SetGame(get_current_game());
                 hand.Add(tmp_card);
                 //arrange card position upon drawing
                 Arrange();
@@ -186,10 +183,9 @@ public class CardPlayer : MonoBehaviour
 		}
 		Arrange();
 	}
-
-    public CardFeedbackUI GetCardUI()
-    {
-        return card_ui_controller;
-    }
+	
+	public Game get_current_game(){
+		return player.current_game;
+	}
 
 }

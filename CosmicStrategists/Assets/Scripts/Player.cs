@@ -3,55 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/*///	Attributes  ///
-	
-	bool DEBUG_PRINT		//enable/disable logs in debug console
-	bool SUSPICIOUS_WARNING	//enable/disable logs for strange behaviors
-
-	int STARTING_HEALTH 	//Constant starting Health (Move it ?)
-	int STARTING_ENERGY 	//Constant starting Energy/ Max Energy(Move it ?)
-	int MAX_ENERGY_CAP		//Constant cap of max energy (Move it ?)
-	
-	int health		// Current Health
-	int energy		// Current Energy
-	int max_energy	// Max Energy available
-	
-	bool is_dead	//Player status Alive/Dead
-	
-*/////////////////////
-
-
-/*///	 Methods	///
-
-	void Start 		//Unused
-	void Update		//Unused
-	
-	void init		//Initialize energy,max_energy,health and cards stuff
-	
-	void start_turn	//Increments max_energy refills energy and draw a cards
-	void end_turn	//Currently useless
-
-
-	int get_health		//Health getter, returns health
-	int get_energy		//Energy getter, returns energy
-	int get_max_energy	//Max_Energy getter, returns max_energy
-	
-	int gain_hp(int)	//Gain inputted health, returns health
-	int lose_hp(int)	//Lose inputted health, returns health, if health should become negative replaces it by 0 and player dies
-	
-	int gain_energy(int)	//Gain inputted energy, returns energy
-	int lose_energy(int)	//Lose inputted energy, returns energy, if energy negative Log an Error
-	int refill_energy		//Set energy to max_energy, returns energy
-	
-	int gain_max_energy(int)	//Gain inputted max_energy, returns max_energy
-	int lose_max_energy(int)	//Lose inputted max_energy, returns max_energy, if max_energy negative Log an Error
-	int increment_max_energy	//Increment max_energy, returns max_energy
-	
-	bool dies;		//Set player as dead
-	
-*//////////////////////
-
-
 /*///	TODO	///
 
 
@@ -59,6 +10,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+	//Constants
 	public bool DEBUG_PRINT;
 	public bool SUSPICIOUS_WARNING;
 	
@@ -67,9 +19,26 @@ public class Player : MonoBehaviour
 	public int MAX_ENERGY_CAP;
 	
 	
+	//Enum
+	
+	public enum P_type : byte
+	{
+		HUMAN,
+		ROBOT
+	}
+	
+	
+	//Objects
+	public Game current_game;
+	
+    public GameObject EventManager;
+	private CardPlayer card_controller;
+	
 	public Text UI_Health;
 	public Text UI_Energy;
 	
+	//Variables
+	public P_type player_type;
 	
 	public int health;
 	public int energy;
@@ -77,11 +46,15 @@ public class Player : MonoBehaviour
 	
 	private bool is_dead;
 	
-	public CardPlayer card_controller;
 	
     // Start is called before the first frame update
     void Start()
     {
+		card_controller = EventManager.GetComponent(typeof(CardPlayer)) as CardPlayer;
+		if(card_controller == null){
+			Debug.Log("ERROR : Card_Controller not Found");
+		}
+		
 		init();
     }
 
@@ -99,13 +72,6 @@ public class Player : MonoBehaviour
 		
 		max_energy=STARTING_ENERGY;
 		energy=max_energy;
-	
-	
-		/*
-		deck=new List<Card>;
-		hand=new List<Card>;
-		graveyard=new List<Card>;
-		*/
 		
 	}
 	
@@ -229,7 +195,31 @@ public class Player : MonoBehaviour
 		return is_dead;
 	}
 	
-
+	public void auto_turn(){
+		System.Random rng = new System.Random();
+		int n = card_controller.hand.Count;
+        while (n >= 1)
+        {
+			n--;
+			int k = rng.Next(n + 1);
+			if(card_controller.hand[k].has_enough_energy()){
+				card_controller.hand[k].OnPlay();
+			}else{
+				break;
+			}            
+        }
+		current_game.finish_turn();
+	}
 	
+	public CardPlayer get_card_controller(){
+		return card_controller;
+	}
 	
+	public bool is_human(){
+		return player_type == P_type.HUMAN;
+	}
+	
+	public bool is_robot(){
+		return player_type == P_type.ROBOT;
+	}
 }

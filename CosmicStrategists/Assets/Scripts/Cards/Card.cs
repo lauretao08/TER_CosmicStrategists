@@ -27,7 +27,7 @@ public class Card : MonoBehaviour
     public TextMesh description_component;
     public TextMesh cost_component;
 
-    //Change these when chaning highlight look
+    //Change these when changing highlight look
     private Color base_color;
     private Color highlight_color;
     private Color action_color;
@@ -43,12 +43,11 @@ public class Card : MonoBehaviour
     private bool ready_to_play;
 
     private Camera main_camera;
-
 	private CardPlayer card_manager;
-	
-	public Player owner;
-
     private Game game_manager;
+	
+	//For owner use get_owner()
+
 
     // Start is called before the first frame update
     void Start()
@@ -100,21 +99,24 @@ public class Card : MonoBehaviour
         }
     }
 
-    //Activate triggers thhe effect specific to the card, and is called on play
+    //Activate triggers the effect specific to the card, and is called on play
     void Activate()
     {
 
     }
 
     //OnPlay is called when the card is played
-    void OnPlay()
+    public void OnPlay()
     {
-        Debug.Log("PLAYING CARD : " + card_name);
-		card_manager.player.lose_energy(card_energy_cost);
-        //display card name, ATTENTION CHOOSING PLAYER HERE WILL BE REQUIRED
-        card_manager.GetCardUI().WritePlayer1("Card played : "+card_name);
-        //activate the card-specific effect
-
+		
+		Debug.Log("PLAYING CARD : " + card_name);
+        get_owner().lose_energy(card_energy_cost);
+		
+        game_manager.display_feedback_card_played(get_owner(),card_name);
+		
+		//activate the card-specific effect
+		Activate();
+		
         //Delete the card in the hand before you delete it in game
         card_manager.DeleteFromHand(this);
         Object.Destroy(this.gameObject);
@@ -180,7 +182,7 @@ public class Card : MonoBehaviour
     }
 
 	public bool has_enough_energy(){
-		if(card_manager.player.get_energy()>=this.card_energy_cost){
+		if(get_owner().get_energy()>=this.card_energy_cost){
 			return true;
 		}
 		return false;
@@ -190,5 +192,9 @@ public class Card : MonoBehaviour
     {
         this.game_manager = game_manager;
     }
+	
+	public Player get_owner(){
+		return card_manager.player;
+	}
 
 }

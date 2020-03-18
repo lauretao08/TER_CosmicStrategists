@@ -2,48 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*///	Attributes  ///
-	
-	bool DEBUG_PRINT		//enable/disable logs in debug console
-	bool SUSPICIOUS_WARNING	//enable/disable logs for strange behaviors
-
-	enum G_state game_state //Status of the game [NOT_STARTED/ONGOING/TERMINATED_DRAW/TERMINATED_WINNER_A/TERMINATED_WINNER_B]
-
-	Player playerA		//First  player
-	Player playerB		//Second player
-	
-	Player active_player	//Player currently playing
-	
-	GameBoard board		//Board.
-	
-	
-*/////////////////////
-
-/*///	 Methods	///
-
-	void Start 		//Unused
-	void Update		//Unused
-	
-	void check_state	//Check game_state, End game if needed, also destroy Units with 0 "hp"
-	
-	void play_game		//
-	
-	void start_game		//Not Yet Implemented
-	void end_game		//Not Yet Implemented
-	
-	void play_turn		//Active player play his turn,Not Fully Implemented
-	
-	void start_turn
-	void end_turn
-	
-	
-	void swap_active_player		//Change the Active Player
-	Player get_active_player	//returns the Active Player
-	
-
-*///////////////////////
-
-
 /*///	TODO	///
 
 start_game	-> Not Yet Implemented
@@ -53,10 +11,12 @@ play_turn -> WIP
 
 
 */////////////////////
+
 public class Game : MonoBehaviour
 {
 	public bool DEBUG_PRINT;
 	public bool SUSPICIOUS_WARNING;
+	public byte STARTING_HAND_SIZE;
 	
 	public enum G_state : byte //255 max possible states
 	{
@@ -67,30 +27,55 @@ public class Game : MonoBehaviour
 		TERMINATED_WINNER_B
 	}
 	
-	public G_state game_state;
 	
 	public enum T_state : byte //Turn state
 	{
 		STARTING,
-		ACTIVE,
+		ACTIVE_A,
+		ACTIVE_B,
 		ENDING
 	}
 	
+	public G_state game_state;
 	public T_state turn_state;
 	
 	public Player playerA;	
 	public Player playerB;	
 	private Player active_player;
+	private Player inactive_player;
 	
 	public GameBoard board;	
 	
+    public Canvas card_ui;
+    private CardFeedbackUI card_feedback_controller;
+	
+	
 	
     void Start(){	
-		start_game();
+        card_feedback_controller = card_ui.GetComponent(typeof(CardFeedbackUI)) as CardFeedbackUI;
+		
+		//start_game();
 	}
 
     void Update(){ 
-		play_game();
+		switch (game_state){
+		case G_state.NOT_STARTED:
+			start_game();
+			break;
+			
+		case G_state.ONGOING:
+			play_game();
+			break;
+			
+		case G_state.TERMINATED_DRAW:
+		case G_state.TERMINATED_WINNER_A:
+		case G_state.TERMINATED_WINNER_B:		
+			break;
+
+		default:
+			Debug.Log("ERROR : Invalid game_state !");
+			break;
+		}
 	}
 	
 
@@ -109,12 +94,14 @@ public class Game : MonoBehaviour
 
 	public void start_game()
 	{
-		game_state=G_state.NOT_STARTED;
-		 
 		playerA.init();
 		playerB.init();
 	
-		active_player=PlayerB;
+		playerA.get_card_controller().Draw(3);
+		playerB.get_card_controller().Draw(4);
+	
+		active_player=playerB;
+		
 		game_state=G_state.ONGOING;
 	}
 	
@@ -126,7 +113,6 @@ public class Game : MonoBehaviour
 	
 	public void end_game()
 	{	
-		
 	}
 	
 //Turn management
@@ -137,13 +123,19 @@ public class Game : MonoBehaviour
 		case T_state.STARTING:
 			start_turn();
 			break;
-		case T_state.ACTIVE:
-			
+		
+		case T_state.ACTIVE_A:
+			if(active_player.is_robot()){active_player.auto_turn();}
 			break;
+			
+		case T_state.ACTIVE_B:
+			if(active_player.is_robot()){active_player.auto_turn();}
+			break;
+			
 		case T_state.ENDING:		
 			end_turn();
 			break;
-		
+			
 		}
 		
 	}
@@ -156,8 +148,13 @@ public class Game : MonoBehaviour
 		
 		//board.start_turn();//PLAYER IDENTIFIER ?
 		active_player.start_turn();
-		check_state();	
-		turn_state=T_state.ACTIVE;
+		check_state();
+		
+		if(active_player==playerA){
+			turn_state=T_state.ACTIVE_A;
+		}else{
+			turn_state=T_state.ACTIVE_B;
+		}
 	}
 	
 	private void end_turn()	//Routine de fin de tour
@@ -174,6 +171,9 @@ public class Game : MonoBehaviour
 	
 
 	public void finish_turn(){
+		if(turn_state!=T_state.ACTIVE_A && turn_state!=T_state.ACTIVE_B){
+			if(SUSPICIOUS_WARNING){Debug.Log("WARNING : ["+this+".finish_turn()] Used while Turn not active");}
+		}
 		if(DEBUG_PRINT){Debug.Log("["+this+".finish_turn()] Finishing turn");}
 		
 		turn_state=T_state.ENDING;
@@ -191,36 +191,33 @@ public class Game : MonoBehaviour
 			if(active_player == playerA){
 				if(DEBUG_PRINT){Debug.Log("["+this+".swap_active_player()] "+active_player+"replaced by"+playerB);}
 				active_player=playerB;
+				inactive_player=playerA;
 			}else{	//Do I really need to recheck if active_player == PlayerB ?
 				if(DEBUG_PRINT){Debug.Log("["+this+".swap_active_player()] "+active_player+"replaced by"+playerA);}
 				active_player=playerA;
+				inactive_player=playerB;
 			}
 			
 		}
-		
-		//Switch, Cleaner but doesn't work ^^
-		/*
-		switch(active_player)
-		{
-		case playerA:
-			if(DEBUG_PRINT){Debug.Log("["+this+".swap_active_player()] "+active_player+"replaced by"+playerB);}
-			active_player=playerB;
-			break;
-			
-		case playerB:
-			if(DEBUG_PRINT){Debug.Log("["+this+".swap_active_player()] "+active_player+"replaced by"+playerA);}
-			active_player=playerA;
-			break;
-		
-		default:
-			Debug.Log("ERROR : ["+this+".swap_active_player()] Invalid Active player "+active_player);
-			break;
-		}
-		*/
 	}
 	
 	public Player get_active_player(){
 		return active_player;
 	}
 	
+	public Player get_inactive_player(){
+		return inactive_player;
+	}
+	
+	
+	
+//Display management
+	public void display_feedback_card_played(Player card_owner,string card_name){
+		if(active_player == playerB){
+			card_feedback_controller.WritePlayerB("Card played : "+card_name);
+		}
+		if(active_player == playerA){
+			card_feedback_controller.WritePlayerA("Card played : "+card_name);
+		}
+	}
 }

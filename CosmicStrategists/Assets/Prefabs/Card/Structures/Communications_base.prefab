@@ -18,7 +18,6 @@ MonoBehaviour:
   name_component: {fileID: 2885518657390698990}
   description_component: {fileID: 7528931207341286007}
   cost_component: {fileID: 401741054392614311}
-  owner: {fileID: 0}
 --- !u!1001 &2655763278452662599
 PrefabInstance:
   m_ObjectHideFlags: 0

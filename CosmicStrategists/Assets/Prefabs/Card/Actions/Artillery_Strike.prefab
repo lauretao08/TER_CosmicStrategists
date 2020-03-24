@@ -18,7 +18,6 @@ MonoBehaviour:
   name_component: {fileID: 7436991580092429395}
   description_component: {fileID: 2829044059050096586}
   cost_component: {fileID: 5381149279915157530}
-  owner: {fileID: 0}
 --- !u!1001 &7774832811101435130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,6 +25,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6621004947966490, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -7,12 +7,15 @@ public class CardFeedbackUI : MonoBehaviour
 {
     public Text CardPlayerA;
     public Text CardPlayerB;
+	public Text EndGame;
 
     private bool c_displayed_A = false;
     private bool c_displayed_B = false;
+    private bool c_displayed_E = false;
 
     private float c_timer_A = 0;
     private float c_timer_B = 0;
+    private float c_timer_E = 0;
 
     public float timeDisplayed = 2.0f;
 
@@ -46,6 +49,16 @@ public class CardFeedbackUI : MonoBehaviour
                 c_timer_B = 0.0f;
             }
         }
+		
+		if (c_displayed_E)
+        {
+            c_timer_E += Time.deltaTime;
+            if (c_timer_E > timeDisplayed)
+			{
+                EraseEndGame();
+                c_timer_E = 0.0f;
+            }
+        }
     }
 
     public void WritePlayerA(string text)
@@ -61,6 +74,13 @@ public class CardFeedbackUI : MonoBehaviour
         c_displayed_B = true;
         c_timer_B = 0.0f;
     }
+	
+	public void WriteEndGame(string text)
+    {
+        EndGame.text = text;
+        c_displayed_E = true;
+        c_timer_E = 0.0f;
+    }
 
     void EraseplayerA()
     {
@@ -72,5 +92,12 @@ public class CardFeedbackUI : MonoBehaviour
     {
         CardPlayerB.text = "";
         c_displayed_B = false;
+    }
+	
+	
+    void EraseEndGame()
+    {
+       EndGame.text = "";
+        c_displayed_E = false;
     }
 }

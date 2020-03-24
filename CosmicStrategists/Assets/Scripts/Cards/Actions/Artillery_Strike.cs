@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class Artillery_Strike : Card_Action
 {
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
+	
     protected override void Activate()
     {
-
+		game_manager.get_inactive_player().lose_hp(2);
     }
 
 }

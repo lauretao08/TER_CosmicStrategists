@@ -117,6 +117,8 @@ abstract public class Card : MonoBehaviour
 
     //Activate triggers thhe effect specific to the card, and is called on play
     abstract protected void Activate();
+    virtual protected void OnStartTurn(){}
+    virtual protected void OnEndTurn(){}
     
 
     //Set anchor position in hand for drag&drop

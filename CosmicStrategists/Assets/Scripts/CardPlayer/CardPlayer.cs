@@ -133,8 +133,10 @@ public class CardPlayer : MonoBehaviour
 				return;
 			}
 			
-            if (draw_pile.Count >= 1)
-            {	
+            if (draw_pile.Count < 1){
+				
+                Debug.Log("Empty draw pile, cannot draw card");
+            }else{	
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
                 //hand.Add(tmp);
@@ -155,10 +157,6 @@ public class CardPlayer : MonoBehaviour
                 hand.Add(tmp_card);
                 //arrange card position upon drawing
                 Arrange();
-            }
-            else
-            {
-                Debug.Log("Empty draw pile, cannot draw card");
             }
             
         }

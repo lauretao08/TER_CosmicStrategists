@@ -38,6 +38,8 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
 	
+	public Game game_manager;
+	
 	public List<Unit> playerA_units;
 	public List<Unit> playerB_units;
     public List<GameObject> playerA_units_go;
@@ -56,11 +58,61 @@ public class GameBoard : MonoBehaviour
 	public void start_turn()
 	{
 		
+		if(game_manager.get_id_active_player()==false){ //Si joueur A	
+			if(playerA_units.Count>0){
+				foreach(Unit u in playerA_units){
+					u.start_turn();
+				}
+			}
+			if(playerA_structures.Count>0){			
+				foreach(Structure s in playerA_structures){
+					s.start_turn();
+				}
+			
+			}
+		}
+		if(game_manager.get_id_active_player()==true){ //Si joueur B
+			if(playerB_units.Count>0){
+				foreach(Unit u in playerB_units){
+					u.start_turn();
+				}
+			}
+			if(playerB_structures.Count>0){
+				foreach(Structure s in playerB_structures){
+					s.start_turn();
+				}
+			}
+		}
+		
 	}
 	
 	public void end_turn()
 	{
-		
+		if(game_manager.get_id_active_player()==false){ //Si joueur A
+			if(playerA_units.Count>0){
+				foreach(Unit u in playerA_units){
+					u.end_turn();
+				}
+			}
+			if(playerA_structures.Count>0){			
+				foreach(Structure s in playerA_structures){
+					s.end_turn();
+				}
+			
+			}
+		}
+		if(game_manager.get_id_active_player()==true){ //Si joueur B
+			if(playerB_units.Count>0){
+				foreach(Unit u in playerB_units){
+					u.end_turn();
+				}
+			}
+			if(playerB_structures.Count>0){
+				foreach(Structure s in playerB_structures){
+					s.end_turn();
+				}
+			}
+		}
 	}
 	
 	public void check_state(){
@@ -83,6 +135,7 @@ public class GameBoard : MonoBehaviour
     {
         playerA_units_go.Add(unit);
         Unit tmp = unit.GetComponent(typeof(Unit)) as Unit;
+		tmp.set_game_manager(game_manager);
         add_unit_A(tmp);
         PlaceUnitsA();
     }
@@ -91,9 +144,11 @@ public class GameBoard : MonoBehaviour
     {
         playerB_units_go.Add(unit);
         Unit tmp = unit.GetComponent(typeof(Unit)) as Unit;
+		tmp.set_game_manager(game_manager);
         add_unit_B(tmp);
         PlaceUnitsB();
     }
+
 
     //**STRUCTURES**//
     public void add_structure_A(Structure structure)
@@ -110,6 +165,7 @@ public class GameBoard : MonoBehaviour
     {
         playerA_structures_go.Add(structure);
         Structure tmp = structure.GetComponent(typeof(Structure)) as Structure;
+		tmp.set_game_manager(game_manager);
         add_structure_A(tmp);
         PlaceStructuresA();
     }
@@ -118,6 +174,7 @@ public class GameBoard : MonoBehaviour
     {
         playerB_structures_go.Add(structure);
         Structure tmp = structure.GetComponent(typeof(Structure)) as Structure;
+		tmp.set_game_manager(game_manager);
         add_structure_B(tmp);
         PlaceStructuresB();
     }

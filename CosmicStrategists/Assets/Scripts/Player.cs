@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 	public int energy;
 	private int max_energy;
 	
-	private bool is_dead;
+	private bool dead;
 	
 	
     // Start is called before the first frame update
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 	public void init()
 	{
 		health = STARTING_HEALTH;
-		is_dead= false;
+		dead= false;
 		
 		max_energy=STARTING_ENERGY;
 		energy=max_energy;
@@ -191,8 +191,8 @@ public class Player : MonoBehaviour
 //NO IDEA HOW TO NAME THIS !
 
 	public bool dies(){
-		is_dead=true;
-		return is_dead;
+		dead=true;
+		return dead;
 	}
 	
 	public void auto_turn(){
@@ -221,5 +221,9 @@ public class Player : MonoBehaviour
 	
 	public bool is_robot(){
 		return player_type == P_type.ROBOT;
+	}
+	
+	public bool is_dead(){
+		return dead;
 	}
 }

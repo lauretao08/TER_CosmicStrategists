@@ -24,7 +24,8 @@ public class Game : MonoBehaviour
 		STARTING,
 		ACTIVE_A,
 		ACTIVE_B,
-		ENDING
+		ENDING,
+		OUT_OF_TURN
 	}
 	
 	private G_state game_state;
@@ -60,7 +61,8 @@ public class Game : MonoBehaviour
 			
 		case G_state.TERMINATED_DRAW:
 		case G_state.TERMINATED_WINNER_A:
-		case G_state.TERMINATED_WINNER_B:		
+		case G_state.TERMINATED_WINNER_B:
+			end_game();		
 			break;
 
 		default:
@@ -73,12 +75,18 @@ public class Game : MonoBehaviour
 //Checking
 
 	private void check_state(){
-		if(game_state == G_state.TERMINATED_DRAW || game_state == G_state.TERMINATED_WINNER_A || game_state == G_state.TERMINATED_WINNER_B){
-			if(DEBUG_PRINT){Debug.Log("["+this+"check_state()] Game Terminated");}
-			end_game();
+		if(playerA.is_dead()&&playerB.is_dead()){
+			game_state = G_state.TERMINATED_DRAW;
+		}else{
+			if(playerA.is_dead()){
+				game_state = G_state.TERMINATED_WINNER_B;
+			}
+			if(playerB.is_dead()){
+				game_state = G_state.TERMINATED_WINNER_A;
+			}
 		}
 		
-		//board.check_state();
+		board.check_state();
 	}
 	
 //Game management
@@ -104,12 +112,34 @@ public class Game : MonoBehaviour
 	
 	public void end_game()
 	{	
+		//Display Winner
+		switch (game_state){
+			
+		case G_state.TERMINATED_DRAW:
+			card_feedback_controller.WriteEndGame("Egalité");
+			break;
+		case G_state.TERMINATED_WINNER_A:
+			card_feedback_controller.WriteEndGame("Victoire");
+			break;
+		case G_state.TERMINATED_WINNER_B:	
+			card_feedback_controller.WriteEndGame("Defaite");
+			break;
+
+		case G_state.NOT_STARTED:	
+		case G_state.ONGOING:
+		default:
+			Debug.Log("ERROR : Invalid game_state !");
+			break;
+		}
+		//Fade to black
+		Initiate.Fade("Menu",Color.black,2.0f);
+		
 	}
 	
 //Turn management
 	
 	public void play_turn()
-	{	
+	{	check_state();
 		switch(turn_state){
 		case T_state.STARTING:
 			start_turn();
@@ -126,7 +156,13 @@ public class Game : MonoBehaviour
 		case T_state.ENDING:		
 			end_turn();
 			break;
+		
+		case T_state.OUT_OF_TURN:
+			break;
 			
+		default:
+			Debug.Log("ERROR : Invalid turn_state !");
+			break;
 		}
 		
 	}
@@ -137,8 +173,8 @@ public class Game : MonoBehaviour
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".start_turn()] "+active_player+"Turn started");}
 		
-		//board.start_turn();//PLAYER IDENTIFIER ?
 		active_player.start_turn();
+		board.start_turn();
 		check_state();
 		
 		if(active_player==playerA){
@@ -153,8 +189,8 @@ public class Game : MonoBehaviour
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".end_turn()] "+active_player+"Turn ended");}
 		
+		board.end_turn();
 		active_player.end_turn();
-		//board.end_turn();//PLAYER IDENTIFIER ?
 		check_state();
 		
 		turn_state=T_state.STARTING;
@@ -196,22 +232,18 @@ public class Game : MonoBehaviour
 		return active_player;
 	}
 
-    public Player get_opposing_player()
-    {
-        if (active_player.Equals(playerA))
-        {
-            return playerB;
-        }
-        else
-        {
-            return playerA;
-        }
-    }
 	
 	public Player get_inactive_player(){
 		return inactive_player;
 	}
 	
+	public bool get_id_active_player(){ //False = A // True = B
+		if(active_player == playerA){
+			return false;
+		}else{
+			return true;
+		}
+	}
 	
 	
 //Display management

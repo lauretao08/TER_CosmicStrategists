@@ -56,7 +56,7 @@ public class CardPlayer : MonoBehaviour
 
         deck_loader = new DeckLoader();
 
-        deck = deck_loader.LoadFromFileInId("Assets/Data_Files/deck.json");
+        deck = deck_loader.LoadFromFileInId("Assets/Resources/Decks/placeholder.json");
         
         ShuffleDeck();
 

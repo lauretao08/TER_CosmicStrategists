@@ -41,15 +41,20 @@ public class Game : MonoBehaviour
     public Canvas card_ui;
     private CardFeedbackUI card_feedback_controller;
 	
+	public bool paused;
 	
+	public Canvas canvas_pause;
+	private PauseMenu pause_menu;
 	
     void Start(){	
         card_feedback_controller = card_ui.GetComponent(typeof(CardFeedbackUI)) as CardFeedbackUI;
 		
-		//start_game();
+		pause_menu = canvas_pause.GetComponent(typeof(PauseMenu)) as PauseMenu;
+		
 	}
 
     void Update(){ 
+		paused = pause_menu.GameIsPaused;
 		switch (game_state){
 		case G_state.NOT_STARTED:
 			start_game();
@@ -132,14 +137,17 @@ public class Game : MonoBehaviour
 			break;
 		}
 		//Fade to black
-		Initiate.Fade("Menu",Color.black,2.0f);
+		Initiate.Fade("MenuPrincipal",Color.black,2.0f);
 		
 	}
 	
 //Turn management
 	
 	public void play_turn()
-	{	check_state();
+	{	if(paused){
+			return;
+		}
+		check_state();
 		switch(turn_state){
 		case T_state.STARTING:
 			start_turn();

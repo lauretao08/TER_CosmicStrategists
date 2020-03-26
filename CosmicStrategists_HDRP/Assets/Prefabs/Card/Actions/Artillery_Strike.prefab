@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5629205579913542911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179119963631711177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502db9c2479213d4da51a61a6e5e32a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_name: Artillery_Strike
+  card_base_energy_cost: 0
+  card_description: Inflict 2 Damage
+  name_component: {fileID: 7436991580092429395}
+  description_component: {fileID: 2829044059050096586}
+  cost_component: {fileID: 5381149279915157530}
+--- !u!1001 &7774832811101435130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6621004947966490, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_Name
+      value: Artillery_Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877786866204765937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42a9a36a7be94d844a3bc81580842170, type: 2}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_name
+      value: Artillery Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_base_energy_cost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: card_description
+      value: Inflict 2 Damage
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6293622059494479158, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
+--- !u!1 &6179119963631711177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7774832811101435130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!102 &7436991580092429395 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 923309734478102697, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7774832811101435130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!102 &2829044059050096586 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 5523394095962948400, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7774832811101435130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!102 &5381149279915157530 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 2398289937304755424, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7774832811101435130}
+  m_PrefabAsset: {fileID: 0}

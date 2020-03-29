@@ -8,14 +8,17 @@ public class CardFeedbackUI : MonoBehaviour
     public Text CardPlayerA;
     public Text CardPlayerB;
 	public Text EndGame;
+	public Text TurnDisplay;
 
     private bool c_displayed_A = false;
     private bool c_displayed_B = false;
     private bool c_displayed_E = false;
+    private bool c_displayed_T = false;
 
     private float c_timer_A = 0;
     private float c_timer_B = 0;
     private float c_timer_E = 0;
+    private float c_timer_T = 0;
 
     public float timeDisplayed = 2.0f;
 
@@ -23,7 +26,6 @@ public class CardFeedbackUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -59,6 +61,16 @@ public class CardFeedbackUI : MonoBehaviour
                 c_timer_E = 0.0f;
             }
         }
+		
+		if (c_displayed_T)
+        {
+            c_timer_T += Time.deltaTime;
+            if (c_timer_T > timeDisplayed)
+			{
+                EraseTurnDisplay();
+                c_timer_T = 0.0f;
+            }
+        }
     }
 
     public void WritePlayerA(string text)
@@ -81,6 +93,13 @@ public class CardFeedbackUI : MonoBehaviour
         c_displayed_E = true;
         c_timer_E = 0.0f;
     }
+	
+	public void WriteTurnDisplay(string text)
+    {
+        TurnDisplay.text = text;
+        c_displayed_T = true;
+        c_timer_T = 0.0f;
+    }
 
     void EraseplayerA()
     {
@@ -94,10 +113,15 @@ public class CardFeedbackUI : MonoBehaviour
         c_displayed_B = false;
     }
 	
-	
     void EraseEndGame()
     {
-       EndGame.text = "";
+		EndGame.text = "";
         c_displayed_E = false;
+    }
+	
+	void EraseTurnDisplay()
+    {
+		TurnDisplay.text = "";
+        c_displayed_T = false;
     }
 }

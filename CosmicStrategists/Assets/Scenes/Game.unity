@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a591a7d784c87034b8485986e5fd65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG_PRINT: 1
+  DEBUG_PRINT: 0
   SUSPICIOUS_WARNING: 1
   STARTING_HEALTH: 20
   STARTING_ENERGY: 0
@@ -774,6 +774,7 @@ MonoBehaviour:
   EventManager: {fileID: 1970626550}
   UI_Health: {fileID: 310156400}
   UI_Energy: {fileID: 768974914}
+  name: Human
   player_type: 0
   health: 0
   energy: 0
@@ -834,8 +835,8 @@ MonoBehaviour:
   playerB: {fileID: 1339944670}
   board: {fileID: 1069818272}
   card_ui: {fileID: 1563966717}
-  paused: 0
   canvas_pause: {fileID: 1134838093}
+  paused: 0
 --- !u!4 &564620043
 Transform:
   m_ObjectHideFlags: 0
@@ -2111,7 +2112,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2368,6 +2369,7 @@ MonoBehaviour:
   EventManager: {fileID: 2131770558}
   UI_Health: {fileID: 1778614470}
   UI_Energy: {fileID: 367952750}
+  name: Nemesis
   player_type: 1
   health: 0
   energy: 0
@@ -2829,7 +2831,7 @@ GameObject:
   - component: {fileID: 1456436973}
   - component: {fileID: 1456436972}
   m_Layer: 5
-  m_Name: TextEndGame
+  m_Name: Text-Turn-EndGame
   m_TagString: CardPlayedPlayer1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2848,8 +2850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9782633, b: 0.33333337, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 0.7991394, b: 0.33333337, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2945,7 +2947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.6572101, g: 0.33490568, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3177,6 +3179,7 @@ MonoBehaviour:
   CardPlayerA: {fileID: 2119354599}
   CardPlayerB: {fileID: 1505884806}
   EndGame: {fileID: 1456436972}
+  TurnDisplay: {fileID: 1456436972}
   timeDisplayed: 2
 --- !u!114 &1563966715
 MonoBehaviour:
@@ -5030,7 +5033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.38584113, b: 0.24056602, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

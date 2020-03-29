@@ -41,10 +41,11 @@ public class Game : MonoBehaviour
     public Canvas card_ui;
     private CardFeedbackUI card_feedback_controller;
 	
-	public bool paused;
-	
 	public Canvas canvas_pause;
 	private PauseMenu pause_menu;
+	
+	private bool alreadyEnding = false;
+	public bool paused;
 	
     void Start(){	
         card_feedback_controller = card_ui.GetComponent(typeof(CardFeedbackUI)) as CardFeedbackUI;
@@ -117,28 +118,30 @@ public class Game : MonoBehaviour
 	
 	public void end_game()
 	{	
-		//Display Winner
-		switch (game_state){
-			
-		case G_state.TERMINATED_DRAW:
-			card_feedback_controller.WriteEndGame("Egalité");
-			break;
-		case G_state.TERMINATED_WINNER_A:
-			card_feedback_controller.WriteEndGame("Victoire");
-			break;
-		case G_state.TERMINATED_WINNER_B:	
-			card_feedback_controller.WriteEndGame("Defaite");
-			break;
+		if(!alreadyEnding){
+			alreadyEnding=true;
+			//Display Winner
+			switch (game_state){
+				
+			case G_state.TERMINATED_DRAW:
+				card_feedback_controller.WriteEndGame("Egalité");
+				break;
+			case G_state.TERMINATED_WINNER_A:
+				card_feedback_controller.WriteEndGame("Victoire");
+				break;
+			case G_state.TERMINATED_WINNER_B:	
+				card_feedback_controller.WriteEndGame("Defaite");
+				break;
 
-		case G_state.NOT_STARTED:	
-		case G_state.ONGOING:
-		default:
-			Debug.Log("ERROR : Invalid game_state !");
-			break;
+			case G_state.NOT_STARTED:	
+			case G_state.ONGOING:
+			default:
+				Debug.Log("ERROR : Invalid game_state !");
+				break;
+			}
+			//Fade to black
+			Initiate.Fade("MenuPrincipal",Color.black,2.0f);
 		}
-		//Fade to black
-		Initiate.Fade("MenuPrincipal",Color.black,2.0f);
-		
 	}
 	
 //Turn management
@@ -180,6 +183,7 @@ public class Game : MonoBehaviour
 		swap_active_player();
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".start_turn()] "+active_player+"Turn started");}
+		card_feedback_controller.WriteTurnDisplay("Tour de "+active_player.name);
 		
 		active_player.start_turn();
 		board.start_turn();

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Glowing
+  m_Name: M_Glowing2
   m_Shader: {fileID: -6465566751694194690, guid: c788e383d5eef6e4eade1f774ff7a6f0,
     type: 3}
   m_ShaderKeywords: 
@@ -24,4 +24,4 @@ Material:
     m_TexEnvs: []
     m_Floats: []
     m_Colors:
-    - Color_95A31B87: {r: 1825.2128, g: 37.27241, b: 0, a: 0}
+    - Color_95A31B87: {r: 2436.8022, g: 1306.4121, b: 0, a: 0}

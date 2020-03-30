@@ -148,19 +148,19 @@ abstract public class Unit : MonoBehaviour
         switch (type)
         {
             case HighlightStyle.None:
-                unit_renderer.material.color = base_color;
+                unit_renderer.material.SetColor("_BaseColor", base_color);
                 break;
             case HighlightStyle.Highlight:
-                unit_renderer.material.color = highlight_color;
+                unit_renderer.material.SetColor("_BaseColor", highlight_color);
                 break;
             case HighlightStyle.Ready_To_Play:
-                unit_renderer.material.color = action_color;
+                unit_renderer.material.SetColor("_BaseColor", action_color);
                 break;
             case HighlightStyle.Selected:
-                unit_renderer.material.color = selected_color;
+                unit_renderer.material.SetColor("_BaseColor", selected_color);
                 break;
             case HighlightStyle.Not_Playable:
-                unit_renderer.material.color = unusable_color;
+                unit_renderer.material.SetColor("_BaseColor", unusable_color);
                 break;
             default:
                 Debug.Log("Invalid Highlight Type for unit");

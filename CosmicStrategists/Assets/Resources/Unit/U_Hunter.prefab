@@ -17,6 +17,7 @@ MonoBehaviour:
   health: 1
   max_health: 1
   has_active_effect: 1
+  self_targetable: 0
 --- !u!1001 &7958247118664727599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,6 +85,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 3817253856353001737, guid: 4146f24e5ff3ab24ba50178dc6eabddd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f8d14473906fe0499b8aafdaa6765f2, type: 2}
     - target: {fileID: 4418110185759146251, guid: 4146f24e5ff3ab24ba50178dc6eabddd,
         type: 3}
       propertyPath: m_Name

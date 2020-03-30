@@ -8,7 +8,8 @@ public enum HighlightStyle : byte
     None,
     Highlight,
     Ready_To_Play,
-	Not_Playable
+	Not_Playable,
+    Selected
 
 }
 

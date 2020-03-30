@@ -12,7 +12,6 @@ public enum HighlightStyle : byte
 
 }
 
-
 abstract public class Card : MonoBehaviour
 {
     //Parameters
@@ -77,7 +76,9 @@ abstract public class Card : MonoBehaviour
     // Update is called once per frame
     //Update is necessary for drag and drop, unless Tao finds a better solution
     void Update()
-    {
+    {	if(game_manager.paused){
+			return;
+		}
         if (dragging)
         {
             Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);
@@ -132,26 +133,29 @@ abstract public class Card : MonoBehaviour
     {
 		switch(type){
 		case HighlightStyle.None:
-            card_renderer.material.color = base_color;
+            card_renderer.material.SetColor("_BaseColor",base_color);
 			break;
 		case HighlightStyle.Highlight:
-            card_renderer.material.color = highlight_color;
+            card_renderer.material.SetColor("_BaseColor",highlight_color);
 			break;
 		case HighlightStyle.Ready_To_Play:
-            card_renderer.material.color = action_color;
+            card_renderer.material.SetColor("_BaseColor",action_color);
 			break;
 		case HighlightStyle.Not_Playable:
-            card_renderer.material.color = inactive_color;
+            card_renderer.material.SetColor("_BaseColor",inactive_color);
 			break;
 		default:
 			Debug.Log("Invalid Highlight Type");
-            card_renderer.material.color = base_color;
+            card_renderer.material.SetColor("_BaseColor",base_color);
 			break;
 		}
     }
 
     void OnMouseEnter()
     {
+		if(game_manager.paused){
+			return;
+		}
         Highlight(HighlightStyle.Highlight);
     }
 
@@ -168,7 +172,8 @@ abstract public class Card : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (dragging && ready_to_play)
+		
+        if (dragging && ready_to_play&& !game_manager.paused)
         {
             OnPlay();
         }
@@ -204,5 +209,4 @@ abstract public class Card : MonoBehaviour
 			return game_manager.playerA;
 		}
 	}
-
 }

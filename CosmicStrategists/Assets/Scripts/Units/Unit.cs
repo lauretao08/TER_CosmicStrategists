@@ -47,6 +47,7 @@ abstract public class Unit : MonoBehaviour
             start_turn_active();
         }
     }
+	
     public virtual void on_arrival()
     {
         if (has_active_effect)
@@ -133,7 +134,7 @@ abstract public class Unit : MonoBehaviour
                 
                 if(Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("RAY DETECTED : " + hit.collider.gameObject.name);
+                    if(DEBUG_PRINT){Debug.Log("RAY DETECTED : " + hit.collider.gameObject.name);}
                     active_effect_target = hit.collider.gameObject;
                     
                 }

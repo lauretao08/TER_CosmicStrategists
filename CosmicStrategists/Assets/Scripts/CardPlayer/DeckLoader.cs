@@ -24,7 +24,6 @@ public class DeckLoader
 		COMMUNICATIONS_BASE,
 		COMMON_FRIGATE,
 		HYMPERIUM_CRUISER
-		
     }
 
     public DeckLoader()
@@ -89,7 +88,7 @@ public class DeckLoader
             	
 				
             default:
-				//Debug.Log("Error while loading card with id"+ID+", replaced by scout");
+				Debug.Log("Error while loading card with id"+ID+", replaced by scout");
                 return Resources.Load("Card/Units/Scout") as GameObject;
         }
     }

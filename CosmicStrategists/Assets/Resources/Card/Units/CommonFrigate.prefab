@@ -30,17 +30,17 @@ PrefabInstance:
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 393.28033
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 193.88358
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -607.0131
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
@@ -87,6 +87,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CommonFrigate
       objectReference: {fileID: 0}
+    - target: {fileID: 8327158832361267439, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f8d14473906fe0499b8aafdaa6765f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
 --- !u!1 &3072580955234028533 stripped

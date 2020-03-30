@@ -21,7 +21,8 @@ public class DeckLoader
 	public enum Card_ID{
 		SCOUT,
 		ARTILLERY_STRIKE,
-		COMMUNICATIONS_BASE
+		COMMUNICATIONS_BASE,
+        HUNTER
     }
 
     public DeckLoader()
@@ -79,6 +80,8 @@ public class DeckLoader
                 return Resources.Load("Card/Actions/Artillery_Strike") as GameObject;
             case Card_ID.COMMUNICATIONS_BASE:
                 return Resources.Load("Card/Structures/Communications_base") as GameObject;
+            case Card_ID.HUNTER:
+                return Resources.Load("Card/Units/Hunter") as GameObject;
             default:
                 return Resources.Load("Card/Units/Scout") as GameObject;
         }

@@ -109,4 +109,5 @@ MonoBehaviour:
   DEBUG_PRINT: 0
   SUSPICIOUS_WARNING: 0
   health: 2
-  max_health: 0
+  max_health: 2
+  has_active_effect: 0

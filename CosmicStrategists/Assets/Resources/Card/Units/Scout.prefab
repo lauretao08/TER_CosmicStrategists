@@ -30,17 +30,17 @@ PrefabInstance:
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 136.68237
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 58.759056
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 85.44485
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
@@ -106,6 +106,16 @@ PrefabInstance:
         type: 3}
       propertyPath: card_description
       value: "Inflict 1 damage to \nenemy every turn"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327158832361267439, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f8d14473906fe0499b8aafdaa6765f2, type: 2}
+    - target: {fileID: 8327158832361267439, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9223030088294768937, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}

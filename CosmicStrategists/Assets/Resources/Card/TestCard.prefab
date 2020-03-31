@@ -175,7 +175,7 @@ TextMesh:
   m_GameObject: {fileID: 300316791253717082}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.05
+  m_CharacterSize: 0.1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 2204380763952740254}
   - component: {fileID: 8327158832361267439}
   - component: {fileID: 2149955502200266368}
-  - component: {fileID: 6293622059494479158}
   m_Layer: 0
   m_Name: TestCard
   m_TagString: Untagged
@@ -251,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4f8d14473906fe0499b8aafdaa6765f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,25 +284,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6293622059494479158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4478097425508747059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f80b4b9329d5ca4bba5407e69f8ccd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card_name: '-'
-  card_base_energy_cost: 2
-  card_description: '-'
-  name_component: {fileID: 923309734478102697}
-  description_component: {fileID: 5523394095962948400}
-  cost_component: {fileID: 2398289937304755424}
-  owner: {fileID: 0}
 --- !u!1 &5975028536162430024
 GameObject:
   m_ObjectHideFlags: 0

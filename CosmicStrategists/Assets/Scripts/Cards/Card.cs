@@ -8,7 +8,8 @@ public enum HighlightStyle : byte
     None,
     Highlight,
     Ready_To_Play,
-	Not_Playable
+	Not_Playable,
+    Selected
 
 }
 
@@ -45,6 +46,7 @@ abstract public class Card : MonoBehaviour
     protected Camera main_camera;
     protected CardPlayer card_manager;
 	//For owner use get_owner()
+	//For opponent use get_opponent()
     protected Game game_manager;
 
     // Start is called before the first frame update
@@ -200,5 +202,12 @@ abstract public class Card : MonoBehaviour
 	public Player get_owner(){
 		return card_manager.player;
 	}
-
+	
+	public Player get_opponent(){
+		if(card_manager.player == game_manager.playerA){
+			return game_manager.playerB;
+		}else{
+			return game_manager.playerA;
+		}
+	}
 }

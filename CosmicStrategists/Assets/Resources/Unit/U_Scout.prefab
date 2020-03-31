@@ -104,10 +104,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77932de672f058f478bcb738197ce976, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   DEBUG_PRINT: 0
   SUSPICIOUS_WARNING: 0
   health: 2
-  max_health: 2
-  has_active_effect: 0
+  max_health: 0

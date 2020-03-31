@@ -67,7 +67,7 @@ public class OptionMenu : MonoBehaviour
     }
 
    	public void LoadBackScene(){
-        StartCoroutine(LoadLevel("CardScene"));
+        StartCoroutine(LoadLevel("Game"));
     }
 
     IEnumerator LoadLevel(string scene)

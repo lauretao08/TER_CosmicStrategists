@@ -45,9 +45,6 @@ public class GameBoard : MonoBehaviour
     public List<GameObject> playerA_units_go;
     public List<GameObject> playerB_units_go;
 
-    private int nb_units_max;
-    private int nb_structures_max;
-
     public List<Structure> playerA_structures;
     public List<Structure> playerB_structures;
     public List<GameObject> playerA_structures_go;
@@ -152,62 +149,6 @@ public class GameBoard : MonoBehaviour
         PlaceUnitsB();
     }
 
-    void PlaceUnitsA()
-    {
-        Vector3 base_pos = Board.transform.position;
-        base_pos.z -= 15.0f;
-        base_pos.y += 1.0f;
-        base_pos.x -= 25.0f;
-
-
-        foreach (GameObject c in playerA_units_go)
-        {
-            c.transform.position = base_pos;
-
-            base_pos.x += 3.0f;
-        }
-    }
-
-    void PlaceUnitsB()
-    {
-        Vector3 base_pos = Board.transform.position;
-        base_pos.z += 15.0f;
-        base_pos.y += 1.0f;
-        base_pos.x += 25.0f;
-
-
-        foreach (GameObject c in playerB_units_go)
-        {
-            c.transform.position = base_pos;
-
-            base_pos.x -= 3.0f;
-        }
-    }
-
-    public void removeUnitFromPlayer(Unit unit,GameObject unit_gameObject)
-    {
-        //PlayerA
-        if (playerA_units.Remove(unit))
-        {
-            Debug.Log("Unit " + unit.name + " removed for player A");
-        }
-        if (playerA_units_go.Remove(unit_gameObject))
-        {
-            Debug.Log("GameObject unit " + unit_gameObject.name + " removed for player A");
-        }
-
-        //PlayerB
-        if (playerB_units.Remove(unit))
-        {
-            Debug.Log("Unit " + unit.name + " removed for player B");
-        }
-        if (playerB_units_go.Remove(unit_gameObject))
-        {
-            Debug.Log("GameObject unit " + unit_gameObject.name + " removed for player B");
-        }
-
-    }
-
 
     //**STRUCTURES**//
     public void add_structure_A(Structure structure)
@@ -238,8 +179,42 @@ public class GameBoard : MonoBehaviour
         PlaceStructuresB();
     }
 
-    
+    //**UNITS**//
 
+    void PlaceUnitsA()
+    {
+        Vector3 base_pos = Board.transform.position;
+        base_pos.z -= 15.0f;
+        base_pos.y += 1.0f;
+        base_pos.x -= 25.0f;
+
+        
+        foreach (GameObject c in playerA_units_go)
+        {
+            c.transform.position = base_pos;
+            
+            base_pos.x += 3.0f;
+        }
+    }
+
+    void PlaceUnitsB()
+    {
+        Vector3 base_pos = Board.transform.position;
+        base_pos.z += 15.0f;
+        base_pos.y += 1.0f;
+        base_pos.x += 25.0f;
+
+
+        foreach (GameObject c in playerB_units_go)
+        {
+            c.transform.position = base_pos;
+            
+            base_pos.x -= 3.0f;
+        }
+    }
+
+
+    //**STRUCTURES**//
     void PlaceStructuresA()
     {
         Vector3 base_pos = Board.transform.position;

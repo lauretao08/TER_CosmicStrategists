@@ -21,10 +21,7 @@ public class DeckLoader
 	public enum Card_ID{
 		SCOUT,
 		ARTILLERY_STRIKE,
-		COMMUNICATIONS_BASE,
-		COMMON_FRIGATE,
-		HYMPERIUM_CRUISER,
-		HUNTER
+		COMMUNICATIONS_BASE
     }
 
     public DeckLoader()
@@ -42,7 +39,7 @@ public class DeckLoader
         DeckJson card_ids = new DeckJson();
 
         card_ids = JsonUtility.FromJson<DeckJson>(json);
-
+        
         List<int> deck = new List<int>();
 
         if (card_ids.Deck != null)
@@ -73,7 +70,7 @@ public class DeckLoader
                 return Resources.Load("Card/Units/Scout") as GameObject;
         }
 		*/
-
+		 
         switch ((Card_ID) ID)
         {
             case Card_ID.SCOUT:
@@ -82,15 +79,7 @@ public class DeckLoader
                 return Resources.Load("Card/Actions/Artillery_Strike") as GameObject;
             case Card_ID.COMMUNICATIONS_BASE:
                 return Resources.Load("Card/Structures/Communications_base") as GameObject;
-            case Card_ID.COMMON_FRIGATE:
-                return Resources.Load("Card/Units/CommonFrigate") as GameObject;
-            case Card_ID.HYMPERIUM_CRUISER:
-                return Resources.Load("Card/Units/HymperiumCruiser") as GameObject;
-            case Card_ID.HUNTER:
-                return Resources.Load("Card/Units/Hunter") as GameObject;
-
             default:
-				Debug.Log("Error while loading card with id"+ID+", replaced by scout");
                 return Resources.Load("Card/Units/Scout") as GameObject;
         }
     }

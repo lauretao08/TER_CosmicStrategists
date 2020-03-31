@@ -7,7 +7,7 @@ public class Artillery_Strike : Card_Action
 	
     protected override void Activate()
     {
-		get_opponent().lose_hp(2);
+		game_manager.get_inactive_player().lose_hp(2);
     }
 
 }

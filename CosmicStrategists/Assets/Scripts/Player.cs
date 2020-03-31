@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
 	public Text UI_Energy;
 	
 	//Variables
-	new public string name;
 	public P_type player_type;
 	
 	public int health;

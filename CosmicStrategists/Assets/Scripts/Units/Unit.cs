@@ -17,7 +17,6 @@ abstract public class Unit : MonoBehaviour
     public bool self_targetable = false;
     protected GameObject active_effect_target;
     private bool dragging = false;
-    private bool ready_to_activate = false;
     private bool selected = false;
     protected bool right_turn = false;
     protected bool deactivated = false;

@@ -90,7 +90,7 @@ public class DeckLoader
                 return Resources.Load("Card/Units/Hunter") as GameObject;
 
             default:
-				//Debug.Log("Error while loading card with id"+ID+", replaced by scout");
+				Debug.Log("Error while loading card with id"+ID+", replaced by scout");
                 return Resources.Load("Card/Units/Scout") as GameObject;
         }
     }

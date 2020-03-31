@@ -11,7 +11,7 @@ public class CardPlayer : MonoBehaviour
 
     private List<int> deck;
     private List<int> draw_pile;
-    public List<Card> hand; //J'ai modifier ca a l'arrache
+    public List<Card> hand; //J'ai modifier ca a l'arrache pour le comportement ennemi
     private List<GameObject> hand_game;
 
     private DeckLoader deck_loader;

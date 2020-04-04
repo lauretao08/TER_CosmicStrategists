@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Hymperium Cruiser
   card_base_energy_cost: 7
+  card_hp: 0
   card_description: 'WIP : PIOUPIOU 4 EN DEBUT DE TOUR'
-  name_component: {fileID: 7782138517262404949}
-  description_component: {fileID: 3137035706592480972}
-  cost_component: {fileID: 5073193989587620124}
+  name_component: {fileID: 4776329350757162931}
+  description_component: {fileID: 3619225289269529155}
+  cost_component: {fileID: 746095332105625876}
+  health_component: {fileID: 2539638263670620913}
   spawned_unit: {fileID: 8764540151319164330, guid: b355f97e503a9bc49ad9662d3fcd2977,
     type: 3}
 --- !u!1001 &7435430822505991676
@@ -27,6 +29,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1629527440056490949, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088640402636394951, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2398289937304755424, guid: 9303dfcd0ad112344a425e9434423d41,
         type: 3}
       propertyPath: m_CharacterSize
@@ -107,6 +119,16 @@ PrefabInstance:
       propertyPath: card_description
       value: 'Start Of Turn : Shoot 4 on Opponent Base'
       objectReference: {fileID: 0}
+    - target: {fileID: 6801384484057436164, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244763598233165185, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8327158832361267439, guid: 9303dfcd0ad112344a425e9434423d41,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -121,21 +143,51 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7435430822505991676}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &7782138517262404949 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 923309734478102697, guid: 9303dfcd0ad112344a425e9434423d41,
+--- !u!114 &3619225289269529155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6131060221355788223, guid: 9303dfcd0ad112344a425e9434423d41,
     type: 3}
   m_PrefabInstance: {fileID: 7435430822505991676}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &3137035706592480972 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 5523394095962948400, guid: 9303dfcd0ad112344a425e9434423d41,
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4776329350757162931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2695152370669769295, guid: 9303dfcd0ad112344a425e9434423d41,
     type: 3}
   m_PrefabInstance: {fileID: 7435430822505991676}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &5073193989587620124 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 2398289937304755424, guid: 9303dfcd0ad112344a425e9434423d41,
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &746095332105625876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7887312784655805672, guid: 9303dfcd0ad112344a425e9434423d41,
     type: 3}
   m_PrefabInstance: {fileID: 7435430822505991676}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2539638263670620913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4904824046130433805, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 7435430822505991676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

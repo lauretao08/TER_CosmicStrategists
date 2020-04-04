@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public enum HighlightStyle : byte
 {
@@ -19,13 +21,15 @@ abstract public class Card : MonoBehaviour
     public string card_name; //name of the card
     public int card_base_energy_cost; //base energy cost of the card
     protected int card_energy_cost; //actual energy cost of the card
-    
+    public int card_hp;//hp of the card if applicable
+
 	[TextArea]
     public string card_description; // displayed description on the card
 
-    public TextMesh name_component;
-    public TextMesh description_component;
-    public TextMesh cost_component;
+    public TextMeshPro name_component;
+    public TextMeshPro description_component;
+    public TextMeshPro cost_component;
+    public TextMeshPro health_component;
 
     //Change these when changing highlight look
     private Color base_color;
@@ -84,7 +88,14 @@ abstract public class Card : MonoBehaviour
         {
             Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);
             Vector3 ray_point = ray.GetPoint(drag_distance);
-            transform.position = ray_point;
+
+            Vector3 to_camera = main_camera.transform.position - ray_point;
+            
+            //to_camera = Vector3.Normalize(to_camera);
+            
+            transform.position = ray_point + 0.3f * to_camera;
+
+            
 
             //ATTENTION VALEUR EN DUR !! A MODIFIER ? VAR ENGIN ?
 			if(ray_point.y >=45.0f){

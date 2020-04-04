@@ -1759,6 +1759,7 @@ MonoBehaviour:
   playerA_structures_go: []
   playerB_structures_go: []
   Board: {fileID: 1646562100}
+  distance_between_units: 5
 --- !u!1 &1098178532
 GameObject:
   m_ObjectHideFlags: 0

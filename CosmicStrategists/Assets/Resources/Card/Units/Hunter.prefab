@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Hunter
   card_base_energy_cost: 1
-  card_description: "Inflict 2 damage on \nselected enemy unit"
-  name_component: {fileID: 1015916626898593832}
-  description_component: {fileID: 5651465781034281905}
-  cost_component: {fileID: 2558445326579004513}
+  card_hp: 1
+  card_description: Inflict 2 damage on selected enemy unit
+  name_component: {fileID: 2859250614009641678}
+  description_component: {fileID: 6331187292786323262}
+  cost_component: {fileID: 8051414368522339433}
+  health_component: {fileID: 5104950017109026700}
   spawned_unit: {fileID: 5990095748677303588, guid: 8ac955c327029d14b9a6889a4ba73afa,
     type: 3}
 --- !u!1001 &200695532028323969
@@ -27,6 +29,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1629527440056490949, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088640402636394951, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2398289937304755424, guid: 9303dfcd0ad112344a425e9434423d41,
         type: 3}
       propertyPath: m_CharacterSize
@@ -97,6 +109,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 158fad1b6de887642b7996fdfa3b6061, type: 2}
+    - target: {fileID: 6801384484057436164, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244763598233165185, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8327158832361267439, guid: 9303dfcd0ad112344a425e9434423d41,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -111,21 +133,51 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 200695532028323969}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &1015916626898593832 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 923309734478102697, guid: 9303dfcd0ad112344a425e9434423d41,
+--- !u!114 &6331187292786323262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6131060221355788223, guid: 9303dfcd0ad112344a425e9434423d41,
     type: 3}
   m_PrefabInstance: {fileID: 200695532028323969}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &5651465781034281905 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 5523394095962948400, guid: 9303dfcd0ad112344a425e9434423d41,
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2859250614009641678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2695152370669769295, guid: 9303dfcd0ad112344a425e9434423d41,
     type: 3}
   m_PrefabInstance: {fileID: 200695532028323969}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &2558445326579004513 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 2398289937304755424, guid: 9303dfcd0ad112344a425e9434423d41,
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8051414368522339433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7887312784655805672, guid: 9303dfcd0ad112344a425e9434423d41,
     type: 3}
   m_PrefabInstance: {fileID: 200695532028323969}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5104950017109026700 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4904824046130433805, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 200695532028323969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

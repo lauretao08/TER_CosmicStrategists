@@ -55,6 +55,8 @@ public class GameBoard : MonoBehaviour
 
     public GameObject Board;
 
+    public float distance_between_units = 5.0f;
+
     void Start(){	}
 	void Update(){	}
 	
@@ -164,7 +166,7 @@ public class GameBoard : MonoBehaviour
         {
             c.transform.position = base_pos;
 
-            base_pos.x += 3.0f;
+            base_pos.x += distance_between_units;
         }
     }
 
@@ -179,8 +181,9 @@ public class GameBoard : MonoBehaviour
         foreach (GameObject c in playerB_units_go)
         {
             c.transform.position = base_pos;
+            c.transform.Rotate(new Vector3(0, 1, 0), 180.0f);
 
-            base_pos.x -= 3.0f;
+            base_pos.x -= distance_between_units;
         }
     }
 
@@ -252,7 +255,7 @@ public class GameBoard : MonoBehaviour
         {
             c.transform.position = base_pos;
 
-            base_pos.x -= 3.0f;
+            base_pos.x -= distance_between_units;
         }
     }
 
@@ -267,8 +270,9 @@ public class GameBoard : MonoBehaviour
         foreach (GameObject c in playerB_structures_go)
         {
             c.transform.position = base_pos;
+            c.transform.Rotate(new Vector3(0, 1, 0), 180.0f);
 
-            base_pos.x += 3.0f;
+            base_pos.x += distance_between_units;
         }
     }
 

@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Scout
   card_base_energy_cost: 1
+  card_hp: 0
   card_description: "Inflict 1 Damage to \nopponent every turn"
-  name_component: {fileID: 7336103516553535422}
-  description_component: {fileID: 2718023130400168999}
-  cost_component: {fileID: 5212703219064570871}
+  name_component: {fileID: 0}
+  description_component: {fileID: 0}
+  cost_component: {fileID: 0}
+  health_component: {fileID: 0}
   spawned_unit: {fileID: 7569896054692493218, guid: 6b5412a946f577d44b744decbd7e8df4,
     type: 3}
 --- !u!1001 &7574863294428651287
@@ -148,24 +150,6 @@ PrefabInstance:
 --- !u!1 &6285397706023819300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
-    type: 3}
-  m_PrefabInstance: {fileID: 7574863294428651287}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &7336103516553535422 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 923309734478102697, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
-    type: 3}
-  m_PrefabInstance: {fileID: 7574863294428651287}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &2718023130400168999 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 5523394095962948400, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
-    type: 3}
-  m_PrefabInstance: {fileID: 7574863294428651287}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &5212703219064570871 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 2398289937304755424, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
     type: 3}
   m_PrefabInstance: {fileID: 7574863294428651287}
   m_PrefabAsset: {fileID: 0}

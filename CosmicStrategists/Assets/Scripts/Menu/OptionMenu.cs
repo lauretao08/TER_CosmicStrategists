@@ -63,11 +63,11 @@ public class OptionMenu : MonoBehaviour
 
    	public void LoadMenuScene(){
         //SceneManager.LoadScene("Menu");
-        StartCoroutine(LoadLevel("Menu"));
+        StartCoroutine(LoadLevel("MenuPrincipal"));
     }
 
    	public void LoadBackScene(){
-        StartCoroutine(LoadLevel("CardScene"));
+        StartCoroutine(LoadLevel("Game"));
     }
 
     IEnumerator LoadLevel(string scene)

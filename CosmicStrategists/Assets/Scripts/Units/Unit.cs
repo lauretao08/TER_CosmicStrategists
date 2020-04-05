@@ -35,6 +35,18 @@ abstract public class Unit : MonoBehaviour
     private CursorMode cursorMode = CursorMode.Auto;
 
 
+    //===============================
+    bool appear = true;
+    bool disappear = false;
+   
+    Material myMaterial;
+    float appearOverTime = 1.0f;
+    public float speed = 0.75f;
+
+    //===============================
+
+
+
     //these methods will be overriden by non-activable units. others will use the activable methods below
     public virtual void start_turn()
     {
@@ -73,8 +85,18 @@ abstract public class Unit : MonoBehaviour
 
     void Start()
     {
-
+        
+        
+        
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
+
+        //=============================================
+        myMaterial = unit_renderer.material;
+        appear = true;
+        myMaterial.SetFloat("Vector1_A27884FF", -2);
+        
+        //===================================
+        //===============================================
 
         cursorTexture = Resources.Load<Texture2D>("Textures/Crosshair1");
         main_camera = Camera.main;
@@ -127,8 +149,20 @@ abstract public class Unit : MonoBehaviour
 
     void Update()
     {
+
+        if (appear)
+        {
+            appearOverTime += Time.deltaTime * speed;
+            //Debug.Log("Edge : " + myMaterial.GetFloat("Vector1_A27884FF"));
+            if (myMaterial.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.2f;
+            myMaterial.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
+            //Debug.Log(myMaterial.GetFloat("Vector1_A27884FF"));
+            if (myMaterial.GetFloat("Vector1_A27884FF") >= 30) appear = false;
+        }
+
         if (right_turn)
         {
+            
             if (selected && dragging)
             {
                 Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);

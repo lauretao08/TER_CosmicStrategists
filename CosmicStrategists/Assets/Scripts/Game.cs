@@ -209,9 +209,13 @@ public class Game : MonoBehaviour
 	}
 	
 
-	public void finish_turn(){
+	public void finish_turn(Player p){
 		if(turn_state!=T_state.ACTIVE_A && turn_state!=T_state.ACTIVE_B){
 			if(SUSPICIOUS_WARNING){Debug.Log("WARNING : ["+this+".finish_turn()] Used while Turn not active");}
+		}
+		if(p != active_player){
+			Debug.Log("ERROR : ["+this+".finish_turn()] Used by wrong player");
+			return;
 		}
 		if(DEBUG_PRINT){Debug.Log("["+this+".finish_turn()] Finishing turn");}
 		
@@ -258,12 +262,18 @@ public class Game : MonoBehaviour
 	}
 	
 //Display management
+
 	public void display_feedback_card_played(Player card_owner,string card_name){
-		if(active_player == playerB){
+		if(card_owner == playerB){
 			card_feedback_controller.WritePlayerB("Card played : "+card_name);
 		}
-		if(active_player == playerA){
+		if(card_owner == playerA){
 			card_feedback_controller.WritePlayerA("Card played : "+card_name);
 		}
+	}
+
+	public void rearrange_card_placement(){
+		playerA.get_card_controller().calculate_card_placement();
+		playerB.get_card_controller().calculate_card_placement();
 	}
 }

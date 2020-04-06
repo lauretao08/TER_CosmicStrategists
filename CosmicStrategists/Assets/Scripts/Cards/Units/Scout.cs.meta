@@ -8,7 +8,7 @@ MonoImporter:
   - description_component: {instanceID: 0}
   - cost_component: {instanceID: 0}
   - health_component: {instanceID: 0}
-  - spawned_unit: {fileID: 7569896054692493218, guid: 6b5412a946f577d44b744decbd7e8df4,
+  - spawned_unit: {fileID: 1578151531806032, guid: 7049a336c6ee74a32984d27e6d9faeca,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

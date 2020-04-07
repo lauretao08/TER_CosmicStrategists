@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Communications Base
   card_base_energy_cost: 2
+  card_hp: 0
   card_description: Regain 1 HP every turn
-  name_component: {fileID: 2885518657390698990}
-  description_component: {fileID: 7528931207341286007}
-  cost_component: {fileID: 401741054392614311}
-  spawned_unit: {fileID: 8492534698321845642, guid: c057ad3df9497414cb838c5278fcd73d,
+  name_component: {fileID: 0}
+  description_component: {fileID: 0}
+  cost_component: {fileID: 0}
+  health_component: {fileID: 0}
+  spawned_unit: {fileID: 1000010365443526, guid: b080b9c6ee75f014b80e518aee358bf4,
     type: 3}
 --- !u!1001 &2655763278452662599
 PrefabInstance:
@@ -98,24 +100,6 @@ PrefabInstance:
 --- !u!1 &1945079227224745588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4478097425508747059, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
-    type: 3}
-  m_PrefabInstance: {fileID: 2655763278452662599}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &2885518657390698990 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 923309734478102697, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
-    type: 3}
-  m_PrefabInstance: {fileID: 2655763278452662599}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &7528931207341286007 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 5523394095962948400, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
-    type: 3}
-  m_PrefabInstance: {fileID: 2655763278452662599}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &401741054392614311 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 2398289937304755424, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
     type: 3}
   m_PrefabInstance: {fileID: 2655763278452662599}
   m_PrefabAsset: {fileID: 0}

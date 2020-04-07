@@ -3,7 +3,13 @@ guid: f89a636d66a5a99478d6f25ea71862c7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - name_component: {instanceID: 0}
+  - description_component: {instanceID: 0}
+  - cost_component: {instanceID: 0}
+  - health_component: {instanceID: 0}
+  - spawned_unit: {fileID: 1000013297569420, guid: 528af406eaf082244ae68b755f89d3d3,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

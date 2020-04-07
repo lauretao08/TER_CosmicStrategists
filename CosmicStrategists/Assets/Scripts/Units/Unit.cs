@@ -161,9 +161,9 @@ abstract public class Unit : MonoBehaviour
             {
                 foreach (MeshRenderer m in my_meshRenderes)
                 {
-                    if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.2f;
+                    if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.05f;
                     m.material.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
-                    //Debug.Log(myMaterial.GetFloat("Vector1_A27884FF"));
+                    //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
                     if (m.material.GetFloat("Vector1_A27884FF") >= 100) appear = false;
                 }
             }

@@ -48,6 +48,15 @@ public class Player : MonoBehaviour
 	private bool dead;
 	
 	
+	//AutoPlay Stuff
+	public int MAX_FAILURE;
+	public int ACTION_PER_TURN;
+	public float ACTION_DELAY;
+	protected int auto_play_failure;
+	protected int auto_play_nb_action_done;
+	protected float auto_play_timer;
+	
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +92,10 @@ public class Player : MonoBehaviour
 		increment_max_energy();
 		refill_energy();
 		card_controller.Draw(1);
+		if(is_robot()){
+			auto_play_timer=0;
+			auto_play_nb_action_done=0;
+		}
 	}
 	
 	public void end_turn()
@@ -198,18 +211,39 @@ public class Player : MonoBehaviour
 	
 	public void auto_turn(){
 		System.Random rng = new System.Random();
-		int n = card_controller.hand.Count;
-        while (n >= 1)
-        {
-			n--;
-			int k = rng.Next(n + 1);
-			if(card_controller.hand[k].has_enough_energy()){
-				card_controller.hand[k].OnPlay();
-			}else{
+		
+		auto_play_timer += Time.deltaTime;
+        if(auto_play_timer>ACTION_DELAY){
+			Debug.Log("Nemesis playing his "+auto_play_nb_action_done+" Action");
+			auto_play_act(rng);
+			auto_play_nb_action_done++;
+			auto_play_timer=0;
+		}
+		if(auto_play_nb_action_done>ACTION_PER_TURN){
+			current_game.finish_turn(this);
+		}
+
+	}
+
+	private void auto_play_act(System.Random rng){
+		while(!try_to_play_a_random_card(rng)){
+			if(auto_play_failure>MAX_FAILURE){
 				break;
-			}            
-        }
-		current_game.finish_turn();
+			}
+		}
+	}
+
+	private bool try_to_play_a_random_card(System.Random rng){
+		
+		int n = card_controller.hand.Count;
+		int k = rng.Next(n);
+		if(card_controller.hand[k].has_enough_energy()){
+			card_controller.hand[k].OnPlay();
+			return true; //Success
+		}else{
+			auto_play_failure++;
+			return false;
+		}
 	}
 	
 	public CardPlayer get_card_controller(){

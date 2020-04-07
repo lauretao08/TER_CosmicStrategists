@@ -19,7 +19,7 @@ public class DeckJson
 public class DeckLoader
 {
 	public enum Card_ID{
-		SCOUT,
+		SCOUT=1,
 		ARTILLERY_STRIKE,
 		COMMUNICATIONS_BASE,
 		COMMON_FRIGATE,
@@ -36,9 +36,8 @@ public class DeckLoader
     // Loads a deck from data file
     public List<int> LoadFromFileInId(string fileName)
     {
-        StreamReader r = new StreamReader(fileName);
+        StreamReader r = new StreamReader(Path.Combine(Application.streamingAssetsPath,fileName));
         string json = r.ReadToEnd();
-
         DeckJson card_ids = new DeckJson();
 
         card_ids = JsonUtility.FromJson<DeckJson>(json);
@@ -60,20 +59,7 @@ public class DeckLoader
     //return a card prefab for instanciation
     public GameObject GenerateCardFromId(int ID)
     {
-		/*
-        switch (ID)
-        {
-            case 1:
-                return Resources.Load("Card/Units/Scout") as GameObject;
-            case 2:
-                return Resources.Load("Card/Actions/Artillery_Strike") as GameObject;
-            case 3:
-                return Resources.Load("Card/Structures/Communications_base") as GameObject;
-            default:
-                return Resources.Load("Card/Units/Scout") as GameObject;
-        }
-		*/
-
+		//Debug.Log("Loading card with id "+ID+",( "+(Card_ID) ID+")");    
         switch ((Card_ID) ID)
         {
             case Card_ID.SCOUT:
@@ -90,8 +76,7 @@ public class DeckLoader
                 return Resources.Load("Card/Units/Hunter") as GameObject;
 
             default:
-				Debug.Log("Error while loading card with id"+ID+", replaced by scout");
-                return Resources.Load("Card/Units/Scout") as GameObject;
+				return Resources.Load("Card/Units/Scout") as GameObject;
         }
     }
 

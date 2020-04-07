@@ -15,10 +15,10 @@ public class OptionMenu : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
 	Resolution[] resolutions;
 
+	public Game game;
+
 
 	void Start(){
-
-
 		resolutions = Screen.resolutions;
 		resolutionDropdown.ClearOptions();
 
@@ -27,24 +27,33 @@ public class OptionMenu : MonoBehaviour
 		int currentResolutionIndex = 0;
 		for(int i = 0; i<resolutions.Length; i++){
 			string option = resolutions[i].width + " x " + resolutions[i].height;
-			
-			//if(!options.Contains(option))
+
+			if(!options.Contains(option))
 				options.Add(option);
-			
-			if(resolutions[i].width == Screen.width && 
+
+			if(resolutions[i].width == Screen.width &&
 			   resolutions[i].height == Screen.height){
 				currentResolutionIndex = i;
 			}
-	
+
 		}
 		resolutionDropdown.AddOptions(options);
 		resolutionDropdown.value = currentResolutionIndex;
 		resolutionDropdown.RefreshShownValue();
 	}
 
+	public void Update(){
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			gameObject.SetActive(false);
+		}
+	}
+
 	public void SetResolution(int resolutionIndex){
 		Resolution resolution = resolutions[resolutionIndex];
 		Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+		if(game !=null){
+			game.rearrange_card_placement();
+		}
 	}
 
 
@@ -62,12 +71,11 @@ public class OptionMenu : MonoBehaviour
    	}
 
    	public void LoadMenuScene(){
-        //SceneManager.LoadScene("Menu");
         StartCoroutine(LoadLevel("Menu"));
     }
 
    	public void LoadBackScene(){
-        StartCoroutine(LoadLevel("Game"));
+		gameObject.SetActive(false);
     }
 
     IEnumerator LoadLevel(string scene)

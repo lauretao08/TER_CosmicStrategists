@@ -158,7 +158,7 @@ public class GameBoard : MonoBehaviour
     {
         Vector3 base_pos = Board.transform.position;
         base_pos.z -= 15.0f;
-        base_pos.y += 1.0f;
+        base_pos.y += 2.0f;
         base_pos.x -= 25.0f;
 
 
@@ -174,7 +174,7 @@ public class GameBoard : MonoBehaviour
     {
         Vector3 base_pos = Board.transform.position;
         base_pos.z += 15.0f;
-        base_pos.y += 1.0f;
+        base_pos.y += 2.0f;
         base_pos.x += 25.0f;
 
 

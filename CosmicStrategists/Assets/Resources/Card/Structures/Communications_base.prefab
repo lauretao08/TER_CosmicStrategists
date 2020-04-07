@@ -20,7 +20,7 @@ MonoBehaviour:
   description_component: {fileID: 8888738385576773375}
   cost_component: {fileID: 2676713492928095987}
   health_component: {fileID: 5488499484894504746}
-  spawned_unit: {fileID: 8492534698321845642, guid: c057ad3df9497414cb838c5278fcd73d,
+  spawned_unit: {fileID: 1000010365443526, guid: b080b9c6ee75f014b80e518aee358bf4,
     type: 3}
 --- !u!1001 &2655763278452662599
 PrefabInstance:

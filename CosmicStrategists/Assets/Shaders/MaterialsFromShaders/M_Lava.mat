@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Lava
+  m_Shader: {fileID: -6465566751694194690, guid: cb3fc4d1c3192254da57a531e7a44446,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_68C40AC2:
+        m_Texture: {fileID: 2800000, guid: b54216825a0a75045ae1d36295ceecd4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6CBDD0EC_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b54216825a0a75045ae1d36295ceecd4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_AD09E1B9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b54216825a0a75045ae1d36295ceecd4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_3E4A7A01: 3.5
+    - Vector1_C4742E3E: 0.05
+    m_Colors:
+    - Color_34B0AD30: {r: 11.98431, g: 0.7529412, b: 0, a: 0}

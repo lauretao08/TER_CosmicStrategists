@@ -23,7 +23,7 @@ abstract public class Unit : MonoBehaviour
 
     private Camera main_camera;
 
-    private MeshRenderer unit_renderer;
+    
 
     private Color base_color;
     private Color highlight_color;
@@ -35,6 +35,18 @@ abstract public class Unit : MonoBehaviour
     private CursorMode cursorMode = CursorMode.Auto;
 
     public Card origin_card;
+
+
+    //===============================
+    bool appear = true;
+    bool disappear = false;
+    private MeshRenderer unit_renderer;
+    Material myMaterial;
+    float appearOverTime = 1.0f;
+    public float speed = 0.75f;
+    private Component[] my_meshRenderes;
+    //===============================
+
 
 
     //these methods will be overriden by non-activable units. others will use the activable methods below
@@ -75,8 +87,21 @@ abstract public class Unit : MonoBehaviour
 
     void Start()
     {
+        //=============================================
 
+        my_meshRenderes = GetComponentsInChildren(typeof(MeshRenderer));
+        if (my_meshRenderes != null)
+        {
+            foreach(MeshRenderer m in my_meshRenderes)
+            {
+                m.material.SetFloat("Vector1_A27884FF", -2);
+            }
+        }
+
+        //===============================================
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
+        
+        
 
         cursorTexture = Resources.Load<Texture2D>("Textures/Crosshair1");
         main_camera = Camera.main;
@@ -129,8 +154,29 @@ abstract public class Unit : MonoBehaviour
 
     void Update()
     {
+
+        if (appear)
+        {
+            appearOverTime += Time.deltaTime * speed;
+
+            if (my_meshRenderes != null)
+            {
+                foreach (MeshRenderer m in my_meshRenderes)
+                {
+                    if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.05f;
+                    m.material.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
+                    //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
+                    if (m.material.GetFloat("Vector1_A27884FF") >= 100) appear = false;
+                }
+            }
+
+            //Debug.Log("Edge : " + myMaterial.GetFloat("Vector1_A27884FF"));
+            
+        }
+
         if (right_turn)
         {
+            
             if (selected && dragging)
             {
                 Ray ray = main_camera.ScreenPointToRay(Input.mousePosition);

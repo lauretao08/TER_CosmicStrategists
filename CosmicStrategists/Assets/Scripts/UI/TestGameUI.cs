@@ -46,6 +46,6 @@ public class TestGameUI : MonoBehaviour
     }
 	
 	void end_turn(){
-		current_game.finish_turn(card_controller.player);
+		current_game.finish_turn();
 	}
 }

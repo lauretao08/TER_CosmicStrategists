@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Scout
   card_base_energy_cost: 1
-  card_hp: 0
+  card_hp: 2
   card_description: Inflict 1 Damage to opponent every turn
   name_component: {fileID: 8360534304633446323}
   description_component: {fileID: 3935966709920102575}

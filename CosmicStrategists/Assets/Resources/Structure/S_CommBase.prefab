@@ -95,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG_PRINT: 0
   SUSPICIOUS_WARNING: 0
+  origin_card: {fileID: 1514469551481698841, guid: 3b038f3bd41d9f8409d771a6861f590b,
+    type: 3}
 --- !u!65 &8530978085049736734
 BoxCollider:
   m_ObjectHideFlags: 0

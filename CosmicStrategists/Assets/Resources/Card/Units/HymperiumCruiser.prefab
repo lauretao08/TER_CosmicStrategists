@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Hymperium Cruiser
   card_base_energy_cost: 7
-  card_hp: 0
+  card_hp: 7
   card_description: 'WIP : PIOUPIOU 4 EN DEBUT DE TOUR'
   name_component: {fileID: 4776329350757162931}
   description_component: {fileID: 3619225289269529155}

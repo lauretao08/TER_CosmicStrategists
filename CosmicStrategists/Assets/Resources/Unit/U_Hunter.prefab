@@ -18,6 +18,8 @@ MonoBehaviour:
   max_health: 1
   has_active_effect: 1
   self_targetable: 0
+  origin_card: {fileID: 2773022572716608272, guid: dfe1cd437fe6f1a429aa7c43be6382bc,
+    type: 3}
 --- !u!1001 &7958247118664727599
 PrefabInstance:
   m_ObjectHideFlags: 0

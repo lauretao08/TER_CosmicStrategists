@@ -43,7 +43,11 @@ public class Game : MonoBehaviour
 	
 	public Canvas canvas_pause;
 	private PauseMenu pause_menu;
-	
+
+    public Canvas canvas_unit_feedback;
+    private UnitFeedBackUI unit_feedback_ui;
+
+
 	private bool alreadyEnding = false;
 	public bool paused;
 	
@@ -51,8 +55,9 @@ public class Game : MonoBehaviour
         card_feedback_controller = card_ui.GetComponent(typeof(CardFeedbackUI)) as CardFeedbackUI;
 		
 		pause_menu = canvas_pause.GetComponent(typeof(PauseMenu)) as PauseMenu;
-		
-	}
+        unit_feedback_ui = canvas_unit_feedback.GetComponent(typeof(UnitFeedBackUI)) as UnitFeedBackUI;
+
+    }
 
     void Update(){ 
 		paused = pause_menu.GameIsPaused;
@@ -266,4 +271,25 @@ public class Game : MonoBehaviour
 			card_feedback_controller.WritePlayerA("Card played : "+card_name);
 		}
 	}
+
+    //Unit feedback management (here unit also encompasses structures)
+
+    public void display_feedback_unit(Card card)
+    {
+        unit_feedback_ui.DisplayCardInfo(card);
+    }
+
+    public void activate_feedback_unit(bool on)
+    {
+        if (on)
+        {
+            unit_feedback_ui.gameObject.SetActive(true);
+        }
+        else
+        {
+            unit_feedback_ui.gameObject.SetActive(false);
+        }
+    }
+
 }
+

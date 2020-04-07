@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Comm. Base
   card_base_energy_cost: 2
+  card_hp: 0
   card_description: Regain 1 HP every turn
   name_component: {fileID: 4162149652663558627}
   description_component: {fileID: 8888738385576773375}
@@ -112,6 +113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045637674615074473, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8327158832361267439, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}

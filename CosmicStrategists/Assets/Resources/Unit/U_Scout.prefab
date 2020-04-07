@@ -112,3 +112,5 @@ MonoBehaviour:
   max_health: 2
   has_active_effect: 0
   self_targetable: 0
+  origin_card: {fileID: 3615876327936181530, guid: 81e117168d17d3c499bcfd125dceeffa,
+    type: 3}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Common Frigate
   card_base_energy_cost: 2
+  card_hp: 2
   card_description: 'End Of Turn : Shoot 1 on enemy Base'
   name_component: {fileID: 691481039761362018}
   description_component: {fileID: 5404718875403938686}

@@ -34,6 +34,8 @@ abstract public class Unit : MonoBehaviour
     private Texture2D cursorTexture;
     private CursorMode cursorMode = CursorMode.Auto;
 
+    public Card origin_card;
+
 
     //these methods will be overriden by non-activable units. others will use the activable methods below
     public virtual void start_turn()
@@ -185,6 +187,8 @@ abstract public class Unit : MonoBehaviour
         {
             Highlight(HighlightStyle.Selected);
         }
+        game_manager.activate_feedback_unit(true);
+        game_manager.display_feedback_unit(origin_card);
     }
 
     public void OnMouseExit()
@@ -201,6 +205,9 @@ abstract public class Unit : MonoBehaviour
         {
             Highlight(HighlightStyle.None);
         }
+
+        game_manager.activate_feedback_unit(false);
+
     }
 
     public void OnMouseDown()

@@ -108,7 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG_PRINT: 0
   SUSPICIOUS_WARNING: 0
-  health: 0
+  health: 7
   max_health: 7
   has_active_effect: 0
   self_targetable: 0
+  origin_card: {fileID: 9082985116007742474, guid: df2251fc9a538614f9db9a2b40aef3fd,
+    type: 3}

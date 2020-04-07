@@ -20,14 +20,16 @@ public class UnitFeedBackUI : MonoBehaviour
         card_description.text = card.card_description;
         card_cost.text = card.card_base_energy_cost.ToString();
         //optimize this getComponent !
-        if (card.GetComponent(typeof(Unit)))
+        if (card.GetComponent(typeof(Card_Unit)))
         {
             card_health.gameObject.SetActive(true);
+            card_hp_img.gameObject.SetActive(true);
             card_health.text = card.card_hp.ToString();
         }
         else
         {
             card_health.gameObject.SetActive(false);
+            card_hp_img.gameObject.SetActive(false);
         }
         
     }

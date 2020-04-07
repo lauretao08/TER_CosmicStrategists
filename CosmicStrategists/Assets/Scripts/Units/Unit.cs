@@ -54,8 +54,17 @@ abstract public class Unit : MonoBehaviour
     {
         if (has_active_effect)
         {
-            right_turn = true;
-            Highlight(HighlightStyle.Highlight);
+            if(game_manager.get_active_player() == game_manager.playerA)
+            {
+                right_turn = true;
+                Highlight(HighlightStyle.Highlight);
+            }
+            else
+            {
+                right_turn = false;
+            }
+
+            //Highlight(HighlightStyle.Highlight);
             deactivated = false;
             start_turn_active();
         }
@@ -65,8 +74,17 @@ abstract public class Unit : MonoBehaviour
     {
         if (has_active_effect)
         {
-            right_turn = true;
-            Highlight(HighlightStyle.Highlight);
+            if (game_manager.get_active_player() == game_manager.playerA)
+            {
+                right_turn = true;
+                Highlight(HighlightStyle.Highlight);
+            }
+            else
+            {
+                right_turn = false;
+            }
+
+            //Highlight(HighlightStyle.Highlight);
             on_arrival_active();
         }
     }

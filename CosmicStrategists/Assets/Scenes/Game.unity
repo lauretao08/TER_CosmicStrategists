@@ -6039,7 +6039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a591a7d784c87034b8485986e5fd65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG_PRINT: 0
+  DEBUG_PRINT: 1
   SUSPICIOUS_WARNING: 1
   STARTING_HEALTH: 20
   STARTING_ENERGY: 0
@@ -6748,7 +6748,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 5000
+  m_Intensity: 2500
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -6846,7 +6846,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5000
+  m_Intensity: 2500
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

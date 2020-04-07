@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1.0f;
 
+	public GameObject OptionMenu;
 
 
     // Update is called once per frame
@@ -50,10 +51,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadOptionMenu(){
-    	Time.timeScale = 1f;
-        StartCoroutine(LoadLevel("MenuOption"));
-        //SceneManager.LoadScene("MenuOption");
-    }
+    	
+		OptionMenu.SetActive(true);
+		// Time.timeScale = 1f;
+        // StartCoroutine(LoadLevel("MenuOption"));
+	}
 
     IEnumerator LoadLevel(string scene)
     {

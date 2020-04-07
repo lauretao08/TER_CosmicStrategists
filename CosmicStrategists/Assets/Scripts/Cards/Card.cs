@@ -81,7 +81,7 @@ abstract public class Card : MonoBehaviour
     // Update is called once per frame
     //Update is necessary for drag and drop, unless Tao finds a better solution
     void Update()
-    {	if(game_manager.paused){
+    {	if(game_manager.paused || card_manager.refuse()){
 			return;
 		}
         if (dragging)

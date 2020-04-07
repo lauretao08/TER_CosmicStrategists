@@ -56,23 +56,14 @@ public class CardPlayer : MonoBehaviour
 
         deck_loader = new DeckLoader();
 
-        deck = deck_loader.LoadFromFileInId("Assets/Resources/Decks/placeholder.json");
+        deck = deck_loader.LoadFromFileInId("Decks/placeholder.json");
         
         ShuffleDeck();
 
         draw_pile = new List<int>(deck);
 
         /**ASPECT RATIO AND CARD PLACEMENT, this has to be calculated once again upon resolution or fov changes**/
-        float radAngle = camera_player.fieldOfView * Mathf.Deg2Rad;
-        float radHFOV = 2 * Mathf.Atan(Mathf.Tan(radAngle / 2) * camera_player.aspect);
-        camera_hFOV = Mathf.Rad2Deg * radHFOV;
-
-        screen_aspect = camera_player.aspect;
-        card_distance = camera_player.focalLength / 6.0f;
-
-        card_offset_x = Mathf.Tan((camera_hFOV / 2.0f)*Mathf.Deg2Rad) * card_distance;
-        card_offset_y = Mathf.Tan((camera_player.fieldOfView/2.0f) * Mathf.Deg2Rad) * card_distance;
-
+        calculate_card_placement();
     }
 
     // Update is called once per frame
@@ -117,12 +108,25 @@ public class CardPlayer : MonoBehaviour
             }
             base_pos.x +=  2.1f;
         }
-    }
+    }	
 
-    public void Draw(int nb)
+	public void calculate_card_placement(){
+		float radAngle = camera_player.fieldOfView * Mathf.Deg2Rad;
+        float radHFOV = 2 * Mathf.Atan(Mathf.Tan(radAngle / 2) * camera_player.aspect);
+        camera_hFOV = Mathf.Rad2Deg * radHFOV;
+
+        screen_aspect = camera_player.aspect;
+        card_distance = camera_player.focalLength / 6.0f;
+
+        card_offset_x = Mathf.Tan((camera_hFOV / 2.0f)*Mathf.Deg2Rad) * card_distance;
+        card_offset_y = Mathf.Tan((camera_player.fieldOfView/2.0f) * Mathf.Deg2Rad) * card_distance;
+
+	}
+
+    public Card Draw(int nb)
     {
         int tmp = 0;
-        Card tmp_card;
+        Card tmp_card = null;
         //Card tmp_card = new Card();
         GameObject tmp_go;
 
@@ -130,7 +134,7 @@ public class CardPlayer : MonoBehaviour
         {
 			if (hand.Count >= max_number_cards_hand){
                 Debug.Log("Hand full ");
-				return;
+				return null;
 			}
 			
             if (draw_pile.Count < 1){
@@ -158,8 +162,9 @@ public class CardPlayer : MonoBehaviour
                 //arrange card position upon drawing
                 Arrange();
             }
-            
         }
+
+		return tmp_card;
     }
 
     public void DeleteFromHand(Card card)
@@ -185,4 +190,8 @@ public class CardPlayer : MonoBehaviour
 		return player.current_game;
 	}
 
+	public bool refuse(){
+		//Returns true if not my turn
+		return get_current_game().get_id_active_player();
+	}
 }

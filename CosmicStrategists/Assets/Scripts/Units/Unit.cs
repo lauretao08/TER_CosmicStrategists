@@ -145,8 +145,9 @@ abstract public class Unit : MonoBehaviour
         }
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            game_manager.activate_feedback_unit(true);
             this.game_manager.board.removeUnitFromPlayer(this, this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

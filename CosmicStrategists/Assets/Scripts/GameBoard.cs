@@ -181,8 +181,9 @@ public class GameBoard : MonoBehaviour
         foreach (GameObject c in playerB_units_go)
         {
             c.transform.position = base_pos;
-            c.transform.Rotate(new Vector3(0, 1, 0), 180.0f);
 
+            //c.transform.Rotate(new Vector3(0, 1, 0), 180.0f);
+            //c.transform.LookAt(Vector3.back);
             base_pos.x -= distance_between_units;
         }
     }

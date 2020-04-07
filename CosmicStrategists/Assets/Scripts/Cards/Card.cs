@@ -61,6 +61,7 @@ abstract public class Card : MonoBehaviour
         name_component.text = card_name;
         description_component.text = card_description;
         cost_component.text = card_energy_cost.ToString();
+        health_component.text = card_hp.ToString();
         card_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
         if (card_renderer == null)
         {

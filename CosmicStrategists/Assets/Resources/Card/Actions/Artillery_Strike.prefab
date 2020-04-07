@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Artillery Strike
   card_base_energy_cost: 1
+  card_hp: 0
   card_description: Inflict 2 Damage
   name_component: {fileID: 8573735009028207710}
   description_component: {fileID: 3775652465003516738}
@@ -50,6 +51,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CharacterSize
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617031699852407696, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413641396476247645, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}

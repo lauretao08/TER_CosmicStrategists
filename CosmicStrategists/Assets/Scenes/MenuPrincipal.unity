@@ -2341,6 +2341,7 @@ MonoBehaviour:
   transition: {fileID: 0}
   transitionTime: 1
   resolutionDropdown: {fileID: 81016894}
+  game: {fileID: 0}
 --- !u!1 &712012600
 GameObject:
   m_ObjectHideFlags: 0

@@ -153,7 +153,7 @@ Material:
     m_Floats:
     - Vector1_60BF3472: 40
     - Vector1_7066D426: 0.2
-    - Vector1_A27884FF: -2
+    - Vector1_A27884FF: 2.92
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1

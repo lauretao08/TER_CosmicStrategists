@@ -115,3 +115,5 @@ MonoBehaviour:
   origin_card: {fileID: 3848345865431182097, guid: 24c25551054df2c4eacc6490615b89ea,
     type: 3}
   speed: 0.75
+  Aura_HighLight: {fileID: 4078446485925459005, guid: 213e511aa92444047acec0c3014f156c,
+    type: 3}

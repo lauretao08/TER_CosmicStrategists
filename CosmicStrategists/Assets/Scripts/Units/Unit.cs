@@ -36,17 +36,20 @@ abstract public class Unit : MonoBehaviour
 
     public Card origin_card;
 
-
+    private MeshRenderer unit_renderer;
+    /*
     //===============================
     bool appear = true;
     bool disappear = false;
-    private MeshRenderer unit_renderer;
+    
     Material myMaterial;
     float appearOverTime = 1.0f;
     public float speed = 0.75f;
     private Component[] my_meshRenderes;
+    */
     //===============================
-
+    //============VFX============
+    public HighLight Aura_HighLight;
 
 
     //these methods will be overriden by non-activable units. others will use the activable methods below
@@ -103,11 +106,14 @@ abstract public class Unit : MonoBehaviour
     public virtual void on_arrival_active() { }
     public virtual void end_turn_active() { }
 
-    void Start()
+    protected void Start()
     {
         //=============================================
 
-        my_meshRenderes = GetComponentsInChildren(typeof(MeshRenderer));
+       // my_meshRenderes = GetComponentsInChildren(typeof(MeshRenderer));
+        Aura_HighLight = GetComponentInChildren(typeof(HighLight)) as HighLight;
+        
+       /*
         if (my_meshRenderes != null)
         {
             foreach(MeshRenderer m in my_meshRenderes)
@@ -115,12 +121,10 @@ abstract public class Unit : MonoBehaviour
                 m.material.SetFloat("Vector1_A27884FF", -2);
             }
         }
-
+        */
         //===============================================
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
-        
-        
-
+ 
         cursorTexture = Resources.Load<Texture2D>("Textures/Crosshair1");
         main_camera = Camera.main;
         //*will be changed*//
@@ -134,6 +138,9 @@ abstract public class Unit : MonoBehaviour
 
         deploy();
     }
+
+  
+
 
     public void check_state()
     {
@@ -171,9 +178,9 @@ abstract public class Unit : MonoBehaviour
 
     //**Active effects functions**//
 
-    void Update()
+    protected void Update()
     {
-
+        /*
         if (appear)
         {
             appearOverTime += Time.deltaTime * speed;
@@ -188,11 +195,11 @@ abstract public class Unit : MonoBehaviour
                     if (m.material.GetFloat("Vector1_A27884FF") >= 100) appear = false;
                 }
             }
-
+            
             //Debug.Log("Edge : " + myMaterial.GetFloat("Vector1_A27884FF"));
             
         }
-
+        */
         if (right_turn)
         {
             
@@ -226,7 +233,7 @@ abstract public class Unit : MonoBehaviour
                 break;
             case HighlightStyle.Ready_To_Play:
                 unit_renderer.material.SetColor("_BaseColor", action_color);
-                break;
+                 break;
             case HighlightStyle.Selected:
                 unit_renderer.material.SetColor("_BaseColor", selected_color);
                 break;
@@ -254,6 +261,10 @@ abstract public class Unit : MonoBehaviour
         }
         game_manager.activate_feedback_unit(true);
         game_manager.display_feedback_unit(origin_card);
+
+        //Pour aura high
+        Aura_HighLight.active = true;
+
     }
 
     public void OnMouseExit()
@@ -272,6 +283,7 @@ abstract public class Unit : MonoBehaviour
         }
 
         game_manager.activate_feedback_unit(false);
+        Aura_HighLight.active = false;
 
     }
 

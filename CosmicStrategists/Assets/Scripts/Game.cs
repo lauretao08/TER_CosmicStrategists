@@ -56,7 +56,6 @@ public class Game : MonoBehaviour
 
 		pause_menu = canvas_pause.GetComponent(typeof(PauseMenu)) as PauseMenu;
         unit_feedback_ui = canvas_unit_feedback.GetComponent(typeof(UnitFeedBackUI)) as UnitFeedBackUI;
-
     }
 
     void Update(){
@@ -300,5 +299,9 @@ public class Game : MonoBehaviour
 			playerA.get_card_controller().calculate_card_placement();
 			playerB.get_card_controller().calculate_card_placement();
 		}
+
+  
+
+
 
 }

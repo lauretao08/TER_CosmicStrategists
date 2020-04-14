@@ -37,17 +37,7 @@ abstract public class Unit : MonoBehaviour
     public Card origin_card;
 
     private MeshRenderer unit_renderer;
-    /*
-    //===============================
-    bool appear = true;
-    bool disappear = false;
-    
-    Material myMaterial;
-    float appearOverTime = 1.0f;
-    public float speed = 0.75f;
-    private Component[] my_meshRenderes;
-    */
-    //===============================
+
     //============VFX============
     public HighLight Aura_HighLight;
 
@@ -110,18 +100,8 @@ abstract public class Unit : MonoBehaviour
     {
         //=============================================
 
-       // my_meshRenderes = GetComponentsInChildren(typeof(MeshRenderer));
         Aura_HighLight = GetComponentInChildren(typeof(HighLight)) as HighLight;
-        
-       /*
-        if (my_meshRenderes != null)
-        {
-            foreach(MeshRenderer m in my_meshRenderes)
-            {
-                m.material.SetFloat("Vector1_A27884FF", -2);
-            }
-        }
-        */
+
         //===============================================
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
  
@@ -180,26 +160,7 @@ abstract public class Unit : MonoBehaviour
 
     protected void Update()
     {
-        /*
-        if (appear)
-        {
-            appearOverTime += Time.deltaTime * speed;
-
-            if (my_meshRenderes != null)
-            {
-                foreach (MeshRenderer m in my_meshRenderes)
-                {
-                    if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.05f;
-                    m.material.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
-                    //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_A27884FF") >= 100) appear = false;
-                }
-            }
-            
-            //Debug.Log("Edge : " + myMaterial.GetFloat("Vector1_A27884FF"));
-            
-        }
-        */
+       
         if (right_turn)
         {
             

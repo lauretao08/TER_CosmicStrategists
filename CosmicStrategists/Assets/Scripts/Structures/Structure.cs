@@ -19,13 +19,18 @@ abstract public class Structure : MonoBehaviour
     private Color unusable_color;
 
 
+    //=========VFX============
+    public HighLight Aura_HighLight;
+
+
     public virtual void start_turn(){}
 	public virtual void on_arrival(){}
 	public virtual void end_turn(){}
 	
-	void Start(){
+	protected void Start(){
 
         structure_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
+        Aura_HighLight = GetComponentInChildren(typeof(HighLight)) as HighLight;
 
         //*will be changed*//
         base_color = Color.white;
@@ -38,8 +43,11 @@ abstract public class Structure : MonoBehaviour
 
         deploy();
 	}
-	
-	public void check_state(){
+    protected void Update()
+    {
+        
+    }
+    public void check_state(){
 		
 	}
 	
@@ -83,6 +91,8 @@ abstract public class Structure : MonoBehaviour
         Highlight(HighlightStyle.Selected);
         game_manager.activate_feedback_unit(true);
         game_manager.display_feedback_unit(origin_card);
+        Aura_HighLight.active = true;
+
     }
 
     public void OnMouseExit()
@@ -90,7 +100,7 @@ abstract public class Structure : MonoBehaviour
         Highlight(HighlightStyle.None);
 
         game_manager.activate_feedback_unit(false);
-
+        Aura_HighLight.active = false;
     }
 
 }

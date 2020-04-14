@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4078446484702784525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.091, y: 5.091, z: 5.091}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4078446485925458994}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ ParticleSystem:
   m_GameObject: {fileID: 4078446484702784525}
   serializedVersion: 6
   lengthInSec: 3
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -982,13 +982,13 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.51031494
-          inSlope: 0.6897086
-          outSlope: 0.6897086
+          value: 1
+          inSlope: -0.8592441
+          outSlope: -0.8592441
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.10462286
+          outWeight: 0.2279635
         - serializedVersion: 3
           time: 1
           value: 1
@@ -4709,8 +4709,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8e52555d22528547b4d163c93dfd47f, type: 2}
-  - {fileID: 2100000, guid: a8e52555d22528547b4d163c93dfd47f, type: 2}
+  - {fileID: 2100000, guid: 76acf6462a4a9bd46ba7e88722369f9a, type: 2}
+  - {fileID: 2100000, guid: 76acf6462a4a9bd46ba7e88722369f9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4781,7 +4781,7 @@ Transform:
   m_GameObject: {fileID: 4078446484859647413}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2428575, y: 4.2428584, z: 1.9882679}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4078446485925458994}
   m_RootOrder: 1
@@ -9535,7 +9535,7 @@ Transform:
   m_GameObject: {fileID: 4078446485337858531}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2428575, y: 4.2428584, z: 12.751124}
+  m_LocalScale: {x: 2, y: 2, z: 10}
   m_Children: []
   m_Father: {fileID: 4078446485925458994}
   m_RootOrder: 2
@@ -14272,7 +14272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078446485925458994}
   m_Layer: 0
-  m_Name: Highlight
+  m_Name: Aura_HighLight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

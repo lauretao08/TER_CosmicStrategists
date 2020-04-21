@@ -82,7 +82,10 @@ abstract public class Card : MonoBehaviour
     // Update is called once per frame
     //Update is necessary for drag and drop, unless Tao finds a better solution
     void Update()
-    {	if(game_manager.paused || card_manager.refuse()){
+	{	if(game_manager==null){
+			return;
+		}
+		if(game_manager.paused || card_manager.refuse()){
 			return;
 		}
         if (dragging)
@@ -139,6 +142,7 @@ abstract public class Card : MonoBehaviour
     //Set anchor position in hand for drag&drop
     public void SetHandPosition(Vector3 hand_position)
     {
+        this.transform.position = hand_position;
         this.hand_position = hand_position;
     }
 
@@ -166,6 +170,9 @@ abstract public class Card : MonoBehaviour
 
     void OnMouseEnter()
     {
+		if(game_manager==null){
+			return;
+		}
 		if(game_manager.paused){
 			return;
 		}

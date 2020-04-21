@@ -74,12 +74,6 @@ public class CardPlayer : MonoBehaviour
 
     void Arrange()
     {
-        /**ASPECT RATIO**/
-        /*screen_aspect = (float)Screen.width / (float)Screen.height;
-        cam_half_height = camera_player.orthographicSize;
-        cam_half_width = screen_aspect * cam_half_height;*/
-
-        //ATTENTION : PAS DE VALEURS EN DUR
         Vector3 base_pos = camera_player.transform.position;
         
 		if(player.is_human()){
@@ -93,11 +87,19 @@ public class CardPlayer : MonoBehaviour
 		}
 		
         Card tmp_card;
+        foreach(Card c in hand)
+        {
+            c.SetHandPosition(base_pos);
+            base_pos.x +=  2.1f;
+        }
+		
+		/*
+        Card tmp_card;
         foreach(GameObject c in hand_game)
         {
             c.transform.position = base_pos;
             //ATTENTION : AMELIORATION NECESSAIRE !
-            tmp_card = c.GetComponent(typeof(Card)) as Card;
+            tmp_card = c.GetComponent<Card>();
             if (tmp_card != null)
             {
                 tmp_card.SetHandPosition(base_pos);
@@ -108,18 +110,19 @@ public class CardPlayer : MonoBehaviour
             }
             base_pos.x +=  2.1f;
         }
+		*/
     }	
 
 	public void calculate_card_placement(){
 		float radAngle = camera_player.fieldOfView * Mathf.Deg2Rad;
-        float radHFOV = 2 * Mathf.Atan(Mathf.Tan(radAngle / 2) * camera_player.aspect);
-        camera_hFOV = Mathf.Rad2Deg * radHFOV;
+		float radHFOV = 2 * Mathf.Atan(Mathf.Tan(radAngle / 2) * camera_player.aspect);
+		camera_hFOV = Mathf.Rad2Deg * radHFOV;
 
-        screen_aspect = camera_player.aspect;
-        card_distance = camera_player.focalLength / 6.0f;
+		screen_aspect = camera_player.aspect;
+		card_distance = camera_player.focalLength / 6.0f;
 
-        card_offset_x = Mathf.Tan((camera_hFOV / 2.0f)*Mathf.Deg2Rad) * card_distance;
-        card_offset_y = Mathf.Tan((camera_player.fieldOfView/2.0f) * Mathf.Deg2Rad) * card_distance;
+		card_offset_x = Mathf.Tan((camera_hFOV / 2.0f)*Mathf.Deg2Rad) * card_distance;
+		card_offset_y = Mathf.Tan((camera_player.fieldOfView/2.0f) * Mathf.Deg2Rad) * card_distance;
 
 	}
 
@@ -127,7 +130,6 @@ public class CardPlayer : MonoBehaviour
     {
         int tmp = 0;
         Card tmp_card = null;
-        //Card tmp_card = new Card();
         GameObject tmp_go;
 
         for (int i = 0; i < nb; i++)
@@ -140,22 +142,18 @@ public class CardPlayer : MonoBehaviour
             if (draw_pile.Count < 1){
 				
                 Debug.Log("Empty draw pile, cannot draw card");
+				return null;
             }else{	
                 tmp = draw_pile[0];
                 draw_pile.RemoveAt(0);
                 //hand.Add(tmp);
                 Vector3 card_pos = camera_player.transform.position;
-
-
-                GameObject CardTmp;
-                //GameObject CardTmp = new GameObject();
-                CardTmp = deck_loader.GenerateCardFromId(tmp);
-
+				
                 tmp_go = Instantiate(deck_loader.GenerateCardFromId(tmp), card_pos, camera_player.transform.rotation);
                 hand_game.Add(tmp_go);
 
                 //OPTIMIZE THIS GETCOMPONENT!
-                tmp_card = tmp_go.GetComponent(typeof(Card)) as Card;
+                tmp_card = tmp_go.GetComponent<Card>();
                 tmp_card.SetCardManager(this);
                 tmp_card.SetGame(get_current_game());
                 hand.Add(tmp_card);

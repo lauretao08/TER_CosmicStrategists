@@ -55,7 +55,7 @@ public class GameBoard : MonoBehaviour
 
     public GameObject Board;
 
-    public float distance_between_units = 8.0f;
+    public float distance_between_units = 0.0f;
 
     void Start(){	}
 	void Update(){	}
@@ -150,6 +150,10 @@ public class GameBoard : MonoBehaviour
         playerB_units_go.Add(unit);
         Unit tmp = unit.GetComponent(typeof(Unit)) as Unit;
 		tmp.set_game_manager(game_manager);
+        //rotate unit to face player
+        unit.transform.Rotate(0.0f, 180.0f, 0.0f);
+
+
         add_unit_B(tmp);
         PlaceUnitsB();
     }
@@ -182,8 +186,7 @@ public class GameBoard : MonoBehaviour
         {
             c.transform.position = base_pos;
 
-            //c.transform.Rotate(new Vector3(0, 1, 0), 180.0f);
-            //c.transform.LookAt(Vector3.back);
+            
             base_pos.x -= distance_between_units;
         }
     }
@@ -238,6 +241,9 @@ public class GameBoard : MonoBehaviour
         playerB_structures_go.Add(structure);
         Structure tmp = structure.GetComponent(typeof(Structure)) as Structure;
 		tmp.set_game_manager(game_manager);
+        //rotate unit to face player
+        structure.transform.Rotate(0.0f, 180.0f, 0.0f);
+
         add_structure_B(tmp);
         PlaceStructuresB();
     }
@@ -271,7 +277,6 @@ public class GameBoard : MonoBehaviour
         foreach (GameObject c in playerB_structures_go)
         {
             c.transform.position = base_pos;
-            c.transform.Rotate(new Vector3(0, 1, 0), 180.0f);
 
             base_pos.x += distance_between_units;
         }

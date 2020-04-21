@@ -4,7 +4,52 @@ using UnityEngine;
 
 public class U_CommonFrigate : Unit
 {
-	public override void start_turn(){
+    //========Pour le shader aparision======
+    private Component[] my_meshRenderes;
+    bool appear = true;
+    bool disappear = false;
+    Material myMaterial;
+    float appearOverTime = 1.0f;
+    private float speed = 0.95f;
+
+    private void Start()
+    {
+        base.Start();
+        //==================Initialisation du shader Aparision==============
+        my_meshRenderes = GetComponentsInChildren(typeof(MeshRenderer));
+        if (my_meshRenderes != null)
+        {
+            foreach (MeshRenderer m in my_meshRenderes)
+            {
+                m.material.SetFloat("Vector1_B63A240C", -1);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        base.Update();
+
+        //==================Changement de valeur pour le shader aparision==============
+        if (appear)
+        {
+            appearOverTime += Time.deltaTime * speed;
+
+            if (my_meshRenderes != null)
+            {
+                foreach (MeshRenderer m in my_meshRenderes)
+                {
+                    if (m.material.GetFloat("Vector1_B63A240C") > 2.5f) appearOverTime *= 1.05f;
+                    m.material.SetFloat("Vector1_B63A240C", -2 + appearOverTime);
+                    //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
+                    if (m.material.GetFloat("Vector1_B63A240C") >= 100) appear = false;
+                }
+            }
+        }
+    }
+    
+
+    public override void start_turn(){
 	
 	}
 	

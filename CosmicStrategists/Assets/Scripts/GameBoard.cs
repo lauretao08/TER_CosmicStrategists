@@ -55,7 +55,7 @@ public class GameBoard : MonoBehaviour
 
     public GameObject Board;
 
-    public float distance_between_units = 5.0f;
+    public float distance_between_units = 8.0f;
 
     void Start(){	}
 	void Update(){	}

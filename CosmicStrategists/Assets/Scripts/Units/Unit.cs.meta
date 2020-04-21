@@ -3,7 +3,9 @@ guid: 8eb03386fb609b74db11be4028464f02
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - origin_card: {instanceID: 0}
+  - Aura_HighLight: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

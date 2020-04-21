@@ -1734,7 +1734,7 @@ PrefabInstance:
     - target: {fileID: 6880782556577582083, guid: 18527c89ccdd0f44ba27d8b3b4794606,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6880782556577582083, guid: 18527c89ccdd0f44ba27d8b3b4794606,
         type: 3}
@@ -2009,7 +2009,7 @@ PrefabInstance:
     - target: {fileID: 1540279670002798130, guid: 07f32acb110c78747b6cde4beae152f4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 900.9
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1540279670002798130, guid: 07f32acb110c78747b6cde4beae152f4,
         type: 3}
@@ -2056,6 +2056,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1540279670002798130, guid: 07f32acb110c78747b6cde4beae152f4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540279670002798130, guid: 07f32acb110c78747b6cde4beae152f4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540279670002798130, guid: 07f32acb110c78747b6cde4beae152f4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1540279670002798131, guid: 07f32acb110c78747b6cde4beae152f4,
         type: 3}
       propertyPath: m_Enabled
@@ -2074,7 +2089,7 @@ PrefabInstance:
     - target: {fileID: 2226742781166880696, guid: 07f32acb110c78747b6cde4beae152f4,
         type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226742781166880696, guid: 07f32acb110c78747b6cde4beae152f4,
         type: 3}
@@ -3561,7 +3576,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7950,7 +7965,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685482566
 GameObject:

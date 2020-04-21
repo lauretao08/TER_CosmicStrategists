@@ -28,6 +28,8 @@ public class CardPlayer : MonoBehaviour
 
     public int max_number_cards_hand;
 
+    private float card_offset_in_hand=2.1f;
+
 
     //shuffle the deck
     public void ShuffleDeck()
@@ -90,7 +92,7 @@ public class CardPlayer : MonoBehaviour
         foreach(Card c in hand)
         {
             c.SetHandPosition(base_pos);
-            base_pos.x +=  2.1f;
+            base_pos.x += card_offset_in_hand;
         }
 		
 		/*

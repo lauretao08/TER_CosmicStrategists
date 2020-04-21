@@ -152,7 +152,7 @@ public class GameBoard : MonoBehaviour
 		tmp.set_game_manager(game_manager);
         //rotate unit to face player
         unit.transform.Rotate(0.0f, 180.0f, 0.0f);
-
+        tmp.RotateHPText();
 
         add_unit_B(tmp);
         PlaceUnitsB();
@@ -243,6 +243,7 @@ public class GameBoard : MonoBehaviour
 		tmp.set_game_manager(game_manager);
         //rotate unit to face player
         structure.transform.Rotate(0.0f, 180.0f, 0.0f);
+        
 
         add_structure_B(tmp);
         PlaceStructuresB();

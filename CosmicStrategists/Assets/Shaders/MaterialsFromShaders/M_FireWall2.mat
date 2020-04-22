@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Galaxy3
-  m_Shader: {fileID: -6465566751694194690, guid: b053e1bcdcecb934dbcadea8f845f2e9,
+  m_Name: M_FireWall2
+  m_Shader: {fileID: -6465566751694194690, guid: 5c93f955a8cbee5429757dbb31584c81,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -22,20 +22,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Cubemap_5BCB8EAE:
-        m_Texture: {fileID: 8900000, guid: 9e04a90d41c8fc74a874296efd073656, type: 3}
+    - Texture2D_4A3649AE:
+        m_Texture: {fileID: 2800000, guid: 05b334141241f374b9cd5969d5cb2bb4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Cubemap_D1FD9583:
-        m_Texture: {fileID: 8900000, guid: 13e913e54fe1bba46a273399552e77c3, type: 3}
+    - Texture2D_CA1A71:
+        m_Texture: {fileID: 2800000, guid: 213970b77d9b689458aec567561c96af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4E400A13: 10
-    - Vector1_69EC1AC6: 20
-    - Vector1_97CA80BD: 10
+    - Vector1_8D21649A: 0.94
     m_Colors:
-    - Color_2EE380D0: {r: 23.968628, g: 13.375032, b: 0, a: 0}
-    - Color_9B64E742: {r: 1, g: 1, b: 1, a: 1}
-    - Color_DE39FCCE: {r: 1, g: 1, b: 1, a: 0}
-    - Vector2_2AD2CC0F: {r: 0, g: 0.5, b: 0, a: 0}
+    - Color_B8C5C014: {r: 14.928529, g: 0, b: 0, a: 1}
+    - Vector2_E69EA7D: {r: -0.2, g: -0.5, b: 0, a: 0}

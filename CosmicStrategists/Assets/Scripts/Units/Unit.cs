@@ -43,7 +43,7 @@ abstract public class Unit : MonoBehaviour
 
     //============VFX============
     public HighLight Aura_HighLight;
-
+    public Aura_Skill Aura_Skill;
 
     //these methods will be overriden by non-activable units. others will use the activable methods below
     public virtual void start_turn()
@@ -104,7 +104,9 @@ abstract public class Unit : MonoBehaviour
         //=============================================
 
         Aura_HighLight = GetComponentInChildren(typeof(HighLight)) as HighLight;
+        Aura_Skill = GetComponentInChildren(typeof(Aura_Skill)) as Aura_Skill;
 
+      
         //===============================================
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
  
@@ -224,6 +226,8 @@ abstract public class Unit : MonoBehaviour
         {
             selected = true;
             Highlight(HighlightStyle.Ready_To_Play);
+            //=====VFX=====
+            Aura_Skill.active = true;
         }
         if (!right_turn)
         {
@@ -232,8 +236,9 @@ abstract public class Unit : MonoBehaviour
         game_manager.activate_feedback_unit(true);
         game_manager.display_feedback_unit(origin_card);
 
-        //Pour aura high
+        //=======VFX==========
         Aura_HighLight.active = true;
+        
 
     }
 
@@ -254,7 +259,8 @@ abstract public class Unit : MonoBehaviour
 
         game_manager.activate_feedback_unit(false);
         Aura_HighLight.active = false;
-
+        if(Aura_Skill!=null)
+            Aura_Skill.active = false;
     }
 
     public void OnMouseDown()

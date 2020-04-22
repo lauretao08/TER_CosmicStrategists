@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 abstract public class Unit : MonoBehaviour
@@ -11,6 +12,8 @@ abstract public class Unit : MonoBehaviour
 
     public int health;
     public int max_health;
+
+    public TextMeshPro HPText;
 
     /**active effects**/
     public bool has_active_effect;
@@ -114,13 +117,17 @@ abstract public class Unit : MonoBehaviour
         selected_color = Color.magenta;
         unusable_color = Color.gray;
 
-
+        HPText.text = health + "/" + max_health;
 
         deploy();
     }
 
   
 
+    public void RotateHPText()
+    {
+        HPText.transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
 
     public void check_state()
     {
@@ -143,11 +150,13 @@ abstract public class Unit : MonoBehaviour
         if (damage_number > 0)
         {
             health -= damage_number;
+            HPText.text = health + "/" + max_health;
         }
         else
         {
             Debug.Log("WARNING : Damage value negative");
         }
+
         if (health <= 0)
         {
             game_manager.activate_feedback_unit(true);

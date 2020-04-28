@@ -55,8 +55,12 @@ public class Player : MonoBehaviour
 	protected int auto_play_failure;
 	protected int auto_play_nb_action_done;
 	protected float auto_play_timer;
-	
-	
+
+    //prefabs of UI elements
+    public GameObject Ui_element_HP;
+    public GameObject Ui_element_ENER;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,8 +121,16 @@ public class Player : MonoBehaviour
 		health=health+h;
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".gain_hp("+h+")] Health ="+this.health);}
-		
-		return health;
+
+        //instantiate ui element for feedback
+        GameObject UI_Elem_HP = Instantiate(Ui_element_HP) as GameObject;
+        UIDamageElement UI_elem = UI_Elem_HP.GetComponent(typeof(UIDamageElement)) as UIDamageElement;
+        UI_elem.SetParent(UI_Health.gameObject);
+        UI_elem.setNumber("+" + h.ToString());
+
+
+
+        return health;
 	}
 	
 	public int lose_hp(int h){
@@ -129,8 +141,15 @@ public class Player : MonoBehaviour
 		}
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".lose_hp("+h+")] Health ="+this.health);}
-		
-		return health;
+
+        //instantiate ui element for feedback
+        GameObject UI_Elem_HP = Instantiate(Ui_element_HP) as GameObject;
+        UIDamageElement UI_elem = UI_Elem_HP.GetComponent(typeof(UIDamageElement)) as UIDamageElement;
+        UI_elem.SetParent(UI_Health.gameObject);
+        UI_elem.setNumber("-" + h.ToString());
+
+
+        return health;
 	}
 
 //Energy modification 
@@ -145,8 +164,14 @@ public class Player : MonoBehaviour
 				Debug.Log("WARNING : ["+this+".gain_energy("+e+")] Energy > max_energy ("+this.energy+">"+this.max_energy+")");
 			}
 		}
-		
-		return energy;
+
+        //energy feedback element
+        GameObject UI_Elem_ENER = Instantiate(Ui_element_ENER) as GameObject;
+        UIDamageElement UI_elem = UI_Elem_ENER.GetComponent(typeof(UIDamageElement)) as UIDamageElement;
+        UI_elem.SetParent(UI_Energy.gameObject);
+        UI_elem.setNumber("+" + e.ToString());
+
+        return energy;
 	}
 	
 	public int lose_energy(int e){
@@ -157,8 +182,14 @@ public class Player : MonoBehaviour
 		}
 		
 		if(DEBUG_PRINT){Debug.Log("["+this+".lose_energy("+e+")] Energy ="+this.energy);}
-		
-		return energy;
+
+        //energy feedback element
+        GameObject UI_Elem_ENER = Instantiate(Ui_element_ENER) as GameObject;
+        UIDamageElement UI_elem = UI_Elem_ENER.GetComponent(typeof(UIDamageElement)) as UIDamageElement;
+        UI_elem.SetParent(UI_Energy.gameObject);
+        UI_elem.setNumber("-" + e.ToString());
+
+        return energy;
 	}
 	
 	public int refill_energy(){

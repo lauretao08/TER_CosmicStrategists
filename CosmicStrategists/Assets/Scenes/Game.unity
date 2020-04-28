@@ -2149,6 +2149,10 @@ MonoBehaviour:
   MAX_FAILURE: 0
   ACTION_PER_TURN: 0
   ACTION_DELAY: 0
+  Ui_element_HP: {fileID: 9212704210667403233, guid: 6d6aaa8de8a996d438e464ec0c485cb5,
+    type: 3}
+  Ui_element_ENER: {fileID: 4199689367739282008, guid: 67867117c24862144b8eee81f9b9e778,
+    type: 3}
 --- !u!224 &525870093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3754,7 +3758,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -6070,6 +6074,10 @@ MonoBehaviour:
   MAX_FAILURE: 5
   ACTION_PER_TURN: 3
   ACTION_DELAY: 0.6
+  Ui_element_HP: {fileID: 6405636882786552612, guid: 41feb50f64f444747a875dffc2d7aa50,
+    type: 3}
+  Ui_element_ENER: {fileID: 8381968135947570414, guid: 9f6b58210d2abee419763beff3b45901,
+    type: 3}
 --- !u!224 &1339944671
 RectTransform:
   m_ObjectHideFlags: 0

@@ -67,6 +67,7 @@ public class U_Hunter : Unit
     {
         Unit target = active_effect_target.GetComponent(typeof(Unit)) as Unit;
         target.damage(2);
+        
     }
 
 }

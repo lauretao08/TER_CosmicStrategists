@@ -42,8 +42,14 @@ abstract public class Unit : MonoBehaviour
     private MeshRenderer unit_renderer;
 
     //============VFX============
-    public HighLight Aura_HighLight;
-    public Aura_Skill Aura_Skill;
+    public HighLight    Aura_HighLight;
+    public Aura_Skill   Aura_Skill;
+    public ElectricHit  Hit;
+    public Explosion    Explosion_cartoon;
+
+    private int compteur_hit = 0;
+
+
 
     //these methods will be overriden by non-activable units. others will use the activable methods below
     public virtual void start_turn()
@@ -105,8 +111,8 @@ abstract public class Unit : MonoBehaviour
 
         Aura_HighLight = GetComponentInChildren(typeof(HighLight)) as HighLight;
         Aura_Skill = GetComponentInChildren(typeof(Aura_Skill)) as Aura_Skill;
-
-      
+        Hit = GetComponentInChildren(typeof(ElectricHit)) as ElectricHit;
+        Explosion_cartoon = GetComponentInChildren(typeof(Explosion)) as Explosion;
         //===============================================
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
  
@@ -151,6 +157,7 @@ abstract public class Unit : MonoBehaviour
     {
         if (damage_number > 0)
         {
+            Hit.active = true;
             health -= damage_number;
             HPText.text = health + "/" + max_health;
         }
@@ -158,20 +165,28 @@ abstract public class Unit : MonoBehaviour
         {
             Debug.Log("WARNING : Damage value negative");
         }
-
+        
         if (health <= 0)
         {
+            //Explosion_cartoon.active = true;
+            /*
             game_manager.activate_feedback_unit(true);
             this.game_manager.board.removeUnitFromPlayer(this, this.gameObject);
             Destroy(this.gameObject);
+            */
         }
+        
     }
 
     //**Active effects functions**//
 
     protected void Update()
     {
-       
+        if(Hit.active == true)
+            compteur_hit++;
+        if (compteur_hit > 1000)
+            Hit.active = false;
+
         if (right_turn)
         {
             

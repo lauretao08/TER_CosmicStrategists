@@ -168,7 +168,7 @@ abstract public class Unit : MonoBehaviour
         
         if (health <= 0)
         {
-            //Explosion_cartoon.active = true;
+            Explosion_cartoon.active = true;
             /*
             game_manager.activate_feedback_unit(true);
             this.game_manager.board.removeUnitFromPlayer(this, this.gameObject);

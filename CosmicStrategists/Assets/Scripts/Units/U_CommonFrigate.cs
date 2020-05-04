@@ -61,9 +61,9 @@ public class U_CommonFrigate : Unit
                 foreach (MeshRenderer m in my_meshRenderes)
                 {
 
-                    m.material.SetFloat("Vector1_DCE1ED0", 8 - appearOverTime);
-                    Debug.Log(m.material.GetFloat("Vector1_DCE1ED0"));
-                    if (m.material.GetFloat("Vector1_DCE1ED0") <= -2) detuit_shader_fini = true;
+                    m.material.SetFloat("Vector1_B63A240C", 8 - appearOverTime);
+                   // Debug.Log(m.material.GetFloat("Vector1_B63A240C"));
+                    if (m.material.GetFloat("Vector1_B63A240C") <= -2) detuit_shader_fini = true;
                 }
             }
         }

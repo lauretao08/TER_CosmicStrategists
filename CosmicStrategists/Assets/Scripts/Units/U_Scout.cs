@@ -7,11 +7,10 @@ public class U_Scout : Unit
     //========Pour le shader aparision======
     private Component[] my_meshRenderes;
     bool appear = true;
-    bool disappear = false;
     Material myMaterial;
     float appearOverTime = 1.0f;
     private float speed = 0.75f;
-
+    
 
     private void Start()
     {
@@ -43,13 +42,35 @@ public class U_Scout : Unit
                     if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.05f;
                     m.material.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
                     //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_A27884FF") >= 100) appear = false;
+                    if (m.material.GetFloat("Vector1_A27884FF") >= 100)
+                    {
+                        appear = false;
+                        appearOverTime = 1.0f;
+                    }
+                }
+            }
+
+            
+
+        }
+
+       
+        if (disappear)
+        {
+
+            appearOverTime += 4*Time.deltaTime * speed;
+
+            if (my_meshRenderes != null)
+            {
+                foreach (MeshRenderer m in my_meshRenderes)
+                {
+
+                    m.material.SetFloat("Vector1_A27884FF", 10 - appearOverTime);
+                    Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
+                    if (m.material.GetFloat("Vector1_A27884FF") <= -2) detuit_shader_fini = true;
                 }
             }
         }
-
-
-
     }
     
 

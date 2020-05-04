@@ -7,7 +7,6 @@ public class U_CommonFrigate : Unit
     //========Pour le shader aparision======
     private Component[] my_meshRenderes;
     bool appear = true;
-    bool disappear = false;
     Material myMaterial;
     float appearOverTime = 1.0f;
     private float speed = 0.95f;
@@ -42,10 +41,34 @@ public class U_CommonFrigate : Unit
                     if (m.material.GetFloat("Vector1_B63A240C") > 2.5f) appearOverTime *= 1.05f;
                     m.material.SetFloat("Vector1_B63A240C", -2 + appearOverTime);
                     //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_B63A240C") >= 100) appear = false;
+                    if (m.material.GetFloat("Vector1_B63A240C") >= 100)
+                    {
+                        appear = false;
+                        appearOverTime = 1.0f;
+                    }
                 }
             }
         }
+
+
+        if (disappear)
+        {
+
+            appearOverTime += 3 * Time.deltaTime * speed;
+
+            if (my_meshRenderes != null)
+            {
+                foreach (MeshRenderer m in my_meshRenderes)
+                {
+
+                    m.material.SetFloat("Vector1_DCE1ED0", 8 - appearOverTime);
+                    Debug.Log(m.material.GetFloat("Vector1_DCE1ED0"));
+                    if (m.material.GetFloat("Vector1_DCE1ED0") <= -2) detuit_shader_fini = true;
+                }
+            }
+        }
+
+
     }
     
 

@@ -39,7 +39,11 @@ abstract public class Unit : MonoBehaviour
 
     public Card origin_card;
 
+    //============Shader===============
     private MeshRenderer unit_renderer;
+
+    protected bool disappear;
+    protected bool detuit_shader_fini;
 
     //============VFX============
     public HighLight    Aura_HighLight;
@@ -115,7 +119,11 @@ abstract public class Unit : MonoBehaviour
         Explosion_cartoon = GetComponentInChildren(typeof(Explosion)) as Explosion;
         //===============================================
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
- 
+        disappear = false;
+
+
+        
+
         cursorTexture = Resources.Load<Texture2D>("Textures/Crosshair1");
         main_camera = Camera.main;
         //*will be changed*//
@@ -155,6 +163,7 @@ abstract public class Unit : MonoBehaviour
 
     public virtual void damage(int damage_number)
     {
+        detuit_shader_fini = false;  //pour détuire l'objet après le shader soit fini
         if (damage_number > 0)
         {
             Hit.active = true;
@@ -169,13 +178,9 @@ abstract public class Unit : MonoBehaviour
         if (health <= 0)
         {
             Explosion_cartoon.active = true;
-            /*
-            game_manager.activate_feedback_unit(true);
-            this.game_manager.board.removeUnitFromPlayer(this, this.gameObject);
-            Destroy(this.gameObject);
-            */
+            disappear = true;
+
         }
-        
     }
 
     //**Active effects functions**//
@@ -203,6 +208,13 @@ abstract public class Unit : MonoBehaviour
 
                 }
             }
+        }
+        
+        if (detuit_shader_fini)
+        {
+            game_manager.activate_feedback_unit(true);
+            this.game_manager.board.removeUnitFromPlayer(this, this.gameObject);
+            Destroy(this.gameObject);
         }
 
     }

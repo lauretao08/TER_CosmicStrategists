@@ -57,8 +57,19 @@ public class GameBoard : MonoBehaviour
 
     public float distance_between_units = 0.0f;
 
-    void Start(){	}
-	void Update(){	}
+    //VFX----action
+    //AS
+    public VFX_ArtilleryStrike _as;
+
+
+
+    void Start(){
+    _as = GetComponentInChildren(typeof(VFX_ArtilleryStrike)) as VFX_ArtilleryStrike;
+    }
+	void Update(){
+
+       
+    }
 	
 	public void start_turn()
 	{

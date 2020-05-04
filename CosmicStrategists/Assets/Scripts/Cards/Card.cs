@@ -54,7 +54,7 @@ abstract public class Card : MonoBehaviour
     protected Game game_manager;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
 		card_energy_cost=card_base_energy_cost;
 		
@@ -81,7 +81,7 @@ abstract public class Card : MonoBehaviour
 
     // Update is called once per frame
     //Update is necessary for drag and drop, unless Tao finds a better solution
-    void Update()
+    protected void Update()
 	{	if(game_manager==null){
 			return;
 		}

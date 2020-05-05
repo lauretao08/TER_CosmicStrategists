@@ -11,8 +11,11 @@ public class U_CommonFrigate : Unit
     float appearOverTime = 1.0f;
     private float speed = 0.95f;
 
+    
+
     private void Start()
     {
+        inflicted_damage = 1;
         base.Start();
         //==================Initialisation du shader Aparision==============
         my_meshRenderes = GetComponentsInChildren(typeof(MeshRenderer));
@@ -77,6 +80,8 @@ public class U_CommonFrigate : Unit
 	}
 	
 	public override void end_turn(){
-		game_manager.get_inactive_player().lose_hp(1);
+		game_manager.get_inactive_player().lose_hp(inflicted_damage);
 	}
+
+    
 }	

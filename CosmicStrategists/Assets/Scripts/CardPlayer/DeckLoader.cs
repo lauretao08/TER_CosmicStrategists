@@ -24,7 +24,8 @@ public class DeckLoader
 		COMMUNICATIONS_BASE,
 		COMMON_FRIGATE,
 		HYMPERIUM_CRUISER,
-		HUNTER
+		HUNTER,
+        OUTLAW_DRIVER
     }
 
     public DeckLoader()
@@ -74,6 +75,8 @@ public class DeckLoader
                 return Resources.Load("Card/Units/HymperiumCruiser") as GameObject;
             case Card_ID.HUNTER:
                 return Resources.Load("Card/Units/Hunter") as GameObject;
+            case Card_ID.OUTLAW_DRIVER:
+                return Resources.Load("Card/Units/OutlawDriver") as GameObject;
 
             default:
 				return Resources.Load("Card/Units/Scout") as GameObject;

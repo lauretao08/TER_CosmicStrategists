@@ -53,7 +53,8 @@ abstract public class Unit : MonoBehaviour
 
     private int compteur_hit = 0;
 
-
+    //for units that deal damage
+    protected int inflicted_damage;
 
     //these methods will be overriden by non-activable units. others will use the activable methods below
     public virtual void start_turn()
@@ -342,4 +343,15 @@ abstract public class Unit : MonoBehaviour
 
     public virtual void ActivateEffect() { }
 
+
+    //for damaging units
+    public void change_damage(int new_damage)
+    {
+        inflicted_damage = new_damage;
+    }
+
+    public int get_damage()
+    {
+        return inflicted_damage;
+    }
 }

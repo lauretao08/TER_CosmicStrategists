@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5459896159249789827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271895608599524423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e4e1cbe7f80de479fbc6432a873fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_name: Outlaw driver
+  card_base_energy_cost: 3
+  card_hp: 2
+  card_description: Each turn, select a unit. Until next turn, its damage increases
+    by 2.
+  name_component: {fileID: 9198753610632307003}
+  description_component: {fileID: 1142354851334124747}
+  cost_component: {fileID: 4015748889042231196}
+  health_component: {fileID: 2224492469131705465}
+  spawned_unit: {fileID: 1946970332979032, guid: 8ec51d44bb27e364eab0d1d4c64f6617,
+    type: 3}
+--- !u!1001 &6543610853366068084
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1629527440056490949, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088640402636394951, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413641396476247645, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478097425508747059, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Name
+      value: OutlawDriver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801384484057436164, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244763598233165185, guid: 9303dfcd0ad112344a425e9434423d41,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9303dfcd0ad112344a425e9434423d41, type: 3}
+--- !u!1 &7271895608599524423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4478097425508747059, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543610853366068084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1142354851334124747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6131060221355788223, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543610853366068084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9198753610632307003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2695152370669769295, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543610853366068084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4015748889042231196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7887312784655805672, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543610853366068084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2224492469131705465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4904824046130433805, guid: 9303dfcd0ad112344a425e9434423d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543610853366068084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

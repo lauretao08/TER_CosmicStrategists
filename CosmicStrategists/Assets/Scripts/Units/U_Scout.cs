@@ -66,7 +66,7 @@ public class U_Scout : Unit
                 {
 
                     m.material.SetFloat("Vector1_A27884FF", 10 - appearOverTime);
-                    Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
+                    //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
                     if (m.material.GetFloat("Vector1_A27884FF") <= -2) detuit_shader_fini = true;
                 }
             }

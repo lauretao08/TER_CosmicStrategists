@@ -25,7 +25,8 @@ public class DeckLoader
 		COMMON_FRIGATE,
 		HYMPERIUM_CRUISER,
 		HUNTER,
-        OUTLAW_DRIVER
+        OUTLAW_DRIVER,
+        PERILOUS_EXPEDITION
     }
 
     public DeckLoader()
@@ -77,6 +78,8 @@ public class DeckLoader
                 return Resources.Load("Card/Units/Hunter") as GameObject;
             case Card_ID.OUTLAW_DRIVER:
                 return Resources.Load("Card/Units/OutlawDriver") as GameObject;
+            case Card_ID.PERILOUS_EXPEDITION:
+                return Resources.Load("Card/Actions/Perilous_Expedition") as GameObject;
 
             default:
 				return Resources.Load("Card/Units/Scout") as GameObject;

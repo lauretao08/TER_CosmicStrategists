@@ -24,7 +24,7 @@ public class Aura_Skill : MonoBehaviour
         {
             Base.SetActive(true);
             Particles.SetActive(true);
-            VerticalCut.SetActive(true);
+            VerticalCut.SetActive(false);
         }
 
         else

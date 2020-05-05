@@ -122,8 +122,9 @@ abstract public class Unit : MonoBehaviour
         unit_renderer = GetComponent(typeof(MeshRenderer)) as MeshRenderer;
         disappear = false;
 
-
         
+
+
 
         cursorTexture = Resources.Load<Texture2D>("Textures/Crosshair1");
         main_camera = Camera.main;
@@ -188,7 +189,17 @@ abstract public class Unit : MonoBehaviour
 
     protected void Update()
     {
-        if(Hit.active == true)
+        if (has_active_effect && !deactivated)
+        {
+                Aura_Skill.active = true;
+        }
+        else
+        {
+            if(Aura_Skill!=null)
+                Aura_Skill.active = false;
+        }
+
+        if (Hit.active == true)
             compteur_hit++;
         if (compteur_hit > 1000)
             Hit.active = false;
@@ -255,7 +266,7 @@ abstract public class Unit : MonoBehaviour
             selected = true;
             Highlight(HighlightStyle.Ready_To_Play);
             //=====VFX=====
-            Aura_Skill.active = true;
+            //Aura_Skill.active = true;
         }
         if (!right_turn)
         {
@@ -287,8 +298,7 @@ abstract public class Unit : MonoBehaviour
 
         game_manager.activate_feedback_unit(false);
         Aura_HighLight.active = false;
-        if(Aura_Skill!=null)
-            Aura_Skill.active = false;
+        
     }
 
     public void OnMouseDown()

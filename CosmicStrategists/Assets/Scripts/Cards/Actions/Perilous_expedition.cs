@@ -7,7 +7,7 @@ public class Perilous_expedition : Card_Action
     protected override void Activate()
     {
         int damage_taken = 0;
-        this.game_manager.board._as.active = true;
+   
 
         //draw 3 cards, take 1 damage for each unit drawn
         Card c1 = get_owner().get_card_controller().Draw(1);

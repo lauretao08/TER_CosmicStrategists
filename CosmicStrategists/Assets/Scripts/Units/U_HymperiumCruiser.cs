@@ -5,7 +5,7 @@ using UnityEngine;
 public class U_HymperiumCruiser : Unit
 {
 	public override void start_turn(){
-		game_manager.get_inactive_player().lose_hp(4);
+		game_manager.get_inactive_player().lose_hp(inflicted_damage);
 	}
 	
 	public override void end_turn(){
@@ -31,6 +31,7 @@ public class U_HymperiumCruiser : Unit
                 m.material.SetFloat("Vector1_A27884FF", -2);
             }
         }
+        inflicted_damage = 4;
     }
 
     private void Update()

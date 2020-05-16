@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 4544973855606162}
   - component: {fileID: 6235255139285854211}
   - component: {fileID: 4621442832169170081}
+  - component: {fileID: 7290783531012340876}
   m_Layer: 0
   m_Name: U_Hyperium_cruiser
   m_TagString: Untagged
@@ -136,6 +137,9 @@ MonoBehaviour:
   origin_card: {fileID: 9082985116007742474, guid: df2251fc9a538614f9db9a2b40aef3fd,
     type: 3}
   Aura_HighLight: {fileID: 0}
+  Aura_Skill: {fileID: 0}
+  Hit: {fileID: 0}
+  Explosion_cartoon: {fileID: 0}
 --- !u!65 &4621442832169170081
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,6 +153,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.2052774, y: 2.0218315, z: 10.459951}
   m_Center: {x: 0.035625458, y: 0.8673706, z: 0.689327}
+--- !u!23 &7290783531012340876
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542112843390278}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &3815066359280249166
 GameObject:
   m_ObjectHideFlags: 0

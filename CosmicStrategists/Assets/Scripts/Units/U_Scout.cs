@@ -24,6 +24,7 @@ public class U_Scout : Unit
                 m.material.SetFloat("Vector1_C5620752", -2);
             }
         }
+        inflicted_damage = 1;
     }
 
     private void Update()
@@ -84,6 +85,6 @@ public class U_Scout : Unit
     }
 
     public override void end_turn(){
-		game_manager.get_inactive_player().lose_hp(1);
+		game_manager.get_inactive_player().lose_hp(inflicted_damage);
     }
 }

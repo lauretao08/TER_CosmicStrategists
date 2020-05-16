@@ -23,6 +23,7 @@ public class U_Hunter : Unit
                 m.material.SetFloat("Vector1_DCE1ED0", -2);
             }
         }
+        inflicted_damage = 2;
     }
 
     private void Update()
@@ -86,7 +87,7 @@ public class U_Hunter : Unit
     public override void ActivateEffect()
     {
         Unit target = active_effect_target.GetComponent(typeof(Unit)) as Unit;
-        target.damage(2);
+        target.damage(inflicted_damage);
         
     }
 

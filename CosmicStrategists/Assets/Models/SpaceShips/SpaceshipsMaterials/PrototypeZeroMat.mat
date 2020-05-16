@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PrototypeZeroMat
-  m_Shader: {fileID: -6465566751694194690, guid: be0ee2746fc260e45af648fffb7ad3d6,
+  m_Shader: {fileID: -6465566751694194690, guid: 03f46c77d835bc943bf4e18b56cb480b,
     type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
@@ -27,6 +27,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_D46C4555:
+        m_Texture: {fileID: 2800000, guid: ad18fb1dc985d48e0b38c0e41d04c935, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E6F4E5CD:
+        m_Texture: {fileID: 2800000, guid: e6be6520b9b5be049aa28370328b21eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ED6E2E26:
         m_Texture: {fileID: 2800000, guid: ad18fb1dc985d48e0b38c0e41d04c935, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -152,9 +160,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_60BF3472: 40
+    - Vector1_6E83DBDD: 0.2
     - Vector1_7066D426: 0.2
+    - Vector1_72D7B03B: 40
     - Vector1_8671C095: 0.2
     - Vector1_A27884FF: 72.99
+    - Vector1_C5620752: -2
     - Vector1_E8748B7A: 64.7
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -289,6 +300,7 @@ Material:
     m_Colors:
     - Color_1AA38C2F: {r: 0, g: 3026478.2, b: 6283232, a: 0}
     - Color_AA0C62A0: {r: 6283232, g: 131586, b: 0, a: 0}
+    - Color_C74674DB: {r: 0, g: 1.085025, b: 1.262691, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

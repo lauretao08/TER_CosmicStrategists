@@ -21,7 +21,7 @@ public class U_Scout : Unit
         {
             foreach (MeshRenderer m in my_meshRenderes)
             {
-                m.material.SetFloat("Vector1_A27884FF", -2);
+                m.material.SetFloat("Vector1_C5620752", -2);
             }
         }
     }
@@ -39,10 +39,10 @@ public class U_Scout : Unit
             {
                 foreach (MeshRenderer m in my_meshRenderes)
                 {
-                    if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.05f;
-                    m.material.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
+                    if (m.material.GetFloat("Vector1_C5620752") > 2.5f) appearOverTime *= 1.05f;
+                    m.material.SetFloat("Vector1_C5620752", -2 + appearOverTime);
                     //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_A27884FF") >= 100)
+                    if (m.material.GetFloat("Vector1_C5620752") >= 100)
                     {
                         appear = false;
                         appearOverTime = 1.0f;
@@ -65,9 +65,9 @@ public class U_Scout : Unit
                 foreach (MeshRenderer m in my_meshRenderes)
                 {
 
-                    m.material.SetFloat("Vector1_A27884FF", 10 - appearOverTime);
+                    m.material.SetFloat("Vector1_C5620752", 10 - appearOverTime);
                     //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_A27884FF") <= -2) detuit_shader_fini = true;
+                    if (m.material.GetFloat("Vector1_C5620752") <= -2) detuit_shader_fini = true;
                 }
             }
         }

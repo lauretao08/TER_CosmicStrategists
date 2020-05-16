@@ -300,7 +300,7 @@ Material:
     m_Colors:
     - Color_1AA38C2F: {r: 0, g: 3026478.2, b: 6283232, a: 0}
     - Color_AA0C62A0: {r: 6283232, g: 131586, b: 0, a: 0}
-    - Color_C74674DB: {r: 0, g: 1.085025, b: 1.262691, a: 0}
+    - Color_C74674DB: {r: 0, g: 5427923, b: 6283232, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -116,6 +116,7 @@ MonoBehaviour:
   SUSPICIOUS_WARNING: 0
   origin_card: {fileID: 1514469551481698841, guid: 3b038f3bd41d9f8409d771a6861f590b,
     type: 3}
+  Aura_HighLight: {fileID: 0}
 --- !u!65 &6734506886905632898
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,8 +128,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.3612065, y: 5.6352215, z: 8.915025}
-  m_Center: {x: -0.60854816, y: 2.814355, z: 0.15710878}
+  m_Size: {x: 5.361207, y: 3.0010772, z: 8.915025}
+  m_Center: {x: -0.6085481, y: 1.4972825, z: 0.1571087}
 --- !u!1 &1000010414886642
 GameObject:
   m_ObjectHideFlags: 0

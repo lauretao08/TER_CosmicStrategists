@@ -28,7 +28,7 @@ public class U_HymperiumCruiser : Unit
         {
             foreach (MeshRenderer m in my_meshRenderes)
             {
-                m.material.SetFloat("Vector1_A27884FF", -2);
+                m.material.SetFloat("Vector1_2C022569", -2);
             }
         }
         inflicted_damage = 4;
@@ -47,13 +47,14 @@ public class U_HymperiumCruiser : Unit
             {
                 foreach (MeshRenderer m in my_meshRenderes)
                 {
-                    if (m.material.GetFloat("Vector1_A27884FF") > 2.5f) appearOverTime *= 1.05f;
-                    m.material.SetFloat("Vector1_A27884FF", -2 + appearOverTime);
+                    if (m.material.GetFloat("Vector1_2C022569") > 2.5f) appearOverTime *= 1.05f;
+                    m.material.SetFloat("Vector1_2C022569", -2 + appearOverTime);
                     //Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_A27884FF") >= 100)
+                    if (m.material.GetFloat("Vector1_2C022569") >= 100)
                     {
                         appear = false;
                         appearOverTime = 1.0f;
+                        break;
                     }
                 }
             }
@@ -73,9 +74,9 @@ public class U_HymperiumCruiser : Unit
                 foreach (MeshRenderer m in my_meshRenderes)
                 {
 
-                    m.material.SetFloat("Vector1_A27884FF", 10 - appearOverTime);
-                    Debug.Log(m.material.GetFloat("Vector1_A27884FF"));
-                    if (m.material.GetFloat("Vector1_A27884FF") <= -2) detuit_shader_fini = true;
+                    m.material.SetFloat("Vector1_2C022569", 10 - appearOverTime);
+                    Debug.Log(m.material.GetFloat("Vector1_2C022569"));
+                    if (m.material.GetFloat("Vector1_2C022569") <= -2) detuit_shader_fini = true;
                 }
             }
         }

@@ -15,7 +15,10 @@ MonoBehaviour:
   card_name: Perilous Expedition
   card_base_energy_cost: 2
   card_hp: 0
-  card_description: Draw 3 cards. Take 1 damage for each unit drawn .
+  card_description: 'Action
+
+    Draw 3 cards. Take 1 damage for each unit drawn
+    .'
   name_component: {fileID: 5261911257467806648}
   description_component: {fileID: 4140193907266631240}
   cost_component: {fileID: 77783393187912991}

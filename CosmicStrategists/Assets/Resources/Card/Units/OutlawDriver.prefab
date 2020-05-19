@@ -15,8 +15,10 @@ MonoBehaviour:
   card_name: Outlaw driver
   card_base_energy_cost: 3
   card_hp: 2
-  card_description: Each turn, select a unit. Until next turn, its damage increases
-    by 2.
+  card_description: 'Unit
+
+    Each turn, select a unit. Until next turn, its damage
+    increases by 2.'
   name_component: {fileID: 9198753610632307003}
   description_component: {fileID: 1142354851334124747}
   cost_component: {fileID: 4015748889042231196}

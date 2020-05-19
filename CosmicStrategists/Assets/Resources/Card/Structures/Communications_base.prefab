@@ -15,7 +15,9 @@ MonoBehaviour:
   card_name: Comm. Base
   card_base_energy_cost: 2
   card_hp: 0
-  card_description: Regain 1 HP every turn
+  card_description: 'Structure
+
+    Regain 1 HP every turn'
   name_component: {fileID: 4162149652663558627}
   description_component: {fileID: 8888738385576773375}
   cost_component: {fileID: 2676713492928095987}

@@ -15,7 +15,9 @@ MonoBehaviour:
   card_name: Hunter
   card_base_energy_cost: 1
   card_hp: 1
-  card_description: Inflict 2 damage on selected enemy unit
+  card_description: 'Unit
+
+    Inflict 2 damage on selected enemy unit'
   name_component: {fileID: 2859250614009641678}
   description_component: {fileID: 6331187292786323262}
   cost_component: {fileID: 8051414368522339433}

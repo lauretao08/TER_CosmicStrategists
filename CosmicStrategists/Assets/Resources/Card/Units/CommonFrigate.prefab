@@ -15,7 +15,9 @@ MonoBehaviour:
   card_name: Common Frigate
   card_base_energy_cost: 2
   card_hp: 2
-  card_description: 'Turn end : inflict 1 damage on enemy Player'
+  card_description: 'Unit
+
+    Turn end : inflict 1 damage on enemy Player'
   name_component: {fileID: 691481039761362018}
   description_component: {fileID: 5404718875403938686}
   cost_component: {fileID: 1549194173198584690}

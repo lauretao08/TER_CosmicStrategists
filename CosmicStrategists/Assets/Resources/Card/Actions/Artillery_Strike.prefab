@@ -15,7 +15,7 @@ MonoBehaviour:
   card_name: Artillery Strike
   card_base_energy_cost: 1
   card_hp: 0
-  card_description: Inflict 2 Damage
+  card_description: Inflict 2 damage on enemy Player
   name_component: {fileID: 8573735009028207710}
   description_component: {fileID: 3775652465003516738}
   cost_component: {fileID: 7645831388046521166}

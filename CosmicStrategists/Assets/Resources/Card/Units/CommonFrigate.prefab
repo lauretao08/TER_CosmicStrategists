@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f89a636d66a5a99478d6f25ea71862c7, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   card_name: Common Frigate
   card_base_energy_cost: 2
   card_hp: 2
-  card_description: 'End Of Turn : Shoot 1 on enemy Base'
+  card_description: 'Turn end : inflict 1 damage on enemy Player'
   name_component: {fileID: 691481039761362018}
   description_component: {fileID: 5404718875403938686}
   cost_component: {fileID: 1549194173198584690}
@@ -32,12 +32,12 @@ PrefabInstance:
     - target: {fileID: 17077562448439094, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1002839548484972473, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2398289937304755424, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
@@ -107,17 +107,17 @@ PrefabInstance:
     - target: {fileID: 6406533548873182634, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8327158832361267439, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 4f8d14473906fe0499b8aafdaa6765f2, type: 2}
     - target: {fileID: 8698643789595421202, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffdc65d831cd8a4b9c4e2830c883e74, type: 3}
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &691481039761362018 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2096926656466010276, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1549194173198584690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 143748075424040884, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8967052145953016491 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7561609273692620397, guid: 4ffdc65d831cd8a4b9c4e2830c883e74,
@@ -173,5 +173,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 

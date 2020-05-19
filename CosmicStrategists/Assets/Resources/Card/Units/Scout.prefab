@@ -15,7 +15,7 @@ MonoBehaviour:
   card_name: Scout
   card_base_energy_cost: 1
   card_hp: 2
-  card_description: Inflict 1 Damage to opponent every turn
+  card_description: 'Turn End : inflict 1 damage to enemy Player'
   name_component: {fileID: 8360534304633446323}
   description_component: {fileID: 3935966709920102575}
   cost_component: {fileID: 7557568028395395235}

@@ -699,8 +699,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063015735}
-  m_LocalRotation: {x: 0.0006625511, y: 0.9795613, z: -0.20111895, w: 0.0032272078}
-  m_LocalPosition: {x: 736.84424, y: 159.91356, z: 49.18686}
+  m_LocalRotation: {x: 0.006034514, y: 0.98817134, z: -0.14783138, w: 0.04033549}
+  m_LocalPosition: {x: 736.9029, y: 160.19193, z: 49.819763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -809,6 +809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Aura_HighLight2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651608702949693354, guid: 357a2b833202ff046adb99ff01f67e2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6109058914268282610, guid: 357a2b833202ff046adb99ff01f67e2b,
         type: 3}
@@ -957,6 +962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aura_HighLight1
       objectReference: {fileID: 0}
+    - target: {fileID: 4078446485925459005, guid: 213e511aa92444047acec0c3014f156c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 213e511aa92444047acec0c3014f156c, type: 3}
 --- !u!1 &1949178640 stripped
@@ -976,6 +986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion_Cartoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 786304882677145004, guid: 46665d0b09c450b47a35c7b0324096a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 786304882677145007, guid: 46665d0b09c450b47a35c7b0324096a7,
         type: 3}
@@ -1116,6 +1131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectricHit
       objectReference: {fileID: 0}
+    - target: {fileID: 9117665202814186101, guid: 9ff8debbabb39be4592df186922303ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff8debbabb39be4592df186922303ee, type: 3}
 --- !u!1001 &7788866139380192031
@@ -1215,6 +1235,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectricExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 7788866140753323626, guid: 7c87ce3308d567540baf28d0666d2600,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c87ce3308d567540baf28d0666d2600, type: 3}
 --- !u!1001 &7887968662543041612
@@ -1228,6 +1253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Aura_Double
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887968662488765368, guid: 0186a89d894335e42a97a23c2c41cc04,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7887968662488765369, guid: 0186a89d894335e42a97a23c2c41cc04,
         type: 3}
